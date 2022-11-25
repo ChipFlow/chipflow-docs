@@ -36,14 +36,14 @@ The example project
 The project contains:
 
 * ``.gitlab-ci.yml`` - Runs linting and tests in GitLab CI.
-* ``chipflow.toml`` - Congiuration telling the ChipFlow library how to load your Python design and allows you to configure the ChipFlow platform.
+* ``chipflow.toml`` - Configuration telling the ChipFlow library how to load your Python design and allows you to configure the ChipFlow platform.
 * ``Makefile`` - Contains helpful shortcuts to the CLI tools used in the project.
 * ``my_design/chipflow.py`` - Used as a loader by the ChipFlow platform for the design.
 * ``my_design/design.py`` - This has the actual chip design.
-* ``my_design/my_contexts/*`` - These contexts control how your design will be presented to the ChipFlow contexts, ``simulation``(ulation), (FPGA)``board`` and ``silicon``.
+* ``my_design/my_contexts/*`` - These control how your design will be presented to the ChipFlow contexts, ``sim``(ulation), (FPGA)``board`` and ``silicon``.
 * ``my_design/sim/*`` - The C++ and `doit build file <https://pydoit.org/>`_ which builds the binary which will simulate our design.
 * ``my_design/software/*`` - The C++ and `doit build file <https://pydoit.org/>`_ for the software/BIOS which we will load onto our design when it's running in simulation or on a board.
-* ``tests/*`` - This has some pytest integration tests which cover the sim/board/silicon builds.
+* ``tests/*`` - This has some pytest integration tests which cover simulation and board/silicon builds.
 
 The design
 ----------
