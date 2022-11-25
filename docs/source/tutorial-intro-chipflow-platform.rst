@@ -4,6 +4,12 @@
 Introduction to the ChipFlow platform
 =====================================
 
+This gives an overview of how a chip design looks with the ChipFlow platform.
+
+It guides you through setting up an `example repository <https://gitlab.com/ChipFlow/example-socs>`_, 
+making a change and seeing the results.
+
+
 Preparing your local environment
 --------------------------------
 
@@ -14,13 +20,13 @@ Preparing your local environment
      version of Python is compatible with the requirements of this project 
      in ``./pyproject.toml``.
 
-* `Docker <https://docs.docker.com/get-docker/>`_  (or `podman <https://podman.io/getting-started/installation>`_) should be available, it's used for the `dockcross <https://github.com/dockcross/dockcross>`_ builds.
+* `Docker <https://docs.docker.com/get-docker/>`_  (or `podman <https://podman.io/getting-started/installation>`_) should be available, it's used for the `dockcross <https://github.com/dockcross/dockcross>`_ RISC-V builds for the software/BIOS.
 
-* `openFPGAloader is required <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_ to use a board.
+* `openFPGAloader is required <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_ to use an FPGA board.
    * macOS: Easiest way is :bash:`brew install openfpgaloader`.
    * Linux/Windows: Easiest way may be via the `OSS CAD Suite <https://github.com/YosysHQ/oss-cad-suite-build>`_.
 
-* Clone this repository to your local environment.
+* Clone https://gitlab.com/ChipFlow/example-socs to your local environment.
 
 * Run :bash:`make init` to install the dependencies.
 
@@ -44,10 +50,12 @@ The design
 
 The chip design is contained within the `MySoC` class in ``my_design/design.py``, and is described 
 using the `Amaranth hardware definition language <https://github.com/amaranth-lang/amaranth>`_.
+Amaranth is already well-used for FPGA boards, and at ChipFlow we will be using it 
+to produce silicon chips.
 
-Something a bit unusual about the design is that we have to change how some of the 
-peripherals are physically accessed, according to the context the design is being 
-used in .
+Something a little unusual about our example Amaranth design is that we change 
+how the peripherals are physically accessed for use with simulation, a board, or 
+silicon.
 
 For example, here's where we add ``QSPIFlash`` to our design:
 
@@ -57,7 +65,7 @@ For example, here's where we add ``QSPIFlash`` to our design:
         flash=self.load_provider(platform, "QSPIFlash").add(m)
     )
 
-The implementations, which are provided by ChipFlow, look a bit different for each context:
+The provider implementations, which are provided by ChipFlow, look a bit different for each context:
 
 QSPIFlash for a Board
 ~~~~~~~~~~~~~~~~~~~~~
@@ -247,3 +255,18 @@ information about its maximum frequency.
 .. code-block:: bash
 
     make send-to-chipflow
+
+What's on the roadmap?
+----------------------
+
+We still have a lot of work to do - some things on our roadmap:
+
+* Integration tests to test your design in Python.
+* Improved simulation tooling.
+* Many more high-quality Amaranth Peripheral IP modules to include in your designs.
+
+Join the beta
+-------------
+
+If you're interested in the platform, you can `join the beta <https://chipflow.io/beta>`_ 
+and help us build the future of Python-powered chip design.
