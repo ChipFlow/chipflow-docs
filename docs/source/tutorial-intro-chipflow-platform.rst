@@ -268,6 +268,7 @@ Link up the button submodule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: diff
+
         m.submodules.uart = self.uart
         m.submodules.timer = self.timer
         m.submodules.soc_id = self.soc_id
