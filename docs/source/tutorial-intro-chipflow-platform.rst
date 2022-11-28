@@ -302,7 +302,11 @@ In ``my_design/software/main.c`` we change:
         puts("🐱: nyaa~!\n");
 
 
+And also:
+
+
 .. code-block:: diff
+
     -while (1) {};
     +while (1) {
     +	next_buttons = BTN_GPIO->in;
@@ -350,7 +354,7 @@ So, in ``my_design/sim/main.cc`` we will change:
     +    idx = (idx + 1) % 1000000;
     }
     return 0;
-}
+
 
 See how we're pressing and releasing button 1, followed by button 2, on a loop, forever.
 
