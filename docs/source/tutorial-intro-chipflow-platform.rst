@@ -297,9 +297,9 @@ In ``my_design/software/main.c`` we change:
 .. code-block:: diff
 
     void main() {
-	+    unsigned last_buttons = 0, next_buttons = 0;
-	+
-	    puts("🐱: nyaa~!\n");
+    +    unsigned last_buttons = 0, next_buttons = 0;
+    +
+        puts("🐱: nyaa~!\n");
 
 
 .. code-block:: diff
@@ -354,6 +354,14 @@ So, in ``my_design/sim/main.cc`` we will change:
 
 See how we're pressing and releasing button 1, followed by button 2, on a loop, forever.
 
+Diff of changes
+~~~~~~~~~~~~~~~
+
+You can see a `diff of the changes we're making <https://gitlab.com/ChipFlow/example-socs/-/compare/main...tutorial-changes?straight=false>`_.
+
+
+See our new peripheral in action
+--------------------------------
 
 See the changes in simulation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
