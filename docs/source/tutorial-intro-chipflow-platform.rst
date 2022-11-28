@@ -237,7 +237,8 @@ buttons on our board and see the result, as well as something in simlation.
 Add buttons to the design
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In `my_design/design.py` we need to make a few changes to add the buttons.
+In `my_design/design.py` we need to add another GPIO peripheral to read the 
+button values.
 
 Add an address space
 ^^^^^^^^^^^^^^^^^^^^
@@ -321,7 +322,11 @@ And also:
     +};
 
 
-We'll now see "button X pressed!" when one of the buttons is pressed.
+Because we called ``sw.add_periph("gpio", "BTN_GPIO", self.btn_gpio_base)`` in our design above, here in our software we'll have a ``BTN_GPIO`` pointer to the peripheral address.
+
+The pointer will be of a type matching the peripheral fields, and its `in` field contains the input value of the GPIO.
+
+Using this, we'll now see "button X pressed!" when one of the buttons is pressed.
 
 
 Update our simulation
