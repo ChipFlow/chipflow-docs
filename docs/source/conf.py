@@ -30,7 +30,9 @@ templates_path = ['_templates']
 
 # -- Options for HTML output
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = "furo"
+
+html_logo = "images/logo.png"
 
 html_theme_options = {
     "analytics_anonymize_ip": True,
