@@ -32,8 +32,11 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
+html_logo = "images/logo.png"
+
 html_theme_options = {
     "analytics_anonymize_ip": True,
+    "logo_only": True,
 }
 
 # These folders are copied to the documentation's HTML output
