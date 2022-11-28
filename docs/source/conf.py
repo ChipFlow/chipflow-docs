@@ -32,7 +32,8 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
-html_logo = "images/logo.png"
+# This one isn't from _static
+html_logo = "logo.png"
 
 html_theme_options = {
     "analytics_anonymize_ip": True,
