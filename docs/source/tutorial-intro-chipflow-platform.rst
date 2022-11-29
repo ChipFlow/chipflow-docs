@@ -4,7 +4,7 @@
 Introduction to the ChipFlow platform
 =====================================
 
-This gives an overview of how a chip design looks with the ChipFlow platform.
+This gives an overview of how chip design looks with the ChipFlow platform.
 
 It guides you through setting up an `example repository <https://gitlab.com/ChipFlow/example-socs>`_, 
 making a change and seeing the results.
@@ -14,11 +14,15 @@ Preparing your local environment
 --------------------------------
 
 * `Poetry must be installed <https://python-poetry.org/docs/#installation>`_, which will be used to install the Python dependencies. 
+   * Install Poetry with pip: :bash:`pip3 install poetry`. 
+
    .. note::
+
      If you choose to install ``poetry`` within a venv, ``poetry`` will reuse 
      that venv instead of creating a new one, so you should ensure that its 
      version of Python is compatible with the requirements of this project 
      in ``./pyproject.toml``.
+
 
 * `Docker <https://docs.docker.com/get-docker/>`_  (or `podman <https://podman.io/getting-started/installation>`_) should be available, it's used for the `dockcross <https://github.com/dockcross/dockcross>`_ RISC-V builds for the software/BIOS.
 
@@ -29,6 +33,11 @@ Preparing your local environment
 * Clone https://gitlab.com/ChipFlow/example-socs to your local environment.
 
 * Run :bash:`make init` to install the dependencies.
+
+Try with an FPGA
+----------------
+
+If you want to try the design on an FPGA, we are currently supporting the `ULX3S <https://www.crowdsupply.com/radiona/ulx3s>`_.
 
 The example project
 -------------------
@@ -162,16 +171,14 @@ You should see console output like this:
 
 .. code-block:: bash
 
- 🐱: nyaa~!
- SoC type: CA7F100F
- SoC version: 43D6A2C3
- Flash ID: CA7CA7FF
- Entering QSPI mode
- Zeroing initial RAM...
- Kernel: 00800000
- DTB: 00F80000
- DTB magic: FFFFFFFF
- about to boop the kernel, ganbatte~!
+    🐱: nyaa~!
+    SoC type: CA7F100F
+    SoC version: 2024D6E6
+    Flash ID: CA7CA7FF
+    Entering QSPI mode
+    Initialised!
+
+Which means the processor is up and running. You can use Ctrl+C to interrupt it.
 
 Run the design on a ULX3S board
 -------------------------------
@@ -335,7 +342,7 @@ Update our simulation
 We're going to simulate the buttons being pressed in the simulation on a timer.
 
 It is possible to listen for keypresses on the keyboard, but that would introduce 
-too many depencies for our simple example.
+too many dependencies for our simple example.
 
 So, in ``my_design/sim/main.cc`` we will change:
 
