@@ -30,7 +30,10 @@ templates_path = ['_templates']
 
 # -- Options for HTML output
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = "furo"
+
+# Logo is not from `_static`, it gets copied.
+html_logo = "logo.png"
 
 html_theme_options = {
     "analytics_anonymize_ip": True,
