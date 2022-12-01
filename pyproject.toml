@@ -10,6 +10,7 @@ python = "^3.8"
 myst-parser = "^0.18.1"
 sphinx-rtd-theme = "^1.1.1"
 furo = "^2022.9.29"
+sphinx-copybutton = "^0.5.1"
 
 
 [build-system]
