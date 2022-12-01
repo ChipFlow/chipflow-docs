@@ -23,7 +23,7 @@ document.head.appendChild(script);
     });
   };
 
-  var article = document.querySelector("div[role=main]");
+  var article = document.querySelector("[role=main]");
   article.querySelectorAll("h2").forEach((h2) => {
     if (h2) {
       const observer = new IntersectionObserver(
