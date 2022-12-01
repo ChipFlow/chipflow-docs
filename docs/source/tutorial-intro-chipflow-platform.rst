@@ -244,54 +244,52 @@ buttons on our board and see the result, as well as something in simlation.
 Add buttons to the design
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In `my_design/design.py` we need to add another GPIO peripheral to read the 
+In ``my_design/design.py`` we need to add another GPIO peripheral to read the 
 button values.
 
-Add an address space
-^^^^^^^^^^^^^^^^^^^^
+You can uncomment the following:
 
-.. code-block:: diff
+Add an address space:
+
+.. code-block:: python
 
     self.uart_base = 0xb2000000
     self.timer_base = 0xb3000000
     self.soc_id_base = 0xb4000000
-    +self.btn_gpio_base = 0xb5000000
+    # self.btn_gpio_base = 0xb5000000
 
-Add the button peripheral
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the button peripheral:
 
-.. code-block:: diff
+.. code-block:: python
 
         soc_type = 0xCA7F100F
         self.soc_id = SoCID(type_id=soc_type)
         self._decoder.add(self.soc_id.bus, addr=self.soc_id_base)
 
-        +self.btn = GPIOPeripheral(
-        +    pins=self.load_provider(platform, "ButtonGPIO").add(m)
-        +)
-        +self._decoder.add(self.btn.bus, addr=self.btn_gpio_base)
+        #self.btn = GPIOPeripheral(
+        #    pins=self.load_provider(platform, "ButtonGPIO").add(m)
+        #)
+        #self._decoder.add(self.btn.bus, addr=self.btn_gpio_base)
 
 
-Link up the button submodule
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Link up the button submodule:
 
-.. code-block:: diff
+.. code-block:: python
 
         m.submodules.uart = self.uart
         m.submodules.timer = self.timer
         m.submodules.soc_id = self.soc_id
-        +m.submodules.btn = self.btn
+        #m.submodules.btn = self.btn
 
 
-Add the button to our software generator
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the button to our software generator:
 
-.. code-block:: diff
+.. code-block:: python
 
         sw.add_periph("uart", "UART0", self.uart_base)
         sw.add_periph("plat_timer", "TIMER0", self.timer_base)
         sw.add_periph("soc_id", "SOC_ID", self.soc_id_base)
-        +sw.add_periph("gpio", "BTN_GPIO", self.btn_gpio_base)
+        #sw.add_periph("gpio", "BTN_GPIO", self.btn_gpio_base)
 
 
 Update our software
@@ -300,33 +298,20 @@ Update our software
 So far, we have added the buttons to our design, but nothing will happen if we 
 press them! So we update our software so it reacts to the button presses:
 
-In ``my_design/software/main.c`` we change:
+In ``my_design/software/main.c`` we uncomment the button press listening code:
 
 
-.. code-block:: diff
+.. code-block:: c
 
-    void main() {
-    +    unsigned last_buttons = 0, next_buttons = 0;
-    +
-        puts("🐱: nyaa~!\n");
-
-
-And also:
-
-
-.. code-block:: diff
-
-    -while (1) {};
-    +while (1) {
-    +	next_buttons = BTN_GPIO->in;
-    +
-    +	if ((next_buttons & 1U) && !(last_buttons & 1U))
-    +		puts("button 1 pressed!\n");
-    +	if ((next_buttons & 2U) && !(last_buttons & 2U))
-    +		puts("button 2 pressed!\n");
-    +
-    +    last_buttons = next_buttons;
-    +};
+	while (1) {
+		// // Listen for button presses
+		// next_buttons = BTN_GPIO->in;
+		// if ((next_buttons & 1U) && !(last_buttons & 1U))
+		// 	puts("button 1 pressed!\n");
+		// if ((next_buttons & 2U) && !(last_buttons & 2U))
+		// 	puts("button 2 pressed!\n");
+		// last_buttons = next_buttons;
+	};
 
 
 Because we called ``sw.add_periph("gpio", "BTN_GPIO", self.btn_gpio_base)`` in our design above, here in our software we'll have a ``BTN_GPIO`` pointer to the peripheral address.
@@ -344,29 +329,24 @@ We're going to simulate the buttons being pressed in the simulation on a timer.
 It is possible to listen for keypresses on the keyboard, but that would introduce 
 too many dependencies for our simple example.
 
-So, in ``my_design/sim/main.cc`` we will change:
+So, in ``my_design/sim/main.cc`` we will uncomment the button presses code:
 
-.. code-block:: diff
-
-    tick();
-    top.p_rst.set(false);
-
-    +int idx = 0;
+.. code-block:: cpp
 
     while (1) {
         tick();
+        idx = (idx + 1) % 1000000;
 
-    +    if (idx == 100000) // at t=100000, press button 1
-    +        top.p_buttons.set(0b01U);
-    +    else if (idx == 150000) // at t=150000, release button 1
-    +        top.p_buttons.set(0b00U);
-    +    else if (idx == 300000) // at t=300000, press button 2
-    +        top.p_buttons.set(0b10U);
-    +    else if (idx == 350000) // at t=350000, release button 2
-    +        top.p_buttons.set(0b00U);
-    +    idx = (idx + 1) % 1000000;
+        // // Simulate button presses
+        // if (idx == 100000) // at t=100000, press button 1
+        //     top.p_buttons.set(0b01U);
+        // else if (idx == 150000) // at t=150000, release button 1
+        //     top.p_buttons.set(0b00U);
+        // else if (idx == 300000) // at t=300000, press button 2
+        //     top.p_buttons.set(0b10U);
+        // else if (idx == 350000) // at t=350000, release button 2
+        //     top.p_buttons.set(0b00U);
     }
-    return 0;
 
 
 See how we're pressing and releasing button 1, followed by button 2, on a loop, forever.
