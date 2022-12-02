@@ -213,27 +213,36 @@ connect to it via its serial port:
 Connecting to your board on macOS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Find the serial port for your board, using :bash:`ls /dev/tty.*` or :bash:`ls /dev/cu.*`. 
-  You should see something like ``/dev/tty.usbserial-K00219`` for your board.
-* Connect to the port via the screen utility, at baud ``112200``, with the command:
-  :bash:`screen /dev/tty.usbserial-K00219 115200`.
-* Now, press the ``PWR`` button on your board, which will restart the design.
-* Within ``screen``, you should now see output like:
-   .. code-block:: bash
+Find the serial port for your board, using or :bash:`ls /dev/tty.*` or 
+:bash:`ls /dev/cu.*`:
 
-     🐱: nyaa~!
-     SoC type: CA7F100F
-     SoC version: B79C1FD7
-     Flash ID: EF401800
-     Entering QSPI mode
-     Zeroing initial RAM...
-     Kernel: 00800000
-     DTB: 00F80000
-     DTB magic: FFFFFFFF
-     about to boop the kernel, ganbatte~!
+.. code-block:: bash
 
-* To exit screen, use ``CTRL-A``, then ``CTRL-\``.
+  % ls /dev/tty.*
+  /dev/tty.Bluetooth-Incoming-Port 
+  /dev/tty.usbserial-K00219
 
+In this case for our board its ``/dev/tty.usbserial-K00219``.
+
+Connect to the port via the screen utility, at baud ``115200``, with the command:
+
+.. code-block:: bash
+
+  screen /dev/tty.usbserial-K00219 115200
+
+Now, press the ``PWR`` button on your board, which will restart the design, 
+and give you a chance to see its output. It should look like:
+
+.. code-block:: bash
+
+  🐱: nyaa~!
+  SoC type: CA7F100F
+  SoC version: 613015FF
+  Flash ID: EF401800
+  Entering QSPI mode
+  Initialised!
+
+To exit screen, use ``CTRL-A``, then ``CTRL-\``.
 
 Add a peripheral to the design
 ------------------------------
