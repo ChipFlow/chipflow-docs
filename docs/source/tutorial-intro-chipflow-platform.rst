@@ -10,21 +10,27 @@ It guides you through setting up an `example repository <https://gitlab.com/Chip
 making a change and seeing the results.
 
 
-Preparing your local environment
---------------------------------
+    .. note:: 
+        This tutorial assumes you are running on MacOSX or Ubuntu 22.04 or later.
+        The minimal version of Python required is 3.8.
 
-* `Poetry must be installed <https://python-poetry.org/docs/#installation>`_, which will be used to install the Python dependencies. 
-   * Install Poetry with pip: :bash:`pip3 install poetry`. 
+Preparing your local environment - Ubuntu
+-----------------------------------------
 
+We use `Poetry <https://python-poetry.org/docs/#installation>`_ and `Docker <https://docs.docker.com/get-docker/>`_ to manage dependencies and ensure reproduable builds of your design.
+
+To install Poetry:
+     
+   ::
+        pip3 install pipx 
+        pipx install poetry
+
+and to install Docker:
+   ::
+	curl -fsSL https://get.docker.com | bash
+   
    .. note::
-
-     If you choose to install ``poetry`` within a venv, ``poetry`` will reuse 
-     that venv instead of creating a new one, so you should ensure that its 
-     version of Python is compatible with the requirements of this project 
-     in ``./pyproject.toml``.
-
-
-* `Docker <https://docs.docker.com/get-docker/>`_  (or `podman <https://podman.io/getting-started/installation>`_) should be available, it's used for the `dockcross <https://github.com/dockcross/dockcross>`_ RISC-V builds for the software/BIOS.
+	It is also possible to `podman <https://podman.io/getting-started/installation>`_) if preferred.
 
 * `openFPGAloader is required <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_ to use an FPGA board.
    * macOS: Easiest way is :bash:`brew install openfpgaloader`.
@@ -481,3 +487,12 @@ Join the beta
 
 If you're interested in the platform, you can `join the beta <https://chipflow.io/beta>`_ 
 and help us build the future of Python-powered chip design.
+
+
+Troubleshooting
+---------------
+* Python version issues:
+	If you choose to install ``poetry`` within a venv, ``poetry`` will reuse
+	that venv instead of creating a new one.
+	Ensure that you use a venv with Python 3.8 or greater.
+
