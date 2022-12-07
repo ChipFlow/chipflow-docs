@@ -9,41 +9,73 @@ This gives an overview of how chip design looks with the ChipFlow platform.
 It guides you through setting up an `example repository <https://gitlab.com/ChipFlow/example-socs>`_, 
 making a change and seeing the results.
 
+.. important:: 
 
-    .. note:: 
-        This tutorial assumes you are running on MacOSX or Ubuntu 22.04 or later.
-        The minimal version of Python required is 3.8.
+    To test designs on an FPGA, you will need a `ULX3S <https://www.crowdsupply.com/radiona/ulx3s>`_.
+    Other development boards will be supported in the future.
 
-Preparing your local environment - Ubuntu
------------------------------------------
+.. important::
+
+    This tutorial assumes you are running on MacOSX or Ubuntu 22.04 or later.
+    The tutorial will work on other Linux distributions, but instructions are not included here.
+
+
+Preparing your local environment
+--------------------------------
+
+.. admonition:: Installing on MacOS
+
+    You will need to install Python3 and git. Use `Brew <https://brew.sh/>`_ for this: ::
+
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install python3
+        brew install git
+
+.. admonition:: Installing on Ubuntu
+
+    You will need to install git: ::
+
+	sudo apt install git
 
 We use `Poetry <https://python-poetry.org/docs/#installation>`_ and `Docker <https://docs.docker.com/get-docker/>`_ to manage dependencies and ensure reproduable builds of your design.
 
-To install Poetry:
-     
-   ::
-        pip3 install pipx 
-        pipx install poetry
+First install Poetry: ::
 
-and to install Docker:
-   ::
+	pip3 install pipx 
+	pipx install poetry
+
+and then install Docker: ::
+
 	curl -fsSL https://get.docker.com | bash
    
-   .. note::
-	It is also possible to `podman <https://podman.io/getting-started/installation>`_) if preferred.
+To program the FPGA board we use `openFPGAloader <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_.
 
-* `openFPGAloader is required <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_ to use an FPGA board.
-   * macOS: Easiest way is :bash:`brew install openfpgaloader`.
-   * Linux/Windows: Easiest way may be via the `OSS CAD Suite <https://github.com/YosysHQ/oss-cad-suite-build>`_.
+.. admonition:: Installing on Ubuntu
 
-* Clone https://gitlab.com/ChipFlow/example-socs to your local environment.
+    Install openFPGAloader using apt: ::
 
-* Run :bash:`make init` to install the dependencies.
+        sudo add-apt-repository ppa:chipflow/ppa
+        sudo apt update
+        sudo apt install openfpgaloader
 
-Try with an FPGA
-----------------
+.. admonition:: Installing on MacOS
 
-If you want to try the design on an FPGA, we are currently supporting the `ULX3S <https://www.crowdsupply.com/radiona/ulx3s>`_.
+    Install using brew: ::
+
+        brew install openfpgaloader
+
+Getting started
+---------------
+
+First use `Git <https://git-scm.com/>`_ to get the example sources.  ::
+
+	git clone https://gitlab.com/ChipFlow/example-socs
+
+Then set up your environment: ::
+
+    cd example-socs
+    make init
+
 
 The example project
 -------------------
