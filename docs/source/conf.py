@@ -19,6 +19,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'myst_parser',
     'sphinx_copybutton',
+    'sphinx_immaterial',
 ]
 
 intersphinx_mapping = {
@@ -31,7 +32,7 @@ templates_path = ['_templates']
 
 # -- Options for HTML output
 
-html_theme = "furo"
+html_theme = "sphinx_immaterial"
 
 # Logo is not from `_static`, it gets copied.
 html_logo = "logo.png"
