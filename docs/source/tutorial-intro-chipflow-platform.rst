@@ -16,7 +16,7 @@ making a change and seeing the results.
 
 .. important::
 
-    This tutorial assumes you are running on MacOSX or Ubuntu 22.04 or later.
+    This tutorial assumes you are running on macOS 11 or later or Ubuntu 22.04 or later.
     The tutorial will work on other Linux distributions, but instructions are not included here.
 
 
