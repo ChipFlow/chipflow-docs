@@ -9,35 +9,73 @@ This gives an overview of how chip design looks with the ChipFlow platform.
 It guides you through setting up an `example repository <https://gitlab.com/ChipFlow/example-socs>`_, 
 making a change and seeing the results.
 
+.. important:: 
+
+    To test designs on an FPGA, you will need a `ULX3S <https://www.crowdsupply.com/radiona/ulx3s>`_.
+    Other development boards will be supported in the future.
+
+.. important::
+
+    This tutorial assumes you are running on macOS 11 or later or Ubuntu 22.04 or later.
+    The tutorial will work on other Linux distributions, but instructions are not included here.
+
 
 Preparing your local environment
 --------------------------------
 
-* `Poetry must be installed <https://python-poetry.org/docs/#installation>`_, which will be used to install the Python dependencies. 
-   * Install Poetry with pip: :bash:`pip3 install poetry`. 
+.. admonition:: Installing on MacOS
 
-   .. note::
+    You will need to install Python3 and git. Use `Brew <https://brew.sh/>`_ for this: ::
 
-     If you choose to install ``poetry`` within a venv, ``poetry`` will reuse 
-     that venv instead of creating a new one, so you should ensure that its 
-     version of Python is compatible with the requirements of this project 
-     in ``./pyproject.toml``.
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install python3
+        brew install git
 
+.. admonition:: Installing on Ubuntu
 
-* `Docker <https://docs.docker.com/get-docker/>`_  (or `podman <https://podman.io/getting-started/installation>`_) should be available, it's used for the `dockcross <https://github.com/dockcross/dockcross>`_ RISC-V builds for the software/BIOS.
+    You will need to install git: ::
 
-* `openFPGAloader is required <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_ to use an FPGA board.
-   * macOS: Easiest way is :bash:`brew install openfpgaloader`.
-   * Linux/Windows: Easiest way may be via the `OSS CAD Suite <https://github.com/YosysHQ/oss-cad-suite-build>`_.
+	sudo apt install git
 
-* Clone https://gitlab.com/ChipFlow/example-socs to your local environment.
+We use `Poetry <https://python-poetry.org/docs/#installation>`_ and `Docker <https://docs.docker.com/get-docker/>`_ to manage dependencies and ensure reproduable builds of your design.
 
-* Run :bash:`make init` to install the dependencies.
+First install Poetry: ::
 
-Try with an FPGA
-----------------
+	pip3 install pipx 
+	pipx install poetry
 
-If you want to try the design on an FPGA, we are currently supporting the `ULX3S <https://www.crowdsupply.com/radiona/ulx3s>`_.
+and then install Docker: ::
+
+	curl -fsSL https://get.docker.com | bash
+   
+To program the FPGA board we use `openFPGAloader <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_.
+
+.. admonition:: Installing on Ubuntu
+
+    Install openFPGAloader using apt: ::
+
+        sudo add-apt-repository ppa:chipflow/ppa
+        sudo apt update
+        sudo apt install openfpgaloader
+
+.. admonition:: Installing on MacOS
+
+    Install using brew: ::
+
+        brew install openfpgaloader
+
+Getting started
+---------------
+
+First use `Git <https://git-scm.com/>`_ to get the example sources.  ::
+
+	git clone https://gitlab.com/ChipFlow/example-socs
+
+Then set up your environment: ::
+
+    cd example-socs
+    make init
+
 
 The example project
 -------------------
@@ -481,3 +519,12 @@ Join the beta
 
 If you're interested in the platform, you can `join the beta <https://chipflow.io/beta>`_ 
 and help us build the future of Python-powered chip design.
+
+
+Troubleshooting
+---------------
+* Python version issues:
+	If you choose to install ``poetry`` within a venv, ``poetry`` will reuse
+	that venv instead of creating a new one.
+	Ensure that you use a venv with Python 3.8 or greater.
+
