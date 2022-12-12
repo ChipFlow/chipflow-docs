@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.8"
 myst-parser = "^0.18.1"
 sphinx-rtd-theme = "^1.1.1"
-sphinx-immaterial = "^0.11.0"
+furo = "^2022.9.29"
 sphinx-copybutton = "^0.5.1"
 
 
