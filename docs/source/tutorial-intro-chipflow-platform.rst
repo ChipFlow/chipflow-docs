@@ -23,7 +23,7 @@ making a change and seeing the results.
 Preparing your local environment
 --------------------------------
 
-.. admonition:: Installing on MacOS
+.. admonition:: Installing on macOS
 
     You will need to install Python3 and git. Use `Brew <https://brew.sh/>`_ for this: ::
 
@@ -50,6 +50,12 @@ and then install Docker: ::
    
 To program the FPGA board we use `openFPGAloader <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_.
 
+.. admonition:: Installing on macOS
+
+    Install using brew: ::
+
+        brew install openfpgaloader
+
 .. admonition:: Installing on Ubuntu
 
     Install openFPGAloader using apt: ::
@@ -57,12 +63,6 @@ To program the FPGA board we use `openFPGAloader <https://trabucayre.github.io/o
         sudo add-apt-repository ppa:chipflow/ppa
         sudo apt update
         sudo apt install openfpgaloader
-
-.. admonition:: Installing on MacOS
-
-    Install using brew: ::
-
-        brew install openfpgaloader
 
 Getting started
 ---------------
@@ -248,8 +248,8 @@ Now, we load the software/BIOS and design onto board (program its bitstream):
 Your board should now be running. For us to check that it's working, we can 
 connect to it via its serial port:
 
-Connecting to your board on macOS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Connecting to your board
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Find the serial port for your board, using or :bash:`ls /dev/tty.*` or 
 :bash:`ls /dev/cu.*`:
