@@ -477,39 +477,23 @@ When we press the physical buttons on the board, we should see it:
  button 2 pressed!
 
 
-Silicon! 
---------
 
-When you want to go to silicon for your design, the ChipFlow API gets involved.
+Building for Silicon
+--------------------
 
-First we build an `RTLIL file <https://en.wikipedia.org/wiki/Register-transfer_level>`_, 
-which describes the design as registers and gates.
+For this first Alpha, we aren't *quite* ready to start accepting designs on our API. This is coming very soon though!
 
-.. code-block:: bash
+`Sign up <https://chipflow.io/beta>`_ to be notified when the next Alpha release is available.
 
-    make silicon-rtlil
+If you are using this tutorial to test out new designs, reach out to us on `our Gitter channel <https://gitter.im/ChipFlow/community>`_. We would love to add your designs to our test sets!
 
-You should now have an `build/my_design.rtlil`.
-
-Send your RTLIL to the API
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-At this point, we'll send the RTLIL along with configuration to the cloud  
-API. 
-
-Within our cloud platform, we will place & route the design for the chosen 
-ASIC technologies, perform silicon-focused checks on the design, and provide 
-information about its maximum frequency.
-
-.. code-block:: bash
-
-    make silicon-prepare
 
 What's on the roadmap?
 ----------------------
 
 We still have a lot of work to do - some things on our roadmap:
 
+* Silicon build API
 * Integration tests to test your design in Python.
 * Improved simulation tooling.
 * Many more high-quality Amaranth Peripheral IP modules to include in your designs.
