@@ -491,19 +491,19 @@ which describes the design as registers and gates.
 
 You should now have an `build/my_design.rtlil`.
 
-Send your RTLIL to the ChipFlow cloud
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Send your RTLIL to the API
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-At this point, we'll send the RTLIL along with configuration to the ChipFlow 
+At this point, we'll send the RTLIL along with configuration to the cloud  
 API. 
 
-Within the ChipFlow platform, we will place & route the design for the chosen 
+Within our cloud platform, we will place & route the design for the chosen 
 ASIC technologies, perform silicon-focused checks on the design, and provide 
 information about its maximum frequency.
 
 .. code-block:: bash
 
-    make send-to-chipflow
+    make silicon-prepare
 
 What's on the roadmap?
 ----------------------
