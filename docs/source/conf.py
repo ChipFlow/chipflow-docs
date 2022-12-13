@@ -40,6 +40,12 @@ html_theme_options = {
     "analytics_anonymize_ip": True,
 }
 
+html_sidebars = {
+    '**': [
+        'shared/support-sidebar.html',
+    ]
+}
+
 # These folders are copied to the documentation's HTML output
 html_static_path = ["_static"]
 
