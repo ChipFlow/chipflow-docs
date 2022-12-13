@@ -42,7 +42,7 @@ html_theme_options = {
 
 html_sidebars = {
     '**': [
-        'shared/support-sidebar.html',
+        'support-sidebar.html',
     ]
 }
 
