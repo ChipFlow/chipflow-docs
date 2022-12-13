@@ -44,7 +44,11 @@ First install Poetry: ::
 	pip3 install pipx 
 	pipx install poetry
 
-and then install Docker: ::
+You may need to restart your shell session for poetry to become available, using: ::
+    
+    exec "$SHELL"
+
+Then install Docker: ::
 
 	curl -fsSL https://get.docker.com | bash
    
@@ -218,10 +222,12 @@ You should see console output like this:
 
 Which means the processor is up and running. You can use Ctrl+C to interrupt it.
 
-Run the design on a ULX3S board
--------------------------------
+Run the design on a ULX3S board (optional)
+------------------------------------------
 
-We can also run our design on an FPGA board, currently only the ULX3S is supported.
+We can also run our design on an FPGA board, although currently only the ULX3S 
+is supported. If you don't have one, you can 
+:ref:`skip to the next section <add-peripheral>`.
 
 First we need to build the design into a bitstream for the board:
 
@@ -281,6 +287,8 @@ and give you a chance to see its output. It should look like:
   Initialised!
 
 To exit screen, use ``CTRL-A``, then ``CTRL-\``.
+
+.. _add-peripheral:
 
 Add a peripheral to the design
 ------------------------------
@@ -438,8 +446,8 @@ We should now see the output with button presses:
  button 1 pressed!
 
 
-See the changes on our board
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+See the changes on our board (optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To see the changes on our board, we need to load the updated
 software and design:
