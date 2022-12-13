@@ -2,11 +2,11 @@
 
 # -- Project information
 
-project = 'ChipFlow Docs'
+project = 'ChipFlow'
 copyright = '2022, ChipFlow'
 author = 'ChipFlow'
 
-release = '0.1'
+release = 'alpha'
 version = '0.1.0'
 
 # -- General configuration
