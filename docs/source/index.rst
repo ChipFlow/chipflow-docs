@@ -1,11 +1,7 @@
-Welcome to ChipFlow's documentation!
-====================================
+ChipFlow documentation
+======================
 
-See :doc:`tutorial-intro-chipflow-platform`.
-
-.. note::
-
-   This project is under active development.
+Try our :doc:`tutorial-intro-chipflow-platform`.
 
 Contents
 --------
@@ -13,3 +9,4 @@ Contents
 .. toctree::
 
    tutorial-intro-chipflow-platform
+   support
