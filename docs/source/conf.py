@@ -42,6 +42,7 @@ html_theme_options = {
     "light_css_variables": {
         "font-stack": "Poppins, Verdana, sans-serif",
     },
+    "sidebar_hide_name": True,
 }
 
 # These folders are copied to the documentation's HTML output
