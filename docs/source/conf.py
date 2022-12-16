@@ -39,10 +39,17 @@ html_favicon = "favicon.png"
 
 html_theme_options = {
     "analytics_anonymize_ip": True,
+    "light_css_variables": {
+        "font-stack": "Poppins, Verdana, sans-serif",
+    },
 }
 
 # These folders are copied to the documentation's HTML output
 html_static_path = ["_static"]
+
+html_css_files = [
+    'css/custom.css',
+]
 
 # These paths are either relative to html_static_path
 # or fully qualified paths (eg. https://...)
