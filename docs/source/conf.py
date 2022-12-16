@@ -33,8 +33,9 @@ templates_path = ['_templates']
 
 html_theme = "furo"
 
-# Logo is not from `_static`, it gets copied.
+# Logo/favicon are not from `_static`, they get copied:
 html_logo = "logo.png"
+html_favicon = "favicon.png"
 
 html_theme_options = {
     "analytics_anonymize_ip": True,
