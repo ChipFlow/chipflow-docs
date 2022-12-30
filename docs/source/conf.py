@@ -41,6 +41,8 @@ html_theme_options = {
     "analytics_anonymize_ip": True,
     "light_css_variables": {
         "font-stack": "Poppins, Verdana, sans-serif",
+        "color-brand-primary": "#2c929b",
+        "color-brand-content": "#2c929b",
     },
     "sidebar_hide_name": True,
 }
