@@ -4,10 +4,11 @@
 Introduction to the ChipFlow platform
 =====================================
 
-This gives an overview of how chip design works with the ChipFlow platform.
+This tutorial gives an overview of how we can configure an SoC (system on chip) with the ChipFlow platform:
 
-It guides you through setting up an `example repository <https://gitlab.com/ChipFlow/example-socs>`_, 
-making a change and seeing the results.
+* Simulate an example SoC
+* Add a peripheral
+* Optionally run on an FPGA
 
 .. important:: 
 
@@ -311,7 +312,7 @@ Add an address space:
     self.uart_base = 0xb2000000
     self.timer_base = 0xb3000000
     self.soc_id_base = 0xb4000000
-    # self.btn_gpio_base = 0xb5000000
+    self.btn_gpio_base = 0xb5000000
 
 Add the button peripheral:
 
@@ -321,10 +322,10 @@ Add the button peripheral:
         self.soc_id = SoCID(type_id=soc_type)
         self._decoder.add(self.soc_id.bus, addr=self.soc_id_base)
 
-        #self.btn = GPIOPeripheral(
-        #    pins=self.load_provider(platform, "ButtonGPIO").add(m)
-        #)
-        #self._decoder.add(self.btn.bus, addr=self.btn_gpio_base)
+        self.btn = GPIOPeripheral(
+            pins=self.load_provider(platform, "ButtonGPIO").add(m)
+        )
+        self._decoder.add(self.btn.bus, addr=self.btn_gpio_base)
 
 
 Link up the button submodule:
@@ -334,7 +335,7 @@ Link up the button submodule:
         m.submodules.uart = self.uart
         m.submodules.timer = self.timer
         m.submodules.soc_id = self.soc_id
-        #m.submodules.btn = self.btn
+        m.submodules.btn = self.btn
 
 
 Add the button to our software generator:
@@ -344,7 +345,7 @@ Add the button to our software generator:
         sw.add_periph("uart", "UART0", self.uart_base)
         sw.add_periph("plat_timer", "TIMER0", self.timer_base)
         sw.add_periph("soc_id", "SOC_ID", self.soc_id_base)
-        #sw.add_periph("gpio", "BTN_GPIO", self.btn_gpio_base)
+        sw.add_periph("gpio", "BTN_GPIO", self.btn_gpio_base)
 
 
 Update our software
@@ -359,13 +360,13 @@ In ``my_design/software/main.c`` we uncomment the button press listening code:
 .. code-block:: c
 
 	while (1) {
-		// // Listen for button presses
-		// next_buttons = BTN_GPIO->in;
-		// if ((next_buttons & 1U) && !(last_buttons & 1U))
-		// 	puts("button 1 pressed!\n");
-		// if ((next_buttons & 2U) && !(last_buttons & 2U))
-		// 	puts("button 2 pressed!\n");
-		// last_buttons = next_buttons;
+		// Listen for button presses
+		next_buttons = BTN_GPIO->in;
+		if ((next_buttons & 1U) && !(last_buttons & 1U))
+			puts("button 1 pressed!\n");
+		if ((next_buttons & 2U) && !(last_buttons & 2U))
+			puts("button 2 pressed!\n");
+		last_buttons = next_buttons;
 	};
 
 
@@ -392,15 +393,15 @@ So, in ``my_design/sim/main.cc`` we will uncomment the button presses code:
         tick();
         idx = (idx + 1) % 1000000;
 
-        // // Simulate button presses
-        // if (idx == 100000) // at t=100000, press button 1
-        //     top.p_buttons.set(0b01U);
-        // else if (idx == 150000) // at t=150000, release button 1
-        //     top.p_buttons.set(0b00U);
-        // else if (idx == 300000) // at t=300000, press button 2
-        //     top.p_buttons.set(0b10U);
-        // else if (idx == 350000) // at t=350000, release button 2
-        //     top.p_buttons.set(0b00U);
+        // Simulate button presses
+        if (idx == 100000) // at t=100000, press button 1
+            top.p_buttons.set(0b01U);
+        else if (idx == 150000) // at t=150000, release button 1
+            top.p_buttons.set(0b00U);
+        else if (idx == 300000) // at t=300000, press button 2
+            top.p_buttons.set(0b10U);
+        else if (idx == 350000) // at t=350000, release button 2
+            top.p_buttons.set(0b00U);
     }
 
 
