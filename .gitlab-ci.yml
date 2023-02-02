@@ -6,6 +6,7 @@ test:
     - python3 -m pip install --user pipx
     - python3 -m pipx ensurepath
     - python3 -m pipx install poetry
+    - source ~/.bashrc
     - poetry install
     - poetry run make -C docs/ html
     - cp -r docs/build/html public
@@ -18,6 +19,7 @@ pages:
     - python3 -m pip install --user pipx
     - python3 -m pipx ensurepath
     - python3 -m pipx install poetry
+    - source ~/.bashrc
     - poetry install
     - poetry run make -C docs/ html
     - cp -r docs/build/html public
