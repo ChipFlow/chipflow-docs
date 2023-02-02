@@ -10,6 +10,11 @@ test:
     - poetry install
     - poetry run make -C docs/ html
     - cp -r docs/build/html public
+  artifacts:
+    paths:
+      - public
+  variables:
+    PUBLIC_URL: "/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public"
   rules:
     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
 
