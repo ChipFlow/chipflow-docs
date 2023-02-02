@@ -3,10 +3,10 @@ image: python:3.9
 test:
   stage: test
   script:
-    - python3 -m pip install --user pipx
-    - python3 -m pipx ensurepath
-    - python3 -m pipx install poetry
+    - pip install pipx
+    - pipx ensurepath
     - source ~/.bashrc
+    - pipx install poetry
     - poetry install
     - poetry run make -C docs/ html
     - cp -r docs/build/html public
@@ -16,10 +16,10 @@ test:
 pages:
   stage: deploy
   script:
-    - python3 -m pip install --user pipx
-    - python3 -m pipx ensurepath
-    - python3 -m pipx install poetry
+    - pip install pipx
+    - pipx ensurepath
     - source ~/.bashrc
+    - pipx install poetry
     - poetry install
     - poetry run make -C docs/ html
     - cp -r docs/build/html public
