@@ -3,7 +3,8 @@ image: python:3.9-alpine
 test:
   stage: test
   script:
-    - pip3 install pipx 
+    - pip3 install pipx
+    - pipx ensurepath
     - pipx install poetry
     - poetry install
     - poetry run make -C docs/ html
@@ -14,7 +15,8 @@ test:
 pages:
   stage: deploy
   script:
-    - pip3 install pipx 
+    - pip3 install pipx
+    - pipx ensurepath
     - pipx install poetry
     - poetry install
     - poetry run make -C docs/ html
