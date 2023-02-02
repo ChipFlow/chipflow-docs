@@ -5,6 +5,7 @@ test:
   script:
     - pip3 install pipx
     - pipx ensurepath
+    - exec $SHELL
     - pipx install poetry
     - poetry install
     - poetry run make -C docs/ html
@@ -17,6 +18,7 @@ pages:
   script:
     - pip3 install pipx
     - pipx ensurepath
+    - exec $SHELL
     - pipx install poetry
     - poetry install
     - poetry run make -C docs/ html
