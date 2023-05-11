@@ -1,6 +1,7 @@
-# ChipFlow docs
+# ChipFlow documentation
 
-ChipFlow docs repository. 
+ChipFlow documentation repository.
+
 Uses https://readthedocs.org/ and publishes to https://docs.chipflow.io/.
 
 ## Build and view docs locally
@@ -18,16 +19,16 @@ Install the [Python requirements](pyproject.toml):
 poetry install
 ```
 
-Build the docs locally:
+Build the documentation locally:
 
 ```bash
 poetry run make -C docs/ html
 ```
 
-Preview the docs with Python webserver:
+Automatically rebuild the documentation on change and preview them at the same time:
 
 ```bash
-poetry run python -m http.server --directory docs/build/html/
+poetry run sphinx-autobuild docs/source/ docs/build/html/
 ```
 
-In your web browser go to http://localhost:8000
+In your web browser go to http://localhost:8000 to see the documentation.
