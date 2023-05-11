@@ -90,9 +90,8 @@ The project contains:
 * ``.gitlab-ci.yml`` - Runs linting and tests in GitLab CI.
 * ``chipflow.toml`` - Configuration telling the ChipFlow library how to load your Python design and allows you to configure the ChipFlow platform.
 * ``Makefile`` - Contains helpful shortcuts to the CLI tools used in the project.
-* ``my_design/chipflow.py`` - Used as a loader by the ChipFlow platform for the design.
 * ``my_design/design.py`` - This has the actual chip design.
-* ``my_design/my_contexts/*`` - These control how your design will be presented to the ChipFlow contexts, ``sim``(ulation), (FPGA)``board`` and ``silicon``.
+* ``my_design/steps/*`` - These control how your design will be presented to the ChipFlow build steps, ``sim``(ulation), (FPGA)``board`` and ``silicon``.
 * ``my_design/sim/*`` - The C++ and `doit build file <https://pydoit.org/>`_ which builds the binary which will simulate our design.
 * ``my_design/software/*`` - The C++ and `doit build file <https://pydoit.org/>`_ for the software/BIOS which we will load onto our design when it's running in simulation or on a board.
 * ``tests/*`` - This has some pytest integration tests which cover simulation and board/silicon builds.
@@ -113,8 +112,9 @@ For example, here's where we add ``QSPIFlash`` to our design:
 
 .. code-block:: python
 
+    m.submodules.rom_provider = rom_provider = platform.providers.QSPIFlashProvider()
     self.rom = SPIMemIO(
-        flash=self.load_provider(platform, "QSPIFlash").add(m)
+        flash=rom_provider.pins
     )
 
 The provider implementations, which are provided by ChipFlow, look a bit different for each context:
@@ -126,35 +126,40 @@ For a board, in our case a ULX3S board, we need a means of accessing the clock p
 
 .. code-block:: python
 
-        flash = QSPIPins()
+    class QSPIFlashProvider(Elaboratable):
+        def __init__(self):
+            self.pins = QSPIPins()
 
-        plat_flash = platform.request("spi_flash", dir=dict(cs='-', copi='-', cipo='-', wp='-', hold='-'))
-        # Flash clock requires a special primitive to access in ECP5
-        m.submodules.usrmclk = Instance(
-            "USRMCLK",
-            i_USRMCLKI=flash.clk_o,
-            i_USRMCLKTS=ResetSignal(),  # tristate in reset for programmer accesss
-            a_keep=1,
-        )
-        # IO pins and buffers
-        m.submodules += Instance(
-            "OBZ",
-            o_O=plat_flash.cs.io,
-            i_I=flash.csn_o,
-            i_T=ResetSignal(),
-        )
-        # Pins in order
-        data_pins = ["copi", "cipo", "wp", "hold"]
+        def elaborate(self, platform):
+            m = Module()
 
-        for i in range(4):
-            m.submodules += Instance(
-                "BB",
-                io_B=getattr(plat_flash, data_pins[i]).io,
-                i_I=flash.d_o[i],
-                i_T=~flash.d_oe[i],
-                o_O=flash.d_i[i]
+            flash = platform.request("spi_flash", dir=dict(cs='-', copi='-', cipo='-', wp='-', hold='-'))
+            # Flash clock requires a special primitive to access in ECP5
+            m.submodules.usrmclk = Instance(
+                "USRMCLK",
+                i_USRMCLKI=self.pins.clk_o,
+                i_USRMCLKTS=ResetSignal(),  # tristate in reset for programmer accesss
+                a_keep=1,
             )
-        return flash
+            # IO pins and buffers
+            m.submodules += Instance(
+                "OBZ",
+                o_O=flash.cs.io,
+                i_I=self.pins.csn_o,
+                i_T=ResetSignal(),
+            )
+            # Pins in order
+            data_pins = ["copi", "cipo", "wp", "hold"]
+
+            for i in range(4):
+                m.submodules += Instance(
+                    "BB",
+                    io_B=getattr(flash, data_pins[i]).io,
+                    i_I=self.pins.d_o[i],
+                    i_T=~self.pins.d_oe[i],
+                    o_O=self.pins.d_i[i]
+                )
+            return m
 
 This is specific to the ECP5 family of boards, and the code would look different for others.
 
@@ -165,9 +170,12 @@ For simulation, we add a C++ model which will mock/simulate the flash:
 
 .. code-block:: python
 
-    flash = QSPIPins()
-    m.submodules.flash = platform.add_model("spiflash_model", flash, edge_det=['clk_o', 'csn_o'])
-    return flash
+class QSPIFlashProvider(Elaboratable):
+    def __init__(self):
+        self.pins = QSPIPins()
+
+    def elaborate(self, platform):
+        return platform.add_model("spiflash_model", self.pins, edge_det=['clk_o', 'csn_o'])
 
 QSPIFlash for Silicon
 ~~~~~~~~~~~~~~~~~~~~~
@@ -176,9 +184,24 @@ For Silicon we just hook up the IO.
 
 .. code-block:: python
 
-    flash = QSPIPins()
-    platform.connect_io(m, flash, "flash")
-    return flash
+class QSPIFlashProvider(Elaboratable):
+    def __init__(self):
+        self.pins = QSPIPins()
+
+    def elaborate(self, platform):
+        m = Module()
+        m.d.comb += [
+            platform.request("flash_clk").eq(self.pins.clk_o),
+            platform.request("flash_csn").eq(self.pins.csn_o),
+        ]
+        for index in range(4):
+            pin = platform.request(f"flash_d{index}")
+            m.d.comb += [
+                self.pins.d_i[index].eq(pin.i),
+                pin.o.eq(self.pins.d_o[index]),
+                pin.oe.eq(self.pins.d_oe[index])
+            ]
+        return m
 
 
 Run the design in simulation
@@ -322,8 +345,9 @@ Add the button peripheral:
         self.soc_id = SoCID(type_id=soc_type)
         self._decoder.add(self.soc_id.bus, addr=self.soc_id_base)
 
+        m.submodules.gpio_provider = gpio_provider = platform.providers.ButtonGPIOProvider()
         self.btn = GPIOPeripheral(
-            pins=self.load_provider(platform, "ButtonGPIO").add(m)
+            pins=gpio_provider.pins
         )
         self._decoder.add(self.btn.bus, addr=self.btn_gpio_base)
 
