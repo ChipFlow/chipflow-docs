@@ -170,12 +170,12 @@ For simulation, we add a C++ model which will mock/simulate the flash:
 
 .. code-block:: python
 
-class QSPIFlashProvider(Elaboratable):
-    def __init__(self):
-        self.pins = QSPIPins()
+    class QSPIFlashProvider(Elaboratable):
+        def __init__(self):
+            self.pins = QSPIPins()
 
-    def elaborate(self, platform):
-        return platform.add_model("spiflash_model", self.pins, edge_det=['clk_o', 'csn_o'])
+        def elaborate(self, platform):
+            return platform.add_model("spiflash_model", self.pins, edge_det=['clk_o', 'csn_o'])
 
 QSPIFlash for Silicon
 ~~~~~~~~~~~~~~~~~~~~~
@@ -184,25 +184,24 @@ For Silicon we just hook up the IO.
 
 .. code-block:: python
 
-class QSPIFlashProvider(Elaboratable):
-    def __init__(self):
-        self.pins = QSPIPins()
+    class QSPIFlashProvider(Elaboratable):
+        def __init__(self):
+            self.pins = QSPIPins()
 
-    def elaborate(self, platform):
-        m = Module()
-        m.d.comb += [
-            platform.request("flash_clk").eq(self.pins.clk_o),
-            platform.request("flash_csn").eq(self.pins.csn_o),
-        ]
-        for index in range(4):
-            pin = platform.request(f"flash_d{index}")
+        def elaborate(self, platform):
+            m = Module()
             m.d.comb += [
-                self.pins.d_i[index].eq(pin.i),
-                pin.o.eq(self.pins.d_o[index]),
-                pin.oe.eq(self.pins.d_oe[index])
+                platform.request("flash_clk").eq(self.pins.clk_o),
+                platform.request("flash_csn").eq(self.pins.csn_o),
             ]
-        return m
-
+            for index in range(4):
+                pin = platform.request(f"flash_d{index}")
+                m.d.comb += [
+                    self.pins.d_i[index].eq(pin.i),
+                    pin.o.eq(self.pins.d_o[index]),
+                    pin.oe.eq(self.pins.d_oe[index])
+                ]
+            return m
 
 Run the design in simulation
 ----------------------------
