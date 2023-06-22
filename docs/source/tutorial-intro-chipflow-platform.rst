@@ -38,7 +38,7 @@ Preparing your local environment
 
 	sudo apt install git
 
-We use `Poetry <https://python-poetry.org/docs/#installation>`_ and `Docker <https://docs.docker.com/get-docker/>`_ to manage dependencies and ensure reproduable builds of your design.
+We use `Poetry <https://python-poetry.org/docs/#installation>`_ to manage dependencies and ensure reproduable builds of your design.
 
 First install Poetry: ::
 
@@ -48,10 +48,6 @@ First install Poetry: ::
 You may need to restart your shell session for poetry to become available, using: ::
     
     exec "$SHELL"
-
-Then install Docker: ::
-
-	curl -fsSL https://get.docker.com | bash
    
 To program the FPGA board we use `openFPGAloader <https://trabucayre.github.io/openFPGALoader/guide/install.html>`_.
 
