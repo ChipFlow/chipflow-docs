@@ -42,8 +42,7 @@ We use `Poetry <https://python-poetry.org/docs/#installation>`_ to manage depend
 
 First install Poetry: ::
 
-	pip3 install pipx 
-	pipx install poetry
+	pip install 'poetry>=1.5'
 
 You may need to restart your shell session for poetry to become available, using: ::
     
