@@ -275,22 +275,46 @@ connect to it via its serial port:
 Connecting to your board
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Find the serial port for your board, using or :bash:`ls /dev/tty.*` or 
-:bash:`ls /dev/cu.*`:
+First you need to find the serial port for your board, this is a little tricky but you should only need to do this once.
 
-.. code-block:: bash
 
-  % ls /dev/tty.*
-  /dev/tty.Bluetooth-Incoming-Port 
-  /dev/tty.usbserial-K00219
+.. admonition:: Look for your serial port on macOS 
 
-In this case for our board its ``/dev/tty.usbserial-K00219``.
+  Run the following command ::
+
+    ls /dev/tty*
+
+  you should see something similar to this: ::
+
+    /dev/tty.Bluetooth-Incoming-Port 
+    /dev/tty.usbserial-K00219
+
+  In this case for our board its ``/dev/tty.usbserial-K00219``. Your device will likely be named similarly.
+   
+
+.. admonition:: Look for your serial port on Ubuntu/WSL2
+
+  Run the following command ::
+
+    ls /dev/ttyUSB*
+
+  you should see something similar to this: ::
+
+    /dev/ttyUSB0
+
+
+  In this case for our board its ``/dev/ttyUSB0``. Yours will likely be named similarly.
+
+
+Below we will refer to the name of your serial port as ``$TTYUSB``. This is the full path you saw, starting with ``/dev/``. 
+
+For ease you can set this in your terminal using ``export TTYUSB=/dev/<the tty device you found>``.
 
 Connect to the port via the screen utility, at baud ``115200``, with the command:
 
 .. code-block:: bash
 
-  screen /dev/tty.usbserial-K00219 115200
+  screen $TTYUSB 115200
 
 Now, press the ``PWR`` button on your board, which will restart the design, 
 and give you a chance to see its output. It should look like:
