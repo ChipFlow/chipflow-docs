@@ -6,9 +6,9 @@ test:
     - pip install pipx
     - pipx ensurepath
     - source ~/.bashrc
-    - pipx install poetry
-    - poetry install
-    - poetry run make -C docs/ html
+    - pipx install pdm
+    - pdm install
+    - pdm run build
     - cp -r docs/build/html public
   artifacts:
     paths:
@@ -25,9 +25,9 @@ pages:
     - pip install pipx
     - pipx ensurepath
     - source ~/.bashrc
-    - pipx install poetry
-    - poetry install
-    - poetry run make -C docs/ html
+    - pipx install pdm
+    - pdm install
+    - pdm run build
     - cp -r docs/build/html public
   artifacts:
     paths:
