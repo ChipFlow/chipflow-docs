@@ -29,22 +29,23 @@ Preparing your local environment
     You will need to install Python3 and git. Use `Brew <https://brew.sh/>`_ for this: ::
 
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        brew install python3
+        brew install python3 pipx
         brew install git
 
 .. admonition:: Installing on Ubuntu
 
     You will need to install git: ::
 
-	sudo apt install git
+	sudo apt install git pipx
 
-We use `Poetry <https://python-poetry.org/docs/#installation>`_ to manage dependencies and ensure reproduable builds of your design.
+We use `PDM <https://pdm.fming.dev/>`_ to manage dependencies and ensure reproduable builds of your design.
 
-First install Poetry: ::
+First install PDM: ::
 
-	pip install 'poetry>=1.5'
+    pipx ensurepath
+	pipx install pdm
 
-You may need to restart your shell session for poetry to become available, using: ::
+You may need to restart your shell session for PDM to become available, using: ::
     
     exec "$SHELL"
    
@@ -535,7 +536,7 @@ and help us build the future of Python-powered chip design.
 Troubleshooting
 ---------------
 * Python version issues:
-	If you choose to install ``poetry`` within a venv, ``poetry`` will reuse
+	If you choose to run ``pdm install`` within a venv, PDM will reuse
 	that venv instead of creating a new one.
 	Ensure that you use a venv with Python 3.8 or greater.
 
