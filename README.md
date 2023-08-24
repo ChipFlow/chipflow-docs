@@ -10,25 +10,25 @@ Install Poetry into your environment if you don't have it already:
 
 ```bash
 pip3 install pipx 
-pipx install poetry
+pipx install pdm
 ```
 
 Install the [Python requirements](pyproject.toml):
 
 ```bash
-poetry install
+pdm install
 ```
 
 Build the documentation locally:
 
 ```bash
-poetry run make -C docs/ html
+pdm run build
 ```
 
 Automatically rebuild the documentation on change and preview them at the same time:
 
 ```bash
-poetry run sphinx-autobuild docs/source/ docs/build/html/
+pdm run autobuild
 ```
 
 In your web browser go to http://localhost:8000 to see the documentation.
