@@ -1,19 +1,23 @@
-[tool.poetry]
-name = "docs"
-version = "0.1.0"
-description = ""
-authors = ["Ross Motley <ross.motley@chipflow.io>"]
+[project]
+name = "chipflow-docs"
+version = "0.0.0"
+authors = [
+  {name = "Ross Motley", email = "ross.motley@chipflow.io"}
+]
 readme = "README.md"
 
-[tool.poetry.dependencies]
-python = "^3.8"
-myst-parser = "^0.18.1"
-furo = "*"
-sphinx-copybutton = "^0.5.1"
+requires-python = "~=3.8"
+dependencies = [
+  "myst-parser~=0.18.1",
+  "furo",
+  "sphinx-copybutton~=0.5.1",
+]
 
-[tool.poetry.group.dev.dependencies]
-sphinx-autobuild = "*"
+[tool.pdm.dev-dependencies]
+dev = [
+  "sphinx-autobuild",
+]
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.pdm.scripts]
+build.cmd = "sphinx-build docs/source/ docs/build/"
+autobuild.cmd = "sphinx-autobuild docs/source/ docs/build/"
