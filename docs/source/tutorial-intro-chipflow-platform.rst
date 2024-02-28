@@ -70,7 +70,7 @@ Getting started
 
 First use `Git <https://git-scm.com/>`_ to get the example sources.  ::
 
-	git clone https://gitlab.com/ChipFlow/example-socs
+	git clone https://github.com/ChipFlow/example-socs
 
 Then set up your environment: ::
 
@@ -83,7 +83,7 @@ The example project
 
 The project contains:
 
-* ``.gitlab-ci.yml`` - Runs linting and tests in GitLab CI.
+* ``.github/workflows/*`` - Runs linting and tests in GitHub Actions.
 * ``chipflow.toml`` - Configuration telling the ChipFlow library how to load your Python design and allows you to configure the ChipFlow platform.
 * ``Makefile`` - Contains helpful shortcuts to the CLI tools used in the project.
 * ``my_design/design.py`` - This has the actual chip design.
@@ -449,12 +449,6 @@ So, in ``my_design/sim/main.cc`` we will uncomment the button presses code:
 
 
 See how we're pressing and releasing button 1, followed by button 2, on a loop, forever.
-
-Diff of changes
-~~~~~~~~~~~~~~~
-
-You can see a `diff of the changes we're making <https://gitlab.com/ChipFlow/example-socs/-/compare/main...tutorial-changes?straight=false>`_.
-
 
 See our new peripheral in action
 --------------------------------
