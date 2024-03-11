@@ -12,8 +12,10 @@ This tutorial gives an overview of how we can configure an SoC (system on chip) 
 
 .. important:: 
 
-    To test designs on an FPGA, you will need a `ULX3S <https://www.crowdsupply.com/radiona/ulx3s>`_.
-    Other development boards will be supported in the future.
+    To test designs on an FPGA, you will need a `ULX3S 85F <https://www.crowdsupply.com/radiona/ulx3s>`_.
+    Other development boards will be supported in the future. It should be possible to run this tutorial
+    on the smaller 12F by applying `these <https://gitlab.com/roman3017/example-socs/-/commit/a9c9639c61e4508704620e489584f67a9b8d0da1>`_
+    changes.
 
 .. important::
 
