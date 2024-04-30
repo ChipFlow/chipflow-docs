@@ -16,5 +16,8 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install deps
+        run: pdm install
+
       - name: Build docs
         run: pdm run build
