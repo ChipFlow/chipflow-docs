@@ -45,9 +45,8 @@ jobs:
           name: docs
           path: docs/
 
-      - name: Publish docs
-        # TODO: Uncomment before merging branch.
-        # if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main' }}
+      - name: Publish "latest" docs
+        if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           repository-name: chipflow/chipflow.github.io
