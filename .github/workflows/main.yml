@@ -53,4 +53,4 @@ jobs:
           ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
           branch: main
           folder: docs/
-          target-folder: docs/chipflow/latest/
+          target-folder: en/latest/
