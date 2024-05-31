@@ -1,11 +1,24 @@
 // Add cookieyes script
-var script = document.createElement("script");
-script.id = "cookieyes";
-script.src = "https://cdn-cookieyes.com/client_data/58bb4c6a9878d62a6e5f8065/script.js";
-document.head.appendChild(script);
-
-// Track scrolling to h2 sections by id
 (function () {
+  var script = document.createElement("script");
+  script.id = "cookieyes";
+  script.src = "https://cdn-cookieyes.com/client_data/58bb4c6a9878d62a6e5f8065/script.js";
+  document.head.appendChild(script);
+})()
+
+// Google tag (gtag.js)
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KSFS200Z8J');
+
+(function () {
+  var script = document.createElement("script");
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-KSFS200Z8J";
+  script.async = true;
+  document.head.appendChild(script);
+
+  // Track scrolling to h2 sections by id
   var sentIds = [];
 
   const observerCallback = (entries, observer, h2) => {
