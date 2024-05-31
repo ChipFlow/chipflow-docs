@@ -1,8 +1,9 @@
 # ChipFlow documentation
 
-ChipFlow documentation repository.
+ChipFlow documentation repository, publishing to the
+[chipflow.github.io repository](https://github.com/ChipFlow/chipflow.github.io/)
+via GitHub actions.
 
-Uses https://readthedocs.org/ and publishes to https://docs.chipflow.io/.
 
 ## Build and view docs locally
 
