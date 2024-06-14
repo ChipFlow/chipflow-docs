@@ -33,11 +33,12 @@ templates_path = ['_templates']
 
 html_theme = "furo"
 
-# Logo/favicon are not from `_static`, they get copied:
-html_logo = "logo.png"
+# Favicon is not from `_static`, it gets copied:
 html_favicon = "favicon.png"
 
 html_theme_options = {
+    "light_logo": "images/logo.png",
+    "dark_logo": "images/logo-dark-mode.png",
     "analytics_anonymize_ip": True,
     "light_css_variables": {
         "font-stack": "Poppins, Verdana, sans-serif",
