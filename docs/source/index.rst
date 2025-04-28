@@ -1,12 +1,14 @@
 ChipFlow documentation
 ======================
 
-Try our :doc:`tutorial-intro-chipflow-platform`.
+Try our :amaranth:`tutorial-intro-chipflow-platform`.
 
 Contents
 --------
 
 .. toctree::
-
+   amaranth
+   amaranth-soc
+   chipflow-lib/index.rst
    tutorial-intro-chipflow-platform
    support
