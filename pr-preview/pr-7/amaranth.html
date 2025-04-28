@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amaranth Language and Toolchain &mdash; ChipFlow alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/platformpicker.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1f169f65"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/platformpicker.js"></script>
+      <script src="_static/js/init.js?v=dbf28173"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="amaranth/intro.html" />
+    <link rel="prev" title="ChipFlow documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ChipFlow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Amaranth Language and Toolchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/start.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html">Language guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/simulator.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform.html">Platform integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib.html">Standard library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth-soc.html">Amaranth System on Chip toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chipflow-lib/index.html">ChipFlow Library Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-intro-chipflow-platform.html">Introduction to the ChipFlow platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ChipFlow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Amaranth Language and Toolchain</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/amaranth.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="amaranth-language-and-toolchain">
+<h1>Amaranth Language and Toolchain<a class="headerlink" href="#amaranth-language-and-toolchain" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This manual is a work in progress!</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/intro.html#the-amaranth-language">The Amaranth language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/intro.html#the-amaranth-standard-library">The Amaranth standard library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/intro.html#the-amaranth-simulator">The Amaranth simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/intro.html#the-amaranth-build-system">The Amaranth build system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html#in-browser-playground">In-browser playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html#installing-prerequisites">Installing prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html#installing-amaranth">Installing Amaranth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html#installing-board-definitions">Installing board definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/start.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/start.html#a-counter">A counter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/start.html#a-blinking-led">A blinking LED</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/guide.html">Language guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#the-prelude">The prelude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#shapes">Shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#values">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#shape-casting">Shape casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#value-casting">Value casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#constant-casting">Constant casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#signals">Signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#operators">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#arrays">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#data-structures">Data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#control-domains">Control domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#control-flow">Control flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#combinational-evaluation">Combinational evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#synchronous-evaluation">Synchronous evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#assertions">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#debug-printing">Debug printing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#clock-domains">Clock domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#elaboration">Elaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#memories">Memories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#i-o-values">I/O values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#instances">Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html#i-o-buffer-instances">I/O buffer instances</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/reference.html">Language reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html#backwards-compatibility">Backwards compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html#importing-syntax">Importing syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html#source-locations">Source locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html#shapes">Shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html#values">Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/simulator.html">Simulator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/simulator.html#simulating-circuits">Simulating circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/simulator.html#replacing-circuits-with-code">Replacing circuits with code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/simulator.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/platform.html">Platform integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform/altera.html">Altera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform/gowin.html">Gowin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform/lattice.html">Lattice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform/quicklogic.html">Quicklogic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform/siliconblue.html">SiliconBlue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/platform/xilinx.html">Xilinx</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/stdlib.html">Standard library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/enum.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/data.html">Data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/wiring.html">Interfaces and connections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/meta.html">Interface metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/stream.html">Data streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/memory.html">Memory arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/io.html">Input/output buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/cdc.html">Clock domain crossing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/coding.html">Code conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/fifo.html">First-in first-out queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/stdlib/crc.html">Cyclic redundancy checks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/changes.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#documentation-for-past-releases">Documentation for past releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-5-4">Version 0.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-5-3">Version 0.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-5-2">Version 0.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-5-1">Version 0.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-5-0">Version 0.5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-4-0">Version 0.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#version-0-3">Version 0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html#versions-0-1-0-2">Versions 0.1, 0.2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="amaranth/contrib.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#filing-problem-reports">Filing problem reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#fixing-problems">Fixing problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#proposing-new-features">Proposing new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#working-with-the-codebase">Working with the codebase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#documentation-style-guide">Documentation style guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#contributing-your-changes">Contributing your changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html#weekly-meetings">Weekly meetings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="ChipFlow documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="amaranth/intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ChipFlow.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
