@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Getting Started with ChipFlow" href="getting-started.html" /><link rel="prev" title="ChipFlow Library Documentation" href="../index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Intro to chipflow.toml" href="chipflow-toml-guide.html" /><link rel="prev" title="Getting Started with ChipFlow" href="getting-started.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>ChipFlow Library Documentation - ChipFlow Platform Documentation</title>
@@ -184,7 +184,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -209,6 +209,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started with ChipFlow</a></li>
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">ChipFlow Library Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting Started with ChipFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chipflow-toml-guide.html">Intro to <code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code></a></li>
@@ -319,7 +320,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -327,12 +328,8 @@
         <article role="main" id="furo-main-content">
           <section id="chipflow-library-documentation">
 <h1>ChipFlow Library Documentation<a class="headerlink" href="#chipflow-library-documentation" title="Link to this heading"></a></h1>
-<a class="sd-m-auto reference internal image-reference" href="../_images/chipflow-logo.svg" id="landing-page-logo"><img alt="../_images/chipflow-logo.svg" class="sd-m-auto" id="landing-page-logo" src="../_images/chipflow-logo.svg" style="width: 200px;" />
-</a>
-<section id="chipflow-ic-design-platform">
-<h2>ChipFlow IC Design Platform<a class="headerlink" href="#chipflow-ic-design-platform" title="Link to this heading"></a></h2>
-<p>ChipFlow is an open-source platform for designing, testing, and manufacturing custom silicon.
-It provides a streamlined workflow from design to fabrication using Python and the Amaranth HDL.</p>
+<p><code class="docutils literal notranslate"><span class="pre">chipflow_lib</span></code> is a Python library and tools for working with the <a class="reference external" href="https://doc.chipflow.io">ChipFlow Platform</a></p>
+<p>It is developed at <a class="reference external" href="https://github.com/chipFlow/chipflow-lib/">https://github.com/chipFlow/chipflow-lib/</a> and licensed <a class="reference external" href="https://github.com/chipFlow/chipflow-lib/?tab=BSD-2-Clause-1-ov-file">BSD 2-Clause</a></p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
@@ -373,30 +370,29 @@ It provides a streamlined workflow from design to fabrication using Python and t
 </ul>
 </div>
 </section>
-</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="getting-started.html">
+          <a class="next-page" href="chipflow-toml-guide.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Getting Started with ChipFlow</div>
+                <div class="title">Intro to <code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code></div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="getting-started.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Getting Started with ChipFlow</div>
                 
               </div>
             </a>
@@ -418,27 +414,8 @@ It provides a streamlined workflow from design to fabrication using Python and t
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">ChipFlow Library Documentation</a><ul>
-<li><a class="reference internal" href="#chipflow-ic-design-platform">ChipFlow IC Design Platform</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
