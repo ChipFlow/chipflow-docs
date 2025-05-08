@@ -1,5 +1,20 @@
 # Configuration file for the Sphinx documentation builder.
+import os
+import sys
 from pathlib import Path
+
+top_path = Path('../../')
+sys.path.append(str((top_path / 'tools').absolute()))
+
+from tools import copy_docs
+
+# Repos we will be assembling
+repos = [
+    ('amaranth-lang/amaranth', 'tags/v0.5.4'),
+    ('chipflow/amaranth-soc', 'origin/reference-docs-chipflow'),
+    ('chipflow/chipflow-lib', 'origin/main')
+]
+
 # -- Project information
 
 project = 'ChipFlow'
@@ -10,27 +25,23 @@ release = 'alpha'
 version = '0.1.0'
 
 # -- General configuration
-top_dir = Path(__file__).parent / ".." / ".."
 extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autodoc.typehints',
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.autosummary',
     'sphinx_copybutton',
     'myst_parser',
     'sphinx.ext.todo',
-    'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
+    'sphinx.ext.autodoc',
     'sphinx_rtd_theme',
     'sphinxcontrib.platformpicker',
     'sphinxcontrib.yowasp_wavedrom',
-    'sphinx.ext.autodoc',
     'sphinxext.rediraffe',
+    'autoapi.extension',
 ]
-"""
-    "sphinx_design",
-    "sphinx_design_elements",
-"""
 
 rst_prolog = """
 .. role:: amaranth
@@ -42,6 +53,43 @@ rst_prolog = """
 .. role:: py(code)
    :language: python
 """
+
+html_theme = 'furo'
+html_logo = 'chipflow-lib/_assets/chipflow-logo.svg'
+html_title = "ChipFlow Platform Documentation"
+html_static_path = ['chipflow-lib/_assets', 'amaranth/_static', 'amaranth-soc/_static']
+
+html_theme_options = {
+    "dark_css_variables": {
+        "admonition-font-size": "0.9 rem",
+    },
+    "light_css_variables": {
+        "admonition-font-size": "0.9 rem",
+    },
+}
+
+autodoc_typehints = 'description'
+
+autoapi_dirs = [
+        top_path / "vendor/chipflow-lib/chipflow_lib/platforms",
+        top_path / "vendor/chipflow-lib/chipflow_lib",
+        ]
+autoapi_generate_api_docs = True
+autoapi_template_dir = "_templates/autoapi"
+# autoapi_verbose_visibility = 2
+autoapi_keep_files = True
+autoapi_options = [
+    'members',
+    'show-inheritance',
+    'show-module-summary',
+    'imported-members',
+]
+
+# Exclude autoapi templates and in-progress stuff
+exclude_patterns = [
+    autoapi_template_dir,
+    "unfinished",
+]
 
 
 intersphinx_mapping = {
@@ -68,11 +116,6 @@ html_theme = "furo"
 
 # Favicon is not from `_static`, it gets copied:
 html_favicon = "favicon.png"
-
-# These folders are copied to the documentation's HTML output
-html_static_path = ["_static"]
-
-html_logo = "_static/logo.png"
 
 # These paths are either relative to html_static_path
 # or fully qualified paths (eg. https://...)
@@ -121,3 +164,7 @@ linkcheck_anchors_ignore_for_url = [
 # unrelated tests.
 import amaranth._unused
 amaranth._unused.MustUse._MustUse__silence = True
+
+# copy in the doc sources from our repos
+
+copy_docs(repos)

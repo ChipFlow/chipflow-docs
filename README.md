@@ -1,16 +1,17 @@
 # ChipFlow documentation
 
-ChipFlow documentation repository, publishing to the
-[chipflow.github.io repository](https://github.com/ChipFlow/chipflow.github.io/)
-via GitHub actions.
+ChipFlow documentation repository, publishing to
+https://chipflow-docs.docs.chipflow-infra.com via GitHub actions.
+
+Releases are published to https://docs.chipflow.io
 
 
 ## Build and view docs locally
 
-Install Poetry into your environment if you don't have it already:
+Install PDM into your environment if you don't have it already:
 
 ```bash
-pip3 install pipx 
+pip3 install pipx
 pipx install pdm
 ```
 
@@ -23,13 +24,13 @@ pdm install
 Build the documentation locally:
 
 ```bash
-pdm run build
+pdm docs
 ```
 
 Automatically rebuild the documentation on change and preview them at the same time:
 
 ```bash
-pdm run autobuild
+pdm autodocs
 ```
 
 In your web browser go to http://localhost:8000 to see the documentation.
