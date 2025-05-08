@@ -1,6 +1,3 @@
-ChipFlow Library Documentation
-==============================
-
 .. image:: chipflow-lib/_assets/chipflow-logo.svg
    :width: 200px
    :class: sd-m-auto
@@ -18,9 +15,10 @@ Contents
 --------
 
 .. toctree::
-   :caption: User Guide
+    :caption: User Guide
 
-   chipflow-lib/index
-   Amaranth Language and Toolchain <amaranth/index>
-   Amaranth System-on-a-Chip toolkit <amaranth-soc/index>
-   support
+    chipflow-lib/getting-started
+    chipflow-lib/index
+    Amaranth Language and Toolchain <amaranth/index>
+    Amaranth System-on-a-Chip toolkit <amaranth-soc/index>
+    support

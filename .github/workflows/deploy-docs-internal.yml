@@ -1,8 +1,11 @@
-name: Deploy docs internally
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+name: deploy-internal
+run-name: Deploy docs internally
 jobs:
   build-docs:
     uses: ./.github/workflows/build-docs.yml
