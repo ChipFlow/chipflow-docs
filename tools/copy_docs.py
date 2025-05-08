@@ -10,11 +10,26 @@ import shutil
 from pathlib import Path
 from typing import List, Tuple
 
-def copy_docs(repos: List[Tuple[str, str]]):
+def copy_docs(repos: List[Tuple[str, str]]) -> List[Path]:
+    """"
+    Pull in docs from other repos.
+
+    Clones the repos at the given refs in $PDM_PROJECT_ROOT/vendor
+    Then copies the doc dirs into this one, tranforming `:role:` references appropriatly
+
+    Args:
+        repos: List of tuples containing git repo and ref
+
+    Returns:
+        A list of the repo locations
+    """
+
     # Ensure vendor directory exists
     root_path = Path(os.environ['PDM_PROJECT_ROOT'])
     vendor = root_path / 'vendor'
     vendor.mkdir(exist_ok=True)
+
+    repo_list = []
 
     for repo_info in repos:
         repo_path = Path(repo_info[0])
@@ -39,6 +54,8 @@ def copy_docs(repos: List[Tuple[str, str]]):
             subprocess.run(['gh', 'repo', 'clone', repo_path, repodir], check=True)
             # Checkout ref
             subprocess.run(['git', '-C', repodir, 'checkout', '-f', '--detach', ref], check=True)
+
+        repo_list.append(repodir)
 
         print(f"Binding in {repo_path} docs as {name}")
 
@@ -66,3 +83,5 @@ def copy_docs(repos: List[Tuple[str, str]]):
 
     # assemble a
     print("Documentation copy completed successfully")
+
+    return repo_list

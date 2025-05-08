@@ -22,17 +22,12 @@ dependencies = [
   "sphinx_design_elements @ git+https://github.com/panodata/sphinx-design-elements@linktree",
   "sphinxext-rediraffe>=0.2.7",
   "sphinx-autoapi>=3.6.0",
+  "jschon>=0.11.1",
 ]
 
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
-
-[dependency-groups]
-dev = [
-    "-e amaranth@file:///${PROJECT_ROOT}/vendor/amaranth",
-    "-e amaranth_soc@file:///${PROJECT_ROOT}/vendor/amaranth-soc",
-]
 
 [tool.pdm.scripts]
 docs.cmd= "sphinx-build docs/source/ docs/build/"
