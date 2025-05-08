@@ -15,10 +15,11 @@ Contents
 --------
 
 .. toctree::
-    :caption: User Guide
+   :caption: User Guide
+   :maxdepth: 2
 
-    chipflow-lib/getting-started
-    chipflow-lib/index
-    Amaranth Language and Toolchain <amaranth/index>
-    Amaranth System-on-a-Chip toolkit <amaranth-soc/index>
-    support
+   chipflow-lib/getting-started
+   chipflow-lib/index
+   Amaranth Language and Toolchain <amaranth/index>
+   Amaranth System-on-a-Chip toolkit <amaranth-soc/index>
+   support
