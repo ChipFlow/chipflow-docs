@@ -160,3 +160,6 @@ cython_debug/
 
 # pdm
 .pdm-python
+
+**/.claude/settings.local.json
+/vendor
