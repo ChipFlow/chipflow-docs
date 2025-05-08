@@ -20,8 +20,7 @@ jobs:
           name: docs
           path: docs/build
 
-      - name: Publish "latest" docs
-        if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main' }}
+      - name: Publish latest Release
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           repository-name: chipflow/chipflow.github.io
