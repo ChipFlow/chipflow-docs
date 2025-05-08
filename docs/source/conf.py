@@ -2,6 +2,7 @@
 import os
 import sys
 from pathlib import Path
+from itertools import starmap
 
 top_path = Path('../../')
 sys.path.append(str((top_path / 'tools').absolute()))
@@ -14,6 +15,13 @@ repos = [
     ('chipflow/amaranth-soc', 'origin/reference-docs-chipflow'),
     ('chipflow/chipflow-lib', 'origin/main')
 ]
+
+# copy in the doc sources from our repos
+repo_list = copy_docs(repos)
+
+# add our repos to path
+for r in repo_list:
+    sys.path.append(str(r))
 
 # -- Project information
 
@@ -75,7 +83,7 @@ autoapi_dirs = [
         top_path / "vendor/chipflow-lib/chipflow_lib",
         ]
 autoapi_generate_api_docs = True
-autoapi_template_dir = "_templates/autoapi"
+autoapi_template_dir = "chipflow-lib/_templates/autoapi"
 # autoapi_verbose_visibility = 2
 autoapi_keep_files = True
 autoapi_options = [
@@ -84,11 +92,14 @@ autoapi_options = [
     'show-module-summary',
     'imported-members',
 ]
+autoapi_root = "chipflow-lib/autoapi"
 
 # Exclude autoapi templates and in-progress stuff
 exclude_patterns = [
     autoapi_template_dir,
-    "unfinished",
+    "chipflow-lib/unfinished",
+    "amaranth/cover.rst",
+    "amaranth-soc/cover.rst",
 ]
 
 
@@ -97,18 +108,11 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
-exclude_patterns = [
-        'amaranth/index.rst',
-        'amaranth/cover.rst',
-        'amaranth-soc/index.rst',
-        'amaranth-soc/cover.rst',
-        ]
-
 rediraffe_redirects = {
     "simulator.rst": "amaranth/simulator.rst",
 }
 
-templates_path = ['_templates']
+templates_path = ['chipflow-lib/_templates']
 
 # -- Options for HTML output
 
@@ -159,12 +163,9 @@ linkcheck_anchors_ignore_for_url = [
     r"^https://github\.com/[^/]+/[^/]+/$",
 ]
 
+suppress_warnings = [ "ref.python" ]
 
 # Silence the warnings globally; otherwise they may fire on object destruction and crash completely
 # unrelated tests.
 import amaranth._unused
 amaranth._unused.MustUse._MustUse__silence = True
-
-# copy in the doc sources from our repos
-
-copy_docs(repos)
