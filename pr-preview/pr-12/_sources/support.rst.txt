@@ -1,7 +1,7 @@
 Support
 =======
 
-For commercial support reach out to us at `sales@chipflow.io <email:sales@chipflow.io`__.
+For commercial support reach out to us at `sales@chipflow.io <email:sales@chipflow.io>`__.
 
 You can get community support for our alpha releases in our `GitHub Discussions forum <https://github.com/ChipFlow/chipflow-central/discussions>`__.
 
