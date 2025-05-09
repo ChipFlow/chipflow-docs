@@ -1,4 +1,8 @@
 Support
 =======
 
-You can get support for our alpha releases in our `community gitter <https://gitter.im/ChipFlow/community>`_. 
+* For commercial support, please reach out to us at `sales@chipflow.io <email:sales@chipflow.io>`__.
+* You can get community support for our alpha releases in our `GitHub Discussions forum <https://github.com/ChipFlow/chipflow-central/discussions>`__.
+* Please report any issues you find to the `ChipFlow Central Bug Tracker <https://github.com/ChipFlow/chipflow-central/issues>`__!
+
+
