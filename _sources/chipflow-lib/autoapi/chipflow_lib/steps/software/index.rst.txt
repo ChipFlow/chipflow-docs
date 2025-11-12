@@ -1,0 +1,14 @@
+chipflow_lib.steps.software
+===========================
+
+.. py:module:: chipflow_lib.steps.software
+
+.. autoapi-nested-parse::
+
+   Backward compatibility module for chipflow_lib.steps.software.
+
+   This module has been renamed to 'chipflow.steps.software'. This compatibility layer
+   will be maintained for some time but is deprecated. Please update your imports.
+
+
+

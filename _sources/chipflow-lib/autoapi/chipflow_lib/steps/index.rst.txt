@@ -5,39 +5,21 @@ chipflow_lib.steps
 
 .. autoapi-nested-parse::
 
-   Steps provide an extensible way to modify the `chipflow` command behavior for a given design
+   Backward compatibility module for chipflow_lib.steps.
+
+   This module has been renamed to 'chipflow.steps'. This compatibility layer
+   will be maintained for some time but is deprecated. Please update your imports.
 
 
 
-Classes
--------
+Submodules
+----------
 
-.. autoapisummary::
+.. toctree::
+   :maxdepth: 1
 
-   chipflow_lib.steps.StepBase
-
-
-Package Contents
-----------------
-
-.. py:class:: StepBase(config={})
-
-   Bases: :py:obj:`abc.ABC`
-
-
-   Helper class that provides a standard way to create an ABC using
-   inheritance.
-
-
-   .. py:method:: build_cli_parser(parser)
-
-      Build the cli parser for this step
-
-
-
-   .. py:method:: run_cli(args)
-
-      Called when this step's is used from `chipflow` command
-
+   /chipflow-lib/autoapi/chipflow_lib/steps/board/index
+   /chipflow-lib/autoapi/chipflow_lib/steps/sim/index
+   /chipflow-lib/autoapi/chipflow_lib/steps/software/index
 
 

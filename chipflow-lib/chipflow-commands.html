@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="API Reference" href="autoapi/index.html" /><link rel="prev" title="Intro to chipflow.toml" href="chipflow-toml-guide.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Using Pin Signatures and Software Drivers" href="using-pin-signatures.html" /><link rel="prev" title="Intro to chipflow.toml" href="chipflow-toml-guide.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>The chipflow command - ChipFlow Platform Documentation</title>
@@ -212,26 +212,27 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started with ChipFlow</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">ChipFlow Library Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting Started with ChipFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">ChipFlow Architecture Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation-guide.html">Simulation Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chipflow-toml-guide.html">Intro to <code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-toml-guide.html#project-name">project_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-toml-guide.html#clock-domains">clock_domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-toml-guide.html#process">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-toml-guide.html#package">package</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="autoapi/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="autoapi/chipflow_lib/index.html">chipflow_lib</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="autoapi/chipflow_lib/platforms/index.html">chipflow_lib.platforms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="autoapi/chipflow_lib/steps/index.html">chipflow_lib.steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-pin-signatures.html">Using Pin Signatures and Software Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform-api.html">Platform API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-pin-signature-internals.html">Pin Signature Architecture (Contributor Guide)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/install.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/start.html">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/guide.html">Language guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/reference.html">Language reference</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/stdlib/enum.html">Enumerations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/stdlib/data.html">Data structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/stdlib/wiring.html">Interfaces and connections</a></li>
@@ -242,14 +243,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/stdlib/cdc.html">Clock domain crossing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/stdlib/coding.html">Code conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/stdlib/fifo.html">First-in first-out queues</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../amaranth/stdlib/crc/catalog.html">Algorithm catalog</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/simulator.html">Simulator</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/platform/altera.html">Altera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/platform/gowin.html">Gowin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth/platform/lattice.html">Lattice</a></li>
@@ -262,13 +263,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../amaranth/contrib.html">Contributing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../amaranth-soc/memory.html">Memory maps</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth-soc/wishbone/bus.html">Wishbone bus</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth-soc/csr/bus.html">CSR bus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth-soc/csr/reg.html">CSR registers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../amaranth-soc/csr/action.html">CSR fields</a></li>
@@ -278,10 +279,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="autoapi/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="autoapi/chipflow_lib/index.html">chipflow_lib</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="autoapi/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="autoapi/chipflow_lib/index.html">chipflow_lib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/chipflow_lib/config/index.html">chipflow_lib.config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="autoapi/chipflow_lib/platforms/index.html">chipflow_lib.platforms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/chipflow_lib/steps/index.html">chipflow_lib.steps</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="autoapi/chipflow_lib/steps/index.html">chipflow_lib.steps</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of chipflow_lib.steps</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/chipflow_lib/steps/board/index.html">chipflow_lib.steps.board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/chipflow_lib/steps/sim/index.html">chipflow_lib.steps.sim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/chipflow_lib/steps/software/index.html">chipflow_lib.steps.software</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -330,10 +337,42 @@
 <h1>The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command<a class="headerlink" href="#the-chipflow-command" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> tool enables you to simulate your design or submit it to the ChipFlow cloud build service.
 It implements several subcommands, which can be customised or added to in the <code class="docutils literal notranslate"><span class="pre">steps</span></code> section of <a class="reference internal" href="chipflow-toml-guide.html#chipflow-toml-steps"><span class="std std-ref">chipflow.toml</span></a>.</p>
+<section id="chipflow-auth">
+<h2><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span></code><a class="headerlink" href="#chipflow-auth" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span></code> command manages authentication with the ChipFlow API.</p>
+<section id="chipflow-auth-login">
+<h3><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span> <span class="pre">login</span></code><a class="headerlink" href="#chipflow-auth-login" title="Link to this heading"></a></h3>
+<p>Authenticate with the ChipFlow API using one of the following methods (tried in order):</p>
+<ol class="arabic simple">
+<li><p><strong>GitHub CLI token</strong> (recommended) - If you have <code class="docutils literal notranslate"><span class="pre">gh</span></code> installed and authenticated, this method is instant</p></li>
+<li><p><strong>Device flow</strong> - Opens your browser to authorize via GitHub OAuth</p></li>
+</ol>
+<p>Your API key will be saved locally in <code class="docutils literal notranslate"><span class="pre">~/.config/chipflow/credentials</span></code> for future use.</p>
+<p>Options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: Force re-authentication even if already logged in</p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authenticate (will auto-detect best method)</span>
+<span class="n">chipflow</span> <span class="n">auth</span> <span class="n">login</span>
+
+<span class="c1"># Force re-authentication</span>
+<span class="n">chipflow</span> <span class="n">auth</span> <span class="n">login</span> <span class="o">--</span><span class="n">force</span>
+</pre></div>
+</div>
+</section>
+<section id="chipflow-auth-logout">
+<h3><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span> <span class="pre">logout</span></code><a class="headerlink" href="#chipflow-auth-logout" title="Link to this heading"></a></h3>
+<p>Remove saved credentials from your system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chipflow</span> <span class="n">auth</span> <span class="n">logout</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="chipflow-pin-lock">
 <h2><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">pin</span> <span class="pre">lock</span></code><a class="headerlink" href="#chipflow-pin-lock" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">pin</span> <span class="pre">lock</span></code> command performs pin locking for the current design.
-For every new top level interface with containing external pins with a <code class="docutils literal notranslate"><span class="pre">PinSignature</span></code> that is discovered, the necessary number of package pins is allocated and the mapping saved in the <code class="docutils literal notranslate"><span class="pre">pins.lock</span></code> file.
+For every new top level interface with containing external pins with a <code class="docutils literal notranslate"><span class="pre">IOSignature</span></code> that is discovered, the necessary number of package pins is allocated and the mapping saved in the <code class="docutils literal notranslate"><span class="pre">pins.lock</span></code> file.
 This means that, unless the <code class="docutils literal notranslate"><span class="pre">pins.lock</span></code> file is deleted or manually modified, the pin assignments of all existing pins will always remain the same.</p>
 </section>
 <section id="chipflow-silicon">
@@ -345,7 +384,14 @@ This means that, unless the <code class="docutils literal notranslate"><span cla
 <li><p><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">silicon</span> <span class="pre">submit</span></code> sends the linked design along with the <code class="docutils literal notranslate"><span class="pre">pins.lock</span></code> file containing pinout information to the ChipFlow cloud service for the build. With the <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> argument, it can be used for a local test that the design is ready to be submitted.</p></li>
 </ul>
 </div></blockquote>
-<p>Submitting the design to the cloud requires the <code class="docutils literal notranslate"><span class="pre">CHIPFLOW_API_KEY</span></code> environment variable to be set with a valid API key obtained from the cloud interface.</p>
+<p>Authentication for submission:</p>
+<ol class="arabic simple">
+<li><p>If you’ve run <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span> <span class="pre">login</span></code>, your saved credentials will be used automatically</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">CHIPFLOW_API_KEY</span></code> environment variable is set, it will be used</p></li>
+<li><p>Otherwise, if <code class="docutils literal notranslate"><span class="pre">gh</span></code> (GitHub CLI) is installed and authenticated, it will authenticate automatically</p></li>
+<li><p>As a last resort, you’ll be prompted to complete device flow authentication</p></li>
+</ol>
+<p>Most users should simply run <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span> <span class="pre">login</span></code> once and authentication will be automatic for all future submissions.</p>
 </section>
 <section id="chipflow-sim">
 <h2><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">sim</span></code><a class="headerlink" href="#chipflow-sim" title="Link to this heading"></a></h2>
@@ -372,12 +418,12 @@ This means that, unless the <code class="docutils literal notranslate"><span cla
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="autoapi/index.html">
+          <a class="next-page" href="using-pin-signatures.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">API Reference</div>
+                <div class="title">Using Pin Signatures and Software Drivers</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -423,6 +469,11 @@ This means that, unless the <code class="docutils literal notranslate"><span cla
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a><ul>
+<li><a class="reference internal" href="#chipflow-auth"><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span></code></a><ul>
+<li><a class="reference internal" href="#chipflow-auth-login"><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span> <span class="pre">login</span></code></a></li>
+<li><a class="reference internal" href="#chipflow-auth-logout"><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">auth</span> <span class="pre">logout</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#chipflow-pin-lock"><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">pin</span> <span class="pre">lock</span></code></a></li>
 <li><a class="reference internal" href="#chipflow-silicon"><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">silicon</span></code></a></li>
 <li><a class="reference internal" href="#chipflow-sim"><code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">sim</span></code></a></li>

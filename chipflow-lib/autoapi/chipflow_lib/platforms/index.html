@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow_lib.steps" href="../steps/index.html" /><link rel="prev" title="chipflow_lib" href="../index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow_lib.steps" href="../steps/index.html" /><link rel="prev" title="chipflow_lib.config" href="../config/index.html" />
 
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>chipflow_lib.platforms - ChipFlow Platform Documentation</title>
@@ -184,7 +184,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -210,28 +210,29 @@
   <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting Started with ChipFlow</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">ChipFlow Library Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../index.html">ChipFlow Library Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html">Getting Started with ChipFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../architecture.html">ChipFlow Architecture Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../simulation-guide.html">Simulation Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html">Intro to <code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#project-name">project_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#clock-domains">clock_domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#process">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#package">package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../chipflow-commands.html">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">chipflow_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">chipflow_lib.platforms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../steps/index.html">chipflow_lib.steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../using-pin-signatures.html">Using Pin Signatures and Software Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform-api.html">Platform API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributor-pin-signature-internals.html">Pin Signature Architecture (Contributor Guide)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/install.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/start.html">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/guide.html">Language guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/reference.html">Language reference</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/enum.html">Enumerations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/data.html">Data structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/wiring.html">Interfaces and connections</a></li>
@@ -242,14 +243,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/cdc.html">Clock domain crossing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/coding.html">Code conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/fifo.html">First-in first-out queues</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../amaranth/stdlib/crc/catalog.html">Algorithm catalog</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/simulator.html">Simulator</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/altera.html">Altera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/gowin.html">Gowin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/lattice.html">Lattice</a></li>
@@ -262,13 +263,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/contrib.html">Contributing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth-soc/memory.html">Memory maps</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/wishbone/bus.html">Wishbone bus</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/bus.html">CSR bus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/reg.html">CSR registers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/action.html">CSR fields</a></li>
@@ -278,10 +279,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">chipflow_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">chipflow_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../config/index.html">chipflow_lib.config</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">chipflow_lib.platforms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../steps/index.html">chipflow_lib.steps</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../steps/index.html">chipflow_lib.steps</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of chipflow_lib.steps</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../steps/board/index.html">chipflow_lib.steps.board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../steps/sim/index.html">chipflow_lib.steps.sim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../steps/software/index.html">chipflow_lib.steps.software</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -320,7 +327,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -328,163 +335,9 @@
         <article role="main" id="furo-main-content">
           <section id="module-chipflow_lib.platforms">
 <span id="chipflow-lib-platforms"></span><h1>chipflow_lib.platforms<a class="headerlink" href="#module-chipflow_lib.platforms" title="Link to this heading"></a></h1>
-<p>This module defines the functionality you use in you code to target the ChipFlow platform</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow_lib.platforms.PinSignature" title="chipflow_lib.platforms.PinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PinSignature</span></code></a></p></td>
-<td><p>An <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> used to decorate wires that would usually be brought out onto a port on the package.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow_lib.platforms.OutputPinSignature" title="chipflow_lib.platforms.OutputPinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputPinSignature</span></code></a>(width, **kwargs)</p></td>
-<td><p>This creates an <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> which is then used to decorate package output signals</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#chipflow_lib.platforms.InputPinSignature" title="chipflow_lib.platforms.InputPinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputPinSignature</span></code></a>(width, **kwargs)</p></td>
-<td><p>This creates an <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> which is then used to decorate package input signals</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow_lib.platforms.BidirPinSignature" title="chipflow_lib.platforms.BidirPinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BidirPinSignature</span></code></a>(width, **kwargs)</p></td>
-<td><p>This creates an <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> which is then used to decorate package bi-directional signals</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.PinSignature">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow_lib.platforms.</span></span><span class="sig-name descname"><span class="pre">PinSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_have_oe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.PinSignature" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amaranth.lib.wiring.Signature</span></code></a></p>
-<p>An <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> used to decorate wires that would usually be brought out onto a port on the package.
-This class is generally not directly used.
-Instead, you would typically utilize the more specific
-<a class="reference internal" href="#chipflow_lib.platforms.InputPinSignature" title="chipflow_lib.platforms.InputPinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputPinSignature</span></code></a>, <a class="reference internal" href="#chipflow_lib.platforms.OutputPinSignature" title="chipflow_lib.platforms.OutputPinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputPinSignature</span></code></a>, or <a class="reference internal" href="#chipflow_lib.platforms.BidirPinSignature" title="chipflow_lib.platforms.BidirPinSignature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BidirPinSignature</span></code></a> for defining pin interfaces.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>direction</strong> (<a class="reference internal" href="../../../../amaranth/stdlib/io.html#amaranth.lib.io.Direction" title="amaranth.lib.io.Direction"><em>amaranth.lib.io.Direction</em></a>) – Input, Output or Bidir</p></li>
-<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – width of port, default is 1</p></li>
-<li><p><strong>all_have_oe</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – controls whether each output wire associated with an individual wire or single Output Enable signal will used for entire port, the default value is False, indicating that each output wire will have its own dedicated Output Enable signal.</p></li>
-<li><p><strong>init</strong> – a  <a class="reference internal" href="../../../../amaranth/guide.html#lang-constcasting"><span class="std std-ref">const-castable object</span></a> for the initial values of the port</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.PinSignature.direction">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">direction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../../amaranth/stdlib/io.html#amaranth.lib.io.Direction" title="amaranth.lib.io.Direction"><span class="pre">amaranth.lib.io.Direction</span></a></em><a class="headerlink" href="#chipflow_lib.platforms.PinSignature.direction" title="Link to this definition"></a></dt>
-<dd><p>The direction of the IO port</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../../../amaranth/stdlib/io.html#amaranth.lib.io.Direction" title="amaranth.lib.io.Direction">amaranth.lib.io.Direction</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.PinSignature.width">
-<span class="sig-name descname"><span class="pre">width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.PinSignature.width" title="Link to this definition"></a></dt>
-<dd><p>The width of the IO port, in wires</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.PinSignature.options">
-<span class="sig-name descname"><span class="pre">options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.PinSignature.options" title="Link to this definition"></a></dt>
-<dd><p>Options set on the io port at construction</p>
-<dl class="simple">
-<dt>Valid options are:</dt><dd><p>“all_have_oe”: For a bidirectional port, each wire can
-have it’s direction dynamically controlled seperately,
-so each wire also has a corresponding Output Enable wire.
-“init”: the initial value that this io port will have at power-up and reset.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.PinSignature.annotations">
-<span class="sig-name descname"><span class="pre">annotations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.PinSignature.annotations" title="Link to this definition"></a></dt>
-<dd><p>Annotate an interface object.</p>
-<p>Subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code> may override this method to provide annotations for
-a corresponding interface object. The default implementation provides none.</p>
-<p>See <a class="reference internal" href="../../../../amaranth/stdlib/meta.html#module-amaranth.lib.meta" title="amaranth.lib.meta"><code class="xref py py-mod docutils literal notranslate"><span class="pre">amaranth.lib.meta</span></code></a> for details.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="code highlight py python docutils literal highlight-python"><span class="nb">tuple</span><span class="p">()</span></code></p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>iterable of <a class="reference internal" href="../../../../amaranth/stdlib/meta.html#amaranth.lib.meta.Annotation" title="amaranth.lib.meta.Annotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Annotation</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.OutputPinSignature">
-<span class="sig-prename descclassname"><span class="pre">chipflow_lib.platforms.</span></span><span class="sig-name descname"><span class="pre">OutputPinSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.OutputPinSignature" title="Link to this definition"></a></dt>
-<dd><p>This creates an <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> which is then used to decorate package output signals
-intended for connection to the physical pads of the integrated circuit package.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – specifies the number of individual output wires within this port, each of which will correspond to a separate physical pad on the integrated circuit package.</p></li>
-<li><p><strong>init</strong> – a  <a class="reference internal" href="../../../../amaranth/guide.html#lang-constcasting"><span class="std std-ref">const-castable object</span></a> for the initial values of the port</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.InputPinSignature">
-<span class="sig-prename descclassname"><span class="pre">chipflow_lib.platforms.</span></span><span class="sig-name descname"><span class="pre">InputPinSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.InputPinSignature" title="Link to this definition"></a></dt>
-<dd><p>This creates an <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> which is then used to decorate package input signals
-intended for connection to the physical pads of the integrated circuit package.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – specifies the number of individual input wires within this port, each of which will correspond to a separate physical pad on the integrated circuit package.</p></li>
-<li><p><strong>init</strong> – a  <a class="reference internal" href="../../../../amaranth/guide.html#lang-constcasting"><span class="std std-ref">const-castable object</span></a> for the initial values of the port</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="chipflow_lib.platforms.BidirPinSignature">
-<span class="sig-prename descclassname"><span class="pre">chipflow_lib.platforms.</span></span><span class="sig-name descname"><span class="pre">BidirPinSignature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.platforms.BidirPinSignature" title="Link to this definition"></a></dt>
-<dd><p>This creates an <a class="reference internal" href="../../../../amaranth/stdlib/wiring.html#amaranth.lib.wiring.Signature" title="amaranth.lib.wiring.Signature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amaranth</span> <span class="pre">Signature</span></code></a> which is then used to decorate package bi-directional signals
-intended for connection to the physical pads of the integrated circuit package.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – specifies the number of individual input/output wires within this port. Each pair of input/output wires will correspond to a separate physical pad on the integrated circuit package.</p></li>
-<li><p><strong>all_have_oe</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – controls whether each output wire associated with an individual output enable wire or single Output Enable signal will be used for entire port, the default value is False, indicating that each output wire will have its own dedicated Output Enable signal.</p></li>
-<li><p><strong>init</strong> – a  <a class="reference internal" href="../../../../amaranth/guide.html#lang-constcasting"><span class="std std-ref">const-castable object</span></a> for the initial values of the port</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
+<p>Backward compatibility module for chipflow_lib.platforms.</p>
+<p>This module has been renamed to ‘chipflow.platforms’. This compatibility layer
+will be maintained for some time but is deprecated. Please update your imports.</p>
 </section>
 
         </article>
@@ -501,14 +354,14 @@ intended for connection to the physical pads of the integrated circuit package.<
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="../config/index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">chipflow_lib</div>
+                <div class="title">chipflow_lib.config</div>
                 
               </div>
             </a>
@@ -530,41 +383,8 @@ intended for connection to the physical pads of the integrated circuit package.<
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">chipflow_lib.platforms</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
-<li><a class="reference internal" href="#chipflow_lib.platforms.PinSignature"><code class="docutils literal notranslate"><span class="pre">PinSignature</span></code></a><ul>
-<li><a class="reference internal" href="#chipflow_lib.platforms.PinSignature.direction"><code class="docutils literal notranslate"><span class="pre">PinSignature.direction</span></code></a></li>
-<li><a class="reference internal" href="#chipflow_lib.platforms.PinSignature.width"><code class="docutils literal notranslate"><span class="pre">PinSignature.width()</span></code></a></li>
-<li><a class="reference internal" href="#chipflow_lib.platforms.PinSignature.options"><code class="docutils literal notranslate"><span class="pre">PinSignature.options()</span></code></a></li>
-<li><a class="reference internal" href="#chipflow_lib.platforms.PinSignature.annotations"><code class="docutils literal notranslate"><span class="pre">PinSignature.annotations()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#chipflow_lib.platforms.OutputPinSignature"><code class="docutils literal notranslate"><span class="pre">OutputPinSignature()</span></code></a></li>
-<li><a class="reference internal" href="#chipflow_lib.platforms.InputPinSignature"><code class="docutils literal notranslate"><span class="pre">InputPinSignature()</span></code></a></li>
-<li><a class="reference internal" href="#chipflow_lib.platforms.BidirPinSignature"><code class="docutils literal notranslate"><span class="pre">BidirPinSignature()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

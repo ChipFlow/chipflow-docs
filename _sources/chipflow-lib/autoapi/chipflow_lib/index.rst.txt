@@ -5,7 +5,13 @@ chipflow_lib
 
 .. autoapi-nested-parse::
 
-   Chipflow library
+   Backward compatibility module for chipflow_lib.
+
+   This module has been renamed to 'chipflow'. This compatibility layer
+   will be maintained for some time but is deprecated. Please update your
+   imports to use 'chipflow' instead of 'chipflow_lib'.
+
+   All functionality is re-exported from the chipflow module.
 
 
 
@@ -15,26 +21,8 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
+   /chipflow-lib/autoapi/chipflow_lib/config/index
    /chipflow-lib/autoapi/chipflow_lib/platforms/index
    /chipflow-lib/autoapi/chipflow_lib/steps/index
-
-
-Exceptions
-----------
-
-.. autoapisummary::
-
-   chipflow_lib.ChipFlowError
-
-
-Package Contents
-----------------
-
-.. py:exception:: ChipFlowError
-
-   Bases: :py:obj:`Exception`
-
-
-   Common base class for all non-exit exceptions.
 
 

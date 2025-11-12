@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Language &amp; toolchain" href="../../../../amaranth/index.html" /><link rel="prev" title="chipflow_lib.platforms" href="../platforms/index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow_lib.steps.board" href="board/index.html" /><link rel="prev" title="chipflow_lib.platforms" href="../platforms/index.html" />
 
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>chipflow_lib.steps - ChipFlow Platform Documentation</title>
@@ -210,28 +210,29 @@
   <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started.html">Getting Started with ChipFlow</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">ChipFlow Library Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../index.html">ChipFlow Library Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html">Getting Started with ChipFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../architecture.html">ChipFlow Architecture Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../simulation-guide.html">Simulation Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html">Intro to <code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#project-name">project_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#clock-domains">clock_domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#process">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#package">package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../chipflow-commands.html">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">chipflow_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../platforms/index.html">chipflow_lib.platforms</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">chipflow_lib.steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../using-pin-signatures.html">Using Pin Signatures and Software Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform-api.html">Platform API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributor-pin-signature-internals.html">Pin Signature Architecture (Contributor Guide)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/install.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/start.html">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/guide.html">Language guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/reference.html">Language reference</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/enum.html">Enumerations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/data.html">Data structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/wiring.html">Interfaces and connections</a></li>
@@ -242,14 +243,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/cdc.html">Clock domain crossing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/coding.html">Code conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/fifo.html">First-in first-out queues</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../amaranth/stdlib/crc/catalog.html">Algorithm catalog</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/simulator.html">Simulator</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/altera.html">Altera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/gowin.html">Gowin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/lattice.html">Lattice</a></li>
@@ -262,13 +263,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/contrib.html">Contributing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth-soc/memory.html">Memory maps</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/wishbone/bus.html">Wishbone bus</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/bus.html">CSR bus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/reg.html">CSR registers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/action.html">CSR fields</a></li>
@@ -278,10 +279,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">chipflow_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">chipflow_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../config/index.html">chipflow_lib.config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../platforms/index.html">chipflow_lib.platforms</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">chipflow_lib.steps</a></li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">chipflow_lib.steps</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of chipflow_lib.steps</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="board/index.html">chipflow_lib.steps.board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sim/index.html">chipflow_lib.steps.sim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software/index.html">chipflow_lib.steps.software</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -328,41 +335,18 @@
         <article role="main" id="furo-main-content">
           <section id="module-chipflow_lib.steps">
 <span id="chipflow-lib-steps"></span><h1>chipflow_lib.steps<a class="headerlink" href="#module-chipflow_lib.steps" title="Link to this heading"></a></h1>
-<p>Steps provide an extensible way to modify the <cite>chipflow</cite> command behavior for a given design</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow_lib.steps.StepBase" title="chipflow_lib.steps.StepBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StepBase</span></code></a></p></td>
-<td><p>Helper class that provides a standard way to create an ABC using</p></td>
-</tr>
-</tbody>
-</table>
+<p>Backward compatibility module for chipflow_lib.steps.</p>
+<p>This module has been renamed to ‘chipflow.steps’. This compatibility layer
+will be maintained for some time but is deprecated. Please update your imports.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="board/index.html">chipflow_lib.steps.board</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sim/index.html">chipflow_lib.steps.sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/index.html">chipflow_lib.steps.software</a></li>
+</ul>
 </div>
-</section>
-<section id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow_lib.steps.StepBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow_lib.steps.</span></span><span class="sig-name descname"><span class="pre">StepBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.steps.StepBase" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
-<p>Helper class that provides a standard way to create an ABC using
-inheritance.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="chipflow_lib.steps.StepBase.build_cli_parser">
-<span class="sig-name descname"><span class="pre">build_cli_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.steps.StepBase.build_cli_parser" title="Link to this definition"></a></dt>
-<dd><p>Build the cli parser for this step</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="chipflow_lib.steps.StepBase.run_cli">
-<span class="sig-name descname"><span class="pre">run_cli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow_lib.steps.StepBase.run_cli" title="Link to this definition"></a></dt>
-<dd><p>Called when this step’s is used from <cite>chipflow</cite> command</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 </section>
 
@@ -371,12 +355,12 @@ inheritance.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../../../amaranth/index.html">
+          <a class="next-page" href="board/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Language &amp; toolchain</div>
+                <div class="title">chipflow_lib.steps.board</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -422,15 +406,7 @@ inheritance.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">chipflow_lib.steps</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
-<li><a class="reference internal" href="#chipflow_lib.steps.StepBase"><code class="docutils literal notranslate"><span class="pre">StepBase</span></code></a><ul>
-<li><a class="reference internal" href="#chipflow_lib.steps.StepBase.build_cli_parser"><code class="docutils literal notranslate"><span class="pre">StepBase.build_cli_parser()</span></code></a></li>
-<li><a class="reference internal" href="#chipflow_lib.steps.StepBase.run_cli"><code class="docutils literal notranslate"><span class="pre">StepBase.run_cli()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>
