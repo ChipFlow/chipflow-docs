@@ -38,7 +38,7 @@ Preparing your local environment
 
 	sudo apt install git pipx
 
-We use `PDM <https://pdm.fming.dev/>`_ to manage dependencies and ensure reproduable builds of your design.
+We use `PDM <https://pdm.fming.dev/>`_ to manage dependencies and ensure reproducible builds of your design.
 
 First install PDM: ::
 
@@ -70,12 +70,12 @@ Getting started
 
 First use `Git <https://git-scm.com/>`_ to get the example sources.  ::
 
-	git clone https://github.com/ChipFlow/example-socs
+	git clone https://github.com/ChipFlow/chipflow-examples
 
 Then set up your environment: ::
 
-    cd example-socs
-    make init
+    cd chipflow-examples
+    pdm install
 
 
 The example project
@@ -211,22 +211,22 @@ with:
 
 .. code-block:: bash
 
-    make sim-build
+    pdm run chipflow sim build
 
-After running this, we will have a simulation binary at ``build/sim/sim_soc``. 
+After running this, we will have a simulation binary at ``build/sim/sim_soc``.
 
-We can't run it just yet, as it needs the software/BIOS too. To build the 
+We can't run it just yet, as it needs the software/BIOS too. To build the
 software we run:
 
 .. code-block:: bash
 
-    make software-build
+    pdm run chipflow software
 
 Now that we have our simulation binary, and a BIOS, we can run it:
 
 .. code-block:: bash
 
-    make sim-run
+    pdm run chipflow sim run
 
 You should see console output like this:
 
@@ -252,23 +252,23 @@ First we need to build the design into a bitstream for the board:
 
 .. code-block:: bash
 
-    make board-build
+    pdm run chipflow board build
 
-This will write a file ``build/top.bit``. As for the simulation, we need the 
-software/BIOS too. 
+This will write a file ``build/top.bit``. As for the simulation, we need the
+software/BIOS too.
 
 If we haven't already, build the bios:
 
 .. code-block:: bash
 
-    make software-build
+    pdm run chipflow software
 
 Now, we load the software/BIOS and design onto board (program its bitstream):
 
 .. code-block:: bash
 
-    make board-load-software-ulx3s
-    make board-load-ulx3s
+    pdm run chipflow board load-software-ulx3s
+    pdm run chipflow board load-ulx3s
 
 Your board should now be running. For us to check that it's working, we can 
 connect to it via its serial port:
@@ -460,14 +460,14 @@ We can now take a look at our changes in simulation:
 
 .. code-block:: bash
 
-    # Rebuild our software 
-    make software-build
+    # Rebuild our software
+    pdm run chipflow software
 
     # Rebuild our simulation
-    make sim-build
+    pdm run chipflow sim build
 
     # Run our simulation
-    make sim-run
+    pdm run chipflow sim run
 
 We should now see the output with button presses:
 
@@ -492,17 +492,17 @@ software and design:
 
 .. code-block:: bash
 
-    # Rebuild our software 
-    make software-build
+    # Rebuild our software
+    pdm run chipflow software
 
     # Rebuild our board
-    make board-build
+    pdm run chipflow board build
 
     # Load software onto board
-    make board-load-software-ulx3s
+    pdm run chipflow board load-software-ulx3s
 
     # Load design onto board
-    make board-load-ulx3s
+    pdm run chipflow board load-ulx3s
 
 Now, as in our first example, we need to connect to the board and 
 see its output.
@@ -527,11 +527,11 @@ When we press the physical buttons on the board, we should see it:
 Building for Silicon
 --------------------
 
-For this first Alpha, we aren't *quite* ready to start accepting designs on our API. This is coming very soon though!
+To submit your design for silicon fabrication, see the :doc:`examples/getting-started` guide which covers the full submission workflow using the ChipFlow API.
 
-`Sign up <https://chipflow.io/beta>`_ to be notified when the next Alpha release is available.
+`Sign up <https://chipflow.io/beta>`_ to be notified when new releases are available.
 
-If you are using this tutorial to test out new designs, reach out to us on `our Gitter channel <https://gitter.im/ChipFlow/community>`_. We would love to add your designs to our test sets!
+If you are using this tutorial to test out new designs, reach out to us in our `GitHub Discussions forum <https://github.com/ChipFlow/chipflow-central/discussions>`_. We would love to add your designs to our test sets!
 
 
 What's on the roadmap?
@@ -544,10 +544,10 @@ We still have a lot of work to do - some things on our roadmap:
 * Improved simulation tooling.
 * Many more high-quality Amaranth Peripheral IP modules to include in your designs.
 
-Join the beta
--------------
+Join the Alpha Program
+----------------------
 
-If you're interested in the platform, you can `join the beta <https://chipflow.io/beta>`_ 
+If you're interested in the platform, you can `join the alpha program <https://chipflow.io/beta>`_
 and help us build the future of Python-powered chip design.
 
 
@@ -556,5 +556,5 @@ Troubleshooting
 * Python version issues:
 	If you choose to run ``pdm install`` within a venv, PDM will reuse
 	that venv instead of creating a new one.
-	Ensure that you use a venv with Python 3.8 or greater.
+	Ensure that you use a venv with Python 3.11 or greater.
 

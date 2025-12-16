@@ -25,15 +25,11 @@ for r in repo_list:
     sys.path.append(str(r))
 
 # Fix platform-api.rst to remove autodoc directives (requires chipflow to be installed)
-# Replace with overview content that links to autoapi
+# Replace with overview content
 platform_api_content = """Platform API Reference
 ======================
 
-This page provides an overview of the ChipFlow platform API. Full API documentation is auto-generated from the source code.
-
-.. seealso::
-
-   See the :doc:`autoapi/index` for complete auto-generated API documentation.
+This page provides an overview of the ChipFlow platform API.
 
 Platforms
 ---------
