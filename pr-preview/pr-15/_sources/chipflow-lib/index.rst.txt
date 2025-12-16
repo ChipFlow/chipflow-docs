@@ -22,3 +22,10 @@ It is developed at https://github.com/chipFlow/chipflow-lib/ and licensed `BSD 2
    :caption: Contributor Guide
 
    contributor-pin-signature-internals
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   autoapi/chipflow/index
+   autoapi/chipflow_lib/index
