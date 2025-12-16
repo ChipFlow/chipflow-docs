@@ -115,6 +115,22 @@ platform_api_path = Path('chipflow-lib/platform-api.rst')
 if platform_api_path.exists():
     platform_api_path.write_text(platform_api_content)
 
+# Add autoapi toctree to chipflow-lib index
+chipflow_lib_index_path = Path('chipflow-lib/index.rst')
+if chipflow_lib_index_path.exists():
+    content = chipflow_lib_index_path.read_text()
+    if 'autoapi/chipflow/index' not in content:
+        # Add API Reference section pointing directly to autoapi-generated indices
+        content += """
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   autoapi/chipflow/index
+   autoapi/chipflow_lib/index
+"""
+        chipflow_lib_index_path.write_text(content)
+
 # -- Project information
 
 project = 'ChipFlow'
@@ -192,6 +208,7 @@ autoapi_options = [
     'imported-members',
 ]
 autoapi_root = "chipflow-lib/autoapi"
+autoapi_add_toctree_entry = False  # Don't auto-add to toctree (we link manually)
 
 # Exclude autoapi templates and in-progress stuff
 exclude_patterns = [
