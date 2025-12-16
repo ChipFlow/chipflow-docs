@@ -1,0 +1,154 @@
+chipflow.platforms.silicon
+==========================
+
+.. py:module:: chipflow.platforms.silicon
+
+.. autoapi-nested-parse::
+
+   Backward compatibility shim for platforms.silicon module.
+
+   This module re-exports silicon platform functionality from the platform module.
+   New code should import directly from chipflow.platform instead.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   chipflow.platforms.silicon.SiliconPlatformPort
+   chipflow.platforms.silicon.Sky130Port
+   chipflow.platforms.silicon.IOBuffer
+   chipflow.platforms.silicon.FFBuffer
+
+
+Module Contents
+---------------
+
+.. py:class:: SiliconPlatformPort(name, port_desc)
+
+   Bases: :py:obj:`amaranth.lib.io.PortLike`, :py:obj:`Generic`\ [\ :py:obj:`Pin`\ ]
+
+
+   Represents an abstract library I/O port that can be passed to a buffer.
+
+   The port types supported by most platforms are :class:`SingleEndedPort` and
+   :class:`DifferentialPort`. Platforms may define additional port types where appropriate.
+
+   .. note::
+
+       :class:`amaranth.hdl.IOPort` is not an instance of :class:`amaranth.lib.io.PortLike`.
+
+
+   .. py:property:: direction
+
+      Direction of the port.
+
+      :rtype: :class:`Direction`
+
+
+.. py:class:: Sky130Port(name, port_desc)
+
+   Bases: :py:obj:`SiliconPlatformPort`
+
+
+   Specialisation of `SiliconPlatformPort` for the `Skywater sky130_fd_io__gpiov2 IO cell <https://skywater-pdk.readthedocs.io/en/main/contents/libraries/sky130_fd_io/docs/user_guide.html>`_
+
+   Includes wires and configuration for `Drive Modes <IODriveMode>`, `Input buffer trip point <IOTripPoint>`and buffer control
+
+
+.. py:class:: IOBuffer(direction, port)
+
+   Bases: :py:obj:`amaranth.lib.io.Buffer`
+
+
+   A combinational I/O buffer component.
+
+   This buffer can be used on any platform; if the platform does not specialize its implementation,
+   an :ref:`I/O buffer instance <lang-iobufferinstance>` is used.
+
+   The following diagram defines the timing relationship between the underlying core I/O value
+   (for differential ports, the core I/O value of the true half) and the :py:`i`, :py:`o`, and
+   :py:`oe` members:
+
+   .. wavedrom:: io/buffer
+
+       {
+           "signal": [
+               {"name": "clk",  "wave": "p....."},
+               {"name": "o",    "wave": "x345x.", "data": ["A", "B", "C"]},
+               {"name": "oe",   "wave": "01..0."},
+               {},
+               {"name": "port", "wave": "z345z.", "data": ["A", "B", "C"]},
+               {},
+               {"name": "i",    "wave": "x345x.", "data": ["A", "B", "C"]}
+           ],
+           "config": {
+               "hscale": 2
+           }
+       }
+
+   :param direction: Direction of the buffer.
+   :type direction: :class:`Direction`
+   :param port: Port driven by the buffer.
+   :type port: :class:`PortLike`
+
+   :raises ValueError: Unless :py:`port.direction in (direction, Bidir)`.
+
+   :Attributes: **signature** (:class:`Buffer.Signature`) -- :py:`Signature(direction, len(port)).flip()`.
+
+
+.. py:class:: FFBuffer(direction, port, *, i_domain=None, o_domain=None)
+
+   Bases: :py:obj:`amaranth.lib.io.FFBuffer`
+
+
+   A registered I/O buffer component.
+
+   This buffer can be used on any platform; if the platform does not specialize its implementation,
+   an :ref:`I/O buffer instance <lang-iobufferinstance>` is used, combined with reset-less
+   registers on :py:`i`, :py:`o`, and  :py:`oe` members.
+
+   The following diagram defines the timing relationship between the underlying core I/O value
+   (for differential ports, the core I/O value of the true half) and the :py:`i`, :py:`o`, and
+   :py:`oe` members:
+
+   .. wavedrom:: io/ff-buffer
+
+       {
+           "signal": [
+               {"name": "clk",  "wave": "p......"},
+               {"name": "o",    "wave": "x345x..", "data": ["A", "B", "C"]},
+               {"name": "oe",   "wave": "01..0.."},
+               {},
+               {"name": "port", "wave": "z.345z.", "data": ["A", "B", "C"]},
+               {},
+               {"name": "i",    "wave": "x..345x", "data": ["A", "B", "C"]}
+           ],
+           "config": {
+               "hscale": 2
+           }
+       }
+
+   .. warning::
+
+       On some platforms, this buffer can only be used with rising edge clock domains, and will
+       raise an exception during conversion of the design to a netlist otherwise.
+
+       This limitation will be lifted in the future.
+
+   :param direction: Direction of the buffer.
+   :type direction: :class:`Direction`
+   :param port: Port driven by the buffer.
+   :type port: :class:`PortLike`
+   :param i_domain: Name of the input register's clock domain. Used when :py:`direction in (Input, Bidir)`.
+                    Defaults to :py:`"sync"`.
+   :type i_domain: :class:`str`
+   :param o_domain: Name of the output and output enable registers' clock domain. Used when
+                    :py:`direction in (Output, Bidir)`. Defaults to :py:`"sync"`.
+   :type o_domain: :class:`str`
+
+   :Attributes: **signature** (:class:`FFBuffer.Signature`) -- :py:`Signature(direction, len(port)).flip()`.
+
+

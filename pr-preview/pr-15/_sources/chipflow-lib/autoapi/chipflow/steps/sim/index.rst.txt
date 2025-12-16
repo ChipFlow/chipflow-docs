@@ -1,0 +1,63 @@
+chipflow.steps.sim
+==================
+
+.. py:module:: chipflow.steps.sim
+
+.. autoapi-nested-parse::
+
+   Backward compatibility shim for steps.sim module.
+
+   This module re-exports sim step functionality from the platform module.
+   New code should import directly from chipflow.platform instead.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   chipflow.steps.sim.SimStep
+
+
+Module Contents
+---------------
+
+.. py:class:: SimStep(config)
+
+   Bases: :py:obj:`chipflow.platform.base.StepBase`
+
+
+   Base class for ChipFlow build steps.
+
+
+   .. py:method:: build_cli_parser(parser)
+
+      Build the cli parser for this step
+
+
+
+   .. py:method:: run_cli(args)
+
+      Called when this step's is used from `chipflow` command
+
+
+
+   .. py:method:: build(*args)
+
+      Builds the simulation model for the design
+
+
+
+   .. py:method:: run(*args)
+
+      Run the simulation. Will ensure that the simulation and the software are both built.
+
+
+
+   .. py:method:: check(*args)
+
+      Run the simulation and check events against reference (tests/events_reference.json). Will ensure that the simulation and the software are both built.
+
+
+

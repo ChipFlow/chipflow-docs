@@ -1,0 +1,51 @@
+chipflow.steps.board
+====================
+
+.. py:module:: chipflow.steps.board
+
+.. autoapi-nested-parse::
+
+   Backward compatibility shim for steps.board module.
+
+   This module re-exports board step functionality from the platform module.
+   New code should import directly from chipflow.platform instead.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   chipflow.steps.board.BoardStep
+
+
+Module Contents
+---------------
+
+.. py:class:: BoardStep(config, platform)
+
+   Bases: :py:obj:`chipflow.platform.base.StepBase`
+
+
+   Build the design for a board.
+
+
+   .. py:method:: build_cli_parser(parser)
+
+      Build the cli parser for this step
+
+
+
+   .. py:method:: run_cli(args)
+
+      Called when this step's is used from `chipflow` command
+
+
+
+   .. py:method:: build(*args)
+
+      Build for the given platform
+
+
+

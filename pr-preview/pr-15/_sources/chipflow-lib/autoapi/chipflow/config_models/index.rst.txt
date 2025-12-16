@@ -1,0 +1,71 @@
+chipflow.config_models
+======================
+
+.. py:module:: chipflow.config_models
+
+.. autoapi-nested-parse::
+
+   Backward compatibility shim for config models.
+
+   This module re-exports configuration models from the config module.
+   New code should import directly from chipflow.config instead.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   chipflow.config_models.Process
+   chipflow.config_models.VoltageRange
+   chipflow.config_models.SiliconConfig
+   chipflow.config_models.ChipFlowConfig
+   chipflow.config_models.Config
+
+
+Module Contents
+---------------
+
+.. py:class:: Process(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   IC manufacturing process
+
+
+.. py:class:: VoltageRange
+
+   Bases: :py:obj:`chipflow.serialization.SelectiveSerializationModel`
+
+
+   Models a voltage range for a power domain or IO.
+
+   Optional fields (min, max, typical) are omitted from serialization when None.
+
+
+.. py:class:: SiliconConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Configuration for silicon in chipflow.toml.
+
+
+.. py:class:: ChipFlowConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Root configuration for chipflow.toml.
+
+
+.. py:class:: Config
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Root configuration model for chipflow.toml.
+
+

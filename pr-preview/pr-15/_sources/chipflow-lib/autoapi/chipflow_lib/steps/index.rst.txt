@@ -1,0 +1,25 @@
+chipflow_lib.steps
+==================
+
+.. py:module:: chipflow_lib.steps
+
+.. autoapi-nested-parse::
+
+   Backward compatibility module for chipflow_lib.steps.
+
+   This module has been renamed to 'chipflow.steps'. This compatibility layer
+   will be maintained for some time but is deprecated. Please update your imports.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /chipflow-lib/autoapi/chipflow_lib/steps/board/index
+   /chipflow-lib/autoapi/chipflow_lib/steps/sim/index
+   /chipflow-lib/autoapi/chipflow_lib/steps/software/index
+
+

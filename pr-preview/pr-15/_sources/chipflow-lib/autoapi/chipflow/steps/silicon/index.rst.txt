@@ -1,0 +1,71 @@
+chipflow.steps.silicon
+======================
+
+.. py:module:: chipflow.steps.silicon
+
+.. autoapi-nested-parse::
+
+   Backward compatibility shim for steps.silicon module.
+
+   This module re-exports silicon step functionality from the platform module.
+   New code should import directly from chipflow.platform instead.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   chipflow.steps.silicon.SiliconStep
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   chipflow.steps.silicon.top_components
+
+
+Module Contents
+---------------
+
+.. py:class:: SiliconStep(config)
+
+   Step to Prepare and submit the design for an ASIC.
+
+
+   .. py:method:: prepare()
+
+      Elaborate the design and convert it to RTLIL.
+
+      Returns the path to the RTLIL file.
+
+
+
+   .. py:method:: submit(rtlil_path, args)
+
+      Submit the design to the ChipFlow cloud builder.
+
+      Options:
+          --dry-run: Don't actually submit
+          --wait: Wait until build has completed. Use '-v' to increase level of verbosity
+          --log-file <file>: Log full debug output to file
+
+
+
+.. py:function:: top_components(config)
+
+   Return the top level components for the design, as configured in ``chipflow.toml``.
+
+   Args:
+       config: The parsed chipflow configuration
+
+   Returns:
+       Dictionary mapping component names to instantiated Component objects
+
+   Raises:
+       ChipFlowError: If component references are invalid or instantiation fails
+
+

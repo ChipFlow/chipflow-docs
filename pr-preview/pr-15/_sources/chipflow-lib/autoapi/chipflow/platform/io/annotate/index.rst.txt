@@ -1,0 +1,33 @@
+chipflow.platform.io.annotate
+=============================
+
+.. py:module:: chipflow.platform.io.annotate
+
+.. autoapi-nested-parse::
+
+   Amaranth annotation utilities for ChipFlow.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   chipflow.platform.io.annotate.submodule_metadata
+
+
+Module Contents
+---------------
+
+.. py:function:: submodule_metadata(fragment, component_name, recursive=False)
+
+   Generator that finds `component_name` in `fragment` and
+   then yields the ``wiring.Component``s of that component's submodule, along with their names and metadata
+
+   Can only be run once for a given component (or its children)
+
+   If recursive = True, then name is a tuple of the heirarchy of names
+   otherwise, name is the string name of the first level component
+
+

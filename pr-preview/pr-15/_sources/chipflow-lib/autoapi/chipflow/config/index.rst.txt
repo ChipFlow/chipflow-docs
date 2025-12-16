@@ -1,0 +1,80 @@
+chipflow.config
+===============
+
+.. py:module:: chipflow.config
+
+.. autoapi-nested-parse::
+
+   Configuration management for ChipFlow.
+
+   This module provides configuration models and parsing functionality
+   for chipflow.toml configuration files.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /chipflow-lib/autoapi/chipflow/config/parser/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   chipflow.config.Process
+   chipflow.config.VoltageRange
+   chipflow.config.SiliconConfig
+   chipflow.config.ChipFlowConfig
+   chipflow.config.Config
+
+
+Package Contents
+----------------
+
+.. py:class:: Process(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   IC manufacturing process
+
+
+.. py:class:: VoltageRange
+
+   Bases: :py:obj:`chipflow.serialization.SelectiveSerializationModel`
+
+
+   Models a voltage range for a power domain or IO.
+
+   Optional fields (min, max, typical) are omitted from serialization when None.
+
+
+.. py:class:: SiliconConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Configuration for silicon in chipflow.toml.
+
+
+.. py:class:: ChipFlowConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Root configuration for chipflow.toml.
+
+
+.. py:class:: Config
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Root configuration model for chipflow.toml.
+
+
