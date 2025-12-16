@@ -1,11 +1,7 @@
 Platform API Reference
 ======================
 
-This page provides an overview of the ChipFlow platform API. Full API documentation is auto-generated from the source code.
-
-.. seealso::
-
-   See the :doc:`autoapi/index` for complete auto-generated API documentation.
+This page provides an overview of the ChipFlow platform API.
 
 Platforms
 ---------

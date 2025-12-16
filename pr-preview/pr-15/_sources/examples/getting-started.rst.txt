@@ -50,7 +50,7 @@ Set Up Your API Key
 
 To submit designs to the ChipFlow cloud builder, you need an API key:
 
-1. Go to https://build.chipflow.org/user/detail
+1. Go to https://build.chipflow.com/user/detail
 2. Click "Create/Refresh API Key"
 3. Copy your new API key (you won't see it again!)
 
@@ -114,7 +114,7 @@ This returns a build URL where you can monitor progress:
 
    INFO:chipflow_lib.steps.silicon:Submitting c23dab6-dirty for project chipflow-examples-minimal
    INFO:chipflow_lib.steps.silicon:Submitted design: {'build_id': '3f51a69c-b3e3-4fd3-88fd-52826ac5e5dd'}
-   Design submitted successfully! Build URL: https://build.chipflow.org/build/3f51a69c-b3e3-4fd3-88fd-52826ac5e5dd
+   Design submitted successfully! Build URL: https://build.chipflow.com/build/3f51a69c-b3e3-4fd3-88fd-52826ac5e5dd
 
 To stream build logs to your terminal:
 

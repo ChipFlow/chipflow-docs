@@ -429,7 +429,7 @@ The tutorial will work on other Linux distributions, but instructions are not in
 </pre></div>
 </div>
 </div>
-<p>We use <a class="reference external" href="https://pdm.fming.dev/">PDM</a> to manage dependencies and ensure reproduable builds of your design.</p>
+<p>We use <a class="reference external" href="https://pdm.fming.dev/">PDM</a> to manage dependencies and ensure reproducible builds of your design.</p>
 <p>First install PDM:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">ensurepath</span>
     <span class="n">pipx</span> <span class="n">install</span> <span class="n">pdm</span>
@@ -460,12 +460,12 @@ The tutorial will work on other Linux distributions, but instructions are not in
 <section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <p>First use <a class="reference external" href="https://git-scm.com/">Git</a> to get the example sources.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ChipFlow</span><span class="o">/</span><span class="n">example</span><span class="o">-</span><span class="n">socs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ChipFlow</span><span class="o">/</span><span class="n">chipflow</span><span class="o">-</span><span class="n">examples</span>
 </pre></div>
 </div>
 <p>Then set up your environment:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">example</span><span class="o">-</span><span class="n">socs</span>
-<span class="n">make</span> <span class="n">init</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">chipflow</span><span class="o">-</span><span class="n">examples</span>
+<span class="n">pdm</span> <span class="n">install</span>
 </pre></div>
 </div>
 </section>
@@ -585,17 +585,17 @@ that it’s working.</p>
 <p>First we need to build a local simulation binary. The simulation uses
 blackbox C++ models of external peripherals, such as the flash, to interact
 with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>sim-build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>sim<span class="w"> </span>build
 </pre></div>
 </div>
 <p>After running this, we will have a simulation binary at <code class="docutils literal notranslate"><span class="pre">build/sim/sim_soc</span></code>.</p>
 <p>We can’t run it just yet, as it needs the software/BIOS too. To build the
 software we run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>software-build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>software
 </pre></div>
 </div>
 <p>Now that we have our simulation binary, and a BIOS, we can run it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>sim-run
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>sim<span class="w"> </span>run
 </pre></div>
 </div>
 <p>You should see console output like this:</p>
@@ -615,18 +615,18 @@ Initialised!
 is supported. If you don’t have one, you can
 <a class="reference internal" href="#add-peripheral"><span class="std std-ref">skip to the next section</span></a>.</p>
 <p>First we need to build the design into a bitstream for the board:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>board-build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>board<span class="w"> </span>build
 </pre></div>
 </div>
 <p>This will write a file <code class="docutils literal notranslate"><span class="pre">build/top.bit</span></code>. As for the simulation, we need the
 software/BIOS too.</p>
 <p>If we haven’t already, build the bios:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>software-build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>software
 </pre></div>
 </div>
 <p>Now, we load the software/BIOS and design onto board (program its bitstream):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>board-load-software-ulx3s
-make<span class="w"> </span>board-load-ulx3s
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>board<span class="w"> </span>load-software-ulx3s
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>board<span class="w"> </span>load-ulx3s
 </pre></div>
 </div>
 <p>Your board should now be running. For us to check that it’s working, we can
@@ -772,13 +772,13 @@ too many dependencies for our simple example.</p>
 <h3>See the changes in simulation<a class="headerlink" href="#see-the-changes-in-simulation" title="Link to this heading"></a></h3>
 <p>We can now take a look at our changes in simulation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rebuild our software</span>
-make<span class="w"> </span>software-build
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>software
 
 <span class="c1"># Rebuild our simulation</span>
-make<span class="w"> </span>sim-build
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>sim<span class="w"> </span>build
 
 <span class="c1"># Run our simulation</span>
-make<span class="w"> </span>sim-run
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>sim<span class="w"> </span>run
 </pre></div>
 </div>
 <p>We should now see the output with button presses:</p>
@@ -799,16 +799,16 @@ button<span class="w"> </span><span class="m">1</span><span class="w"> </span>pr
 <p>To see the changes on our board, we need to load the updated
 software and design:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rebuild our software</span>
-make<span class="w"> </span>software-build
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>software
 
 <span class="c1"># Rebuild our board</span>
-make<span class="w"> </span>board-build
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>board<span class="w"> </span>build
 
 <span class="c1"># Load software onto board</span>
-make<span class="w"> </span>board-load-software-ulx3s
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>board<span class="w"> </span>load-software-ulx3s
 
 <span class="c1"># Load design onto board</span>
-make<span class="w"> </span>board-load-ulx3s
+pdm<span class="w"> </span>run<span class="w"> </span>chipflow<span class="w"> </span>board<span class="w"> </span>load-ulx3s
 </pre></div>
 </div>
 <p>Now, as in our first example, we need to connect to the board and
@@ -830,9 +830,9 @@ button<span class="w"> </span><span class="m">2</span><span class="w"> </span>pr
 </section>
 <section id="building-for-silicon">
 <h2>Building for Silicon<a class="headerlink" href="#building-for-silicon" title="Link to this heading"></a></h2>
-<p>For this first Alpha, we aren’t <em>quite</em> ready to start accepting designs on our API. This is coming very soon though!</p>
-<p><a class="reference external" href="https://chipflow.io/beta">Sign up</a> to be notified when the next Alpha release is available.</p>
-<p>If you are using this tutorial to test out new designs, reach out to us on <a class="reference external" href="https://gitter.im/ChipFlow/community">our Gitter channel</a>. We would love to add your designs to our test sets!</p>
+<p>To submit your design for silicon fabrication, see the <a class="reference internal" href="examples/getting-started.html"><span class="doc">Getting Started with ChipFlow Examples</span></a> guide which covers the full submission workflow using the ChipFlow API.</p>
+<p><a class="reference external" href="https://chipflow.io/beta">Sign up</a> to be notified when new releases are available.</p>
+<p>If you are using this tutorial to test out new designs, reach out to us in our <a class="reference external" href="https://github.com/ChipFlow/chipflow-central/discussions">GitHub Discussions forum</a>. We would love to add your designs to our test sets!</p>
 </section>
 <section id="what-s-on-the-roadmap">
 <h2>What’s on the roadmap?<a class="headerlink" href="#what-s-on-the-roadmap" title="Link to this heading"></a></h2>
@@ -844,9 +844,9 @@ button<span class="w"> </span><span class="m">2</span><span class="w"> </span>pr
 <li><p>Many more high-quality Amaranth Peripheral IP modules to include in your designs.</p></li>
 </ul>
 </section>
-<section id="join-the-beta">
-<h2>Join the beta<a class="headerlink" href="#join-the-beta" title="Link to this heading"></a></h2>
-<p>If you’re interested in the platform, you can <a class="reference external" href="https://chipflow.io/beta">join the beta</a>
+<section id="join-the-alpha-program">
+<h2>Join the Alpha Program<a class="headerlink" href="#join-the-alpha-program" title="Link to this heading"></a></h2>
+<p>If you’re interested in the platform, you can <a class="reference external" href="https://chipflow.io/beta">join the alpha program</a>
 and help us build the future of Python-powered chip design.</p>
 </section>
 <section id="troubleshooting">
@@ -855,7 +855,7 @@ and help us build the future of Python-powered chip design.</p>
 <li><dl class="simple">
 <dt>Python version issues:</dt><dd><p>If you choose to run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code> within a venv, PDM will reuse
 that venv instead of creating a new one.
-Ensure that you use a venv with Python 3.8 or greater.</p>
+Ensure that you use a venv with Python 3.11 or greater.</p>
 </dd>
 </dl>
 </li>
@@ -946,7 +946,7 @@ Ensure that you use a venv with Python 3.8 or greater.</p>
 </li>
 <li><a class="reference internal" href="#building-for-silicon">Building for Silicon</a></li>
 <li><a class="reference internal" href="#what-s-on-the-roadmap">What’s on the roadmap?</a></li>
-<li><a class="reference internal" href="#join-the-beta">Join the beta</a></li>
+<li><a class="reference internal" href="#join-the-alpha-program">Join the Alpha Program</a></li>
 <li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
