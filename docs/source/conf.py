@@ -24,6 +24,101 @@ repo_list = copy_docs(repos)
 for r in repo_list:
     sys.path.append(str(r))
 
+# Fix platform-api.rst to remove autodoc directives (requires chipflow to be installed)
+# Replace with overview content that links to autoapi
+platform_api_content = """Platform API Reference
+======================
+
+This page provides an overview of the ChipFlow platform API. Full API documentation is auto-generated from the source code.
+
+.. seealso::
+
+   See the :doc:`autoapi/index` for complete auto-generated API documentation.
+
+Platforms
+---------
+
+The ChipFlow library provides several platform implementations for different build targets:
+
+**SimPlatform** (``chipflow.platform.sim``)
+   Platform for building and running CXXRTL simulations. Use this during development to test your design.
+
+**SiliconPlatform** (``chipflow.platform.silicon``)
+   Platform for targeting ASIC fabrication. Supports various foundry processes including SKY130, GF180, GF130BCD, and IHP_SG13G2.
+
+**SoftwarePlatform** (``chipflow.platform.software``)
+   Platform for building RISC-V software to run on your design.
+
+Build Steps
+-----------
+
+Steps are the building blocks of the ChipFlow build system:
+
+**SimStep** (``chipflow.platform.sim_step``)
+   Handles simulation workflow: building the simulator, running simulations, and checking results.
+
+**SiliconStep** (``chipflow.platform.silicon_step``)
+   Handles ASIC preparation: elaborating designs to RTLIL and submitting to the ChipFlow cloud builder.
+
+**SoftwareStep** (``chipflow.platform.software_step``)
+   Handles RISC-V software compilation.
+
+**BoardStep** (``chipflow.platform.board_step``)
+   Handles board-level operations.
+
+IO Signatures
+-------------
+
+IO Signatures define standard interfaces for your design. They provide a consistent way to connect peripherals and specify electrical characteristics.
+
+Base Signatures
+~~~~~~~~~~~~~~~
+
+- **IOSignature** - Base class for all IO signatures
+- **OutputIOSignature** - For output-only signals
+- **InputIOSignature** - For input-only signals
+- **BidirIOSignature** - For bidirectional signals
+
+Protocol Signatures
+~~~~~~~~~~~~~~~~~~~
+
+Pre-defined signatures for common protocols:
+
+- **UARTSignature** - UART serial interface
+- **GPIOSignature** - General purpose I/O
+- **SPISignature** - SPI bus interface
+- **I2CSignature** - I2C bus interface
+- **QSPIFlashSignature** - Quad SPI flash interface
+- **JTAGSignature** - JTAG debug interface
+
+IO Configuration
+----------------
+
+**IOModel**
+   Configures electrical characteristics of IO pads (drive mode, trip point, inversion).
+
+**IOModelOptions**
+   Available options for IO configuration.
+
+**IOTripPoint**
+   Voltage threshold configuration for input signals.
+
+Utility Functions
+-----------------
+
+**setup_amaranth_tools()**
+   Sets up the Amaranth toolchain for your environment.
+
+**top_components()**
+   Returns dictionary of instantiated top-level components from configuration.
+
+**get_software_builds()**
+   Returns software build configurations from the design.
+"""
+platform_api_path = Path('chipflow-lib/platform-api.rst')
+if platform_api_path.exists():
+    platform_api_path.write_text(platform_api_content)
+
 # -- Project information
 
 project = 'ChipFlow'
@@ -50,6 +145,7 @@ extensions = [
     'sphinxcontrib.yowasp_wavedrom',
     'sphinxext.rediraffe',
     'autoapi.extension',
+    'sphinx_design',
 ]
 
 rst_prolog = """
@@ -61,6 +157,11 @@ rst_prolog = """
 
 .. role:: py(code)
    :language: python
+"""
+
+rst_epilog = """
+.. |required| replace:: :bdg-primary-line:`Required`
+.. |optional| replace:: :bdg-secondary-line:`Optional`
 """
 
 html_theme = 'furo'
@@ -80,6 +181,8 @@ html_theme_options = {
 autodoc_typehints = 'description'
 
 autoapi_dirs = [
+        top_path / "vendor/chipflow-lib/chipflow_lib/platforms",
+        top_path / "vendor/chipflow-lib/chipflow_lib",
         top_path / "vendor/chipflow-lib/chipflow",
         ]
 autoapi_generate_api_docs = True
@@ -98,6 +201,7 @@ autoapi_root = "chipflow-lib/autoapi"
 exclude_patterns = [
     autoapi_template_dir,
     "chipflow-lib/unfinished",
+    "chipflow-lib/UNFINISHED_IDEAS.md",
     "amaranth/cover.rst",
     "amaranth-soc/cover.rst",
 ]
