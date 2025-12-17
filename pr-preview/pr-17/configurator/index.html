@@ -348,7 +348,8 @@
 <h1>Chip Configurator<a class="headerlink" href="#chip-configurator" title="Link to this heading"></a></h1>
 <p>The <a class="reference external" href="https://configurator.chipflow.io">ChipFlow Configurator</a> is a web-based tool for
 designing and visualizing custom chip layouts. It provides an intuitive interface
-for configuring IP blocks, pin assignments, and bus connections.</p>
+for configuring IP blocks, pin assignments, and bus connections - then generates
+a complete development environment for you to build and simulate your design.</p>
 <a class="reference internal image-reference" href="../_images/01-main-view.png"><img alt="ChipFlow Configurator main view" src="../_images/01-main-view.png" style="width: 100%;" />
 </a>
 <section id="getting-started">
@@ -363,13 +364,11 @@ pin count, available IP blocks, and layout constraints.</p>
 <a class="reference internal image-reference" href="../_images/03-config-selector.png"><img alt="Template selector dropdown" src="../_images/03-config-selector.png" style="width: 100%;" />
 </a>
 </li>
-<li><p><strong>Explore the Chip Layout</strong></p>
-<p>The main view shows your chip layout with:</p>
+<li><p><strong>Configure Your Design</strong></p>
 <ul class="simple">
-<li><p><strong>Analog IP blocks</strong> positioned around the perimeter (shell)</p></li>
-<li><p><strong>Digital IP blocks</strong> in the center (core)</p></li>
-<li><p><strong>Pin assignments</strong> shown on the edges</p></li>
-<li><p><strong>Bus connections</strong> between IP blocks</p></li>
+<li><p>Enable or disable IP blocks using the sidebar controls</p></li>
+<li><p>View pin assignments on the chip edges</p></li>
+<li><p>See bus connections between components</p></li>
 </ul>
 </li>
 <li><p><strong>Navigate the View</strong></p>
@@ -380,7 +379,53 @@ pin count, available IP blocks, and layout constraints.</p>
 <a class="reference internal image-reference" href="../_images/04-zoomed-out.png"><img alt="Zoomed out view showing full chip" src="../_images/04-zoomed-out.png" style="width: 100%;" />
 </a>
 </li>
+<li><p><strong>Generate Your Design</strong></p>
+<p>When you’re happy with your configuration, click the <strong>Generate Design</strong> button.
+This will:</p>
+<ul class="simple">
+<li><p>Create a GitHub repository with your design</p></li>
+<li><p>Launch a GitHub Codespace with everything pre-configured</p></li>
+<li><p>Open a welcome page with next steps</p></li>
+</ul>
+</li>
 </ol>
+</section>
+<section id="working-in-your-codespace">
+<h2>Working in Your Codespace<a class="headerlink" href="#working-in-your-codespace" title="Link to this heading"></a></h2>
+<p>After clicking “Generate Design”, you’ll be taken to a GitHub Codespace with your
+chip design ready to build and simulate. The welcome page shows your design summary
+and provides the commands you need.</p>
+<section id="build-your-design">
+<h3>Build Your Design<a class="headerlink" href="#build-your-design" title="Link to this heading"></a></h3>
+<p>Generate Verilog and compile the simulation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chipflow<span class="w"> </span>sim<span class="w"> </span>build
+</pre></div>
+</div>
+</section>
+<section id="run-simulation">
+<h3>Run Simulation<a class="headerlink" href="#run-simulation" title="Link to this heading"></a></h3>
+<p>Execute the simulation and see results:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chipflow<span class="w"> </span>sim<span class="w"> </span>run
+</pre></div>
+</div>
+</section>
+<section id="submit-for-fabrication">
+<h3>Submit for Fabrication<a class="headerlink" href="#submit-for-fabrication" title="Link to this heading"></a></h3>
+<p>When your design is ready, submit it for silicon fabrication:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chipflow<span class="w"> </span>silicon<span class="w"> </span>submit
+</pre></div>
+</div>
+</section>
+<section id="next-steps-in-the-codespace">
+<h3>Next Steps in the Codespace<a class="headerlink" href="#next-steps-in-the-codespace" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Build your design</strong> - Run <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">sim</span> <span class="pre">build</span></code> to generate Verilog and compile</p></li>
+<li><p><strong>Run simulation</strong> - Execute <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">sim</span> <span class="pre">run</span></code> to test your design</p></li>
+<li><p><strong>Explore results</strong> - Check generated Verilog, waveforms, and test output</p></li>
+<li><p><strong>Iterate and refine</strong> - Modify your design and rebuild as needed</p></li>
+<li><p><strong>Submit for fabrication</strong> - Run <code class="docutils literal notranslate"><span class="pre">chipflow</span> <span class="pre">silicon</span> <span class="pre">submit</span></code> when ready</p></li>
+</ol>
+</section>
 </section>
 <section id="key-features">
 <h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
@@ -408,25 +453,20 @@ pin count, available IP blocks, and layout constraints.</p>
 <li><p>See which blocks share common buses</p></li>
 </ul>
 </section>
-<section id="export-designs">
-<h3>Export Designs<a class="headerlink" href="#export-designs" title="Link to this heading"></a></h3>
-<p>Export your complete chip design as a JSON file containing:</p>
+<section id="one-click-development-environment">
+<h3>One-Click Development Environment<a class="headerlink" href="#one-click-development-environment" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Full configuration settings</p></li>
-<li><p>IP block positions and parameters</p></li>
-<li><p>Pin allocation details</p></li>
-<li><p>Bus connection information</p></li>
+<li><p>Generates a complete GitHub repository</p></li>
+<li><p>Pre-configured Codespace with all tools installed</p></li>
+<li><p>Ready to build, simulate, and submit your design</p></li>
 </ul>
-<p>Click the <strong>Export Design</strong> button in the sidebar to download your design.</p>
 </section>
 </section>
-<section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Explore different chip templates to see various configurations</p></li>
-<li><p>Try enabling/disabling IP blocks to see how pin allocation changes</p></li>
-<li><p>Export a design and examine the JSON structure</p></li>
-<li><p>Check out the <a class="reference internal" href="../chipflow-lib/index.html"><span class="doc">ChipFlow Library Documentation</span></a> to learn how to use your design in code</p></li>
+<li><p><a class="reference external" href="https://docs.chipflow.io">ChipFlow Documentation</a> - Complete guides and API reference</p></li>
+<li><p><a class="reference external" href="https://github.com/ChipFlow/chipflow-central/issues">Report Issues</a> - Found a problem? Let us know</p></li>
 </ul>
 </section>
 </section>
@@ -488,14 +528,21 @@ pin count, available IP blocks, and layout constraints.</p>
             <ul>
 <li><a class="reference internal" href="#">Chip Configurator</a><ul>
 <li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#working-in-your-codespace">Working in Your Codespace</a><ul>
+<li><a class="reference internal" href="#build-your-design">Build Your Design</a></li>
+<li><a class="reference internal" href="#run-simulation">Run Simulation</a></li>
+<li><a class="reference internal" href="#submit-for-fabrication">Submit for Fabrication</a></li>
+<li><a class="reference internal" href="#next-steps-in-the-codespace">Next Steps in the Codespace</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#key-features">Key Features</a><ul>
 <li><a class="reference internal" href="#interactive-layout">Interactive Layout</a></li>
 <li><a class="reference internal" href="#configurable-ip-blocks">Configurable IP Blocks</a></li>
 <li><a class="reference internal" href="#visual-bus-routing">Visual Bus Routing</a></li>
-<li><a class="reference internal" href="#export-designs">Export Designs</a></li>
+<li><a class="reference internal" href="#one-click-development-environment">One-Click Development Environment</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li><a class="reference internal" href="#resources">Resources</a></li>
 </ul>
 </li>
 </ul>
