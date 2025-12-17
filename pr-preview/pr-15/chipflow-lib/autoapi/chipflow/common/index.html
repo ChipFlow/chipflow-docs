@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow.packaging" href="../packaging/index.html" /><link rel="prev" title="chipflow.config.parser" href="../config/parser/index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow.config" href="../config/index.html" /><link rel="prev" title="chipflow.auth_command" href="../auth_command/index.html" />
 
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
-        <title>chipflow.config_models - ChipFlow Platform Documentation</title>
+        <title>chipflow.common - ChipFlow Platform Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -185,7 +185,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -235,75 +235,56 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../chipflow-toml-guide.html#package">package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../chipflow-commands.html">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../using-pin-signatures.html">Using Pin Signatures and Software Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../platform-api.html">Platform API Reference</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../../platform-api.html">Platform API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Platform API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">chipflow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of chipflow</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../auth/index.html">chipflow.auth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../auth_command/index.html">chipflow.auth_command</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">chipflow.common</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../config/index.html">chipflow.config</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of chipflow.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/parser/index.html">chipflow.config.parser</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../packages/index.html">chipflow.packages</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../packaging/index.html">chipflow.packaging</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of chipflow.packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/allocation/index.html">chipflow.packaging.allocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/base/index.html">chipflow.packaging.base</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/commands/index.html">chipflow.packaging.commands</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/grid_array/index.html">chipflow.packaging.grid_array</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/lockfile/index.html">chipflow.packaging.lockfile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/openframe/index.html">chipflow.packaging.openframe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/pins/index.html">chipflow.packaging.pins</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/port_desc/index.html">chipflow.packaging.port_desc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/standard/index.html">chipflow.packaging.standard</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../packaging/utils/index.html">chipflow.packaging.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../platform/index.html">chipflow.platform</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of chipflow.platform</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../platform/base/index.html">chipflow.platform.base</a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../platform/io/index.html">chipflow.platform.io</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of chipflow.platform.io</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="../platform/io/annotate/index.html">chipflow.platform.io.annotate</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../platform/io/iosignature/index.html">chipflow.platform.io.iosignature</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../platform/io/signatures/index.html">chipflow.platform.io.signatures</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../platform/io/sky130/index.html">chipflow.platform.io.sky130</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../utils/index.html">chipflow.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../contributor-pin-signature-internals.html">Pin Signature Architecture (Contributor Guide)</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">chipflow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of chipflow</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../auth/index.html">chipflow.auth</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auth_command/index.html">chipflow.auth_command</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../config/index.html">chipflow.config</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of chipflow.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../config/parser/index.html">chipflow.config.parser</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">chipflow.config_models</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../packaging/index.html">chipflow.packaging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of chipflow.packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/allocation/index.html">chipflow.packaging.allocation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/base/index.html">chipflow.packaging.base</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/commands/index.html">chipflow.packaging.commands</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/grid_array/index.html">chipflow.packaging.grid_array</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/lockfile/index.html">chipflow.packaging.lockfile</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/openframe/index.html">chipflow.packaging.openframe</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/pins/index.html">chipflow.packaging.pins</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/port_desc/index.html">chipflow.packaging.port_desc</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/standard/index.html">chipflow.packaging.standard</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../packaging/utils/index.html">chipflow.packaging.utils</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../platform/index.html">chipflow.platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of chipflow.platform</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../platform/base/index.html">chipflow.platform.base</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../platform/io/index.html">chipflow.platform.io</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of chipflow.platform.io</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../platform/io/annotate/index.html">chipflow.platform.io.annotate</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../platform/io/iosignature/index.html">chipflow.platform.io.iosignature</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../platform/io/signatures/index.html">chipflow.platform.io.signatures</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../platform/io/sky130/index.html">chipflow.platform.io.sky130</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../platforms/index.html">chipflow.platforms</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of chipflow.platforms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../platforms/silicon/index.html">chipflow.platforms.silicon</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../steps/index.html">chipflow.steps</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of chipflow.steps</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../steps/board/index.html">chipflow.steps.board</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../steps/silicon/index.html">chipflow.steps.silicon</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../steps/sim/index.html">chipflow.steps.sim</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../steps/software/index.html">chipflow.steps.software</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/index.html">chipflow.utils</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../chipflow_lib/index.html">chipflow_lib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of chipflow_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../chipflow_lib/config/index.html">chipflow_lib.config</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../chipflow_lib/platforms/index.html">chipflow_lib.platforms</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../chipflow_lib/steps/index.html">chipflow_lib.steps</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of chipflow_lib.steps</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../chipflow_lib/steps/board/index.html">chipflow_lib.steps.board</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../chipflow_lib/steps/sim/index.html">chipflow_lib.steps.sim</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../chipflow_lib/steps/software/index.html">chipflow_lib.steps.software</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/install.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/start.html">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/guide.html">Language guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/reference.html">Language reference</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/enum.html">Enumerations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/data.html">Data structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/wiring.html">Interfaces and connections</a></li>
@@ -314,14 +295,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/cdc.html">Clock domain crossing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/coding.html">Code conversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/stdlib/fifo.html">First-in first-out queues</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../amaranth/stdlib/crc/catalog.html">Algorithm catalog</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/simulator.html">Simulator</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/altera.html">Altera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/gowin.html">Gowin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth/platform/lattice.html">Lattice</a></li>
@@ -334,13 +315,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth/contrib.html">Contributing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../amaranth-soc/memory.html">Memory maps</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/wishbone/bus.html">Wishbone bus</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/bus.html">CSR bus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/reg.html">CSR registers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../amaranth-soc/csr/action.html">CSR fields</a></li>
@@ -370,7 +351,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../../_sources/chipflow-lib/autoapi/chipflow/config_models/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../../_sources/chipflow-lib/autoapi/chipflow/common/index.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -384,80 +365,15 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-chipflow.config_models">
-<span id="chipflow-config-models"></span><h1>chipflow.config_models<a class="headerlink" href="#module-chipflow.config_models" title="Link to this heading"></a></h1>
-<p>Backward compatibility shim for config models.</p>
-<p>This module re-exports configuration models from the config module.
-New code should import directly from chipflow.config instead.</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow.config_models.Process" title="chipflow.config_models.Process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Process</span></code></a></p></td>
-<td><p>IC manufacturing process</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#chipflow.config_models.VoltageRange" title="chipflow.config_models.VoltageRange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VoltageRange</span></code></a></p></td>
-<td><p>Models a voltage range for a power domain or IO.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow.config_models.SiliconConfig" title="chipflow.config_models.SiliconConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SiliconConfig</span></code></a></p></td>
-<td><p>Configuration for silicon in chipflow.toml.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#chipflow.config_models.ChipFlowConfig" title="chipflow.config_models.ChipFlowConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChipFlowConfig</span></code></a></p></td>
-<td><p>Root configuration for chipflow.toml.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow.config_models.Config" title="chipflow.config_models.Config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Config</span></code></a></p></td>
-<td><p>Root configuration model for chipflow.toml.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow.config_models.Process">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config_models.</span></span><span class="sig-name descname"><span class="pre">Process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.config_models.Process" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>IC manufacturing process</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow.config_models.VoltageRange">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config_models.</span></span><span class="sig-name descname"><span class="pre">VoltageRange</span></span><a class="headerlink" href="#chipflow.config_models.VoltageRange" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">chipflow.serialization.SelectiveSerializationModel</span></code></p>
-<p>Models a voltage range for a power domain or IO.</p>
-<p>Optional fields (min, max, typical) are omitted from serialization when None.</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow.config_models.SiliconConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config_models.</span></span><span class="sig-name descname"><span class="pre">SiliconConfig</span></span><a class="headerlink" href="#chipflow.config_models.SiliconConfig" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
-<p>Configuration for silicon in chipflow.toml.</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow.config_models.ChipFlowConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config_models.</span></span><span class="sig-name descname"><span class="pre">ChipFlowConfig</span></span><a class="headerlink" href="#chipflow.config_models.ChipFlowConfig" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
-<p>Root configuration for chipflow.toml.</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="chipflow.config_models.Config">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config_models.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#chipflow.config_models.Config" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
-<p>Root configuration model for chipflow.toml.</p>
-</dd></dl>
-
-</section>
+          <section id="module-chipflow.common">
+<span id="chipflow-common"></span><h1>chipflow.common<a class="headerlink" href="#module-chipflow.common" title="Link to this heading"></a></h1>
+<p>Common utilities for ChipFlow.</p>
 </section>
 
         </article>
@@ -465,23 +381,23 @@ New code should import directly from chipflow.config instead.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../packaging/index.html">
+          <a class="next-page" href="../config/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">chipflow.packaging</div>
+                <div class="title">chipflow.config</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../config/parser/index.html">
+          <a class="prev-page" href="../auth_command/index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">chipflow.config.parser</div>
+                <div class="title">chipflow.auth_command</div>
                 
               </div>
             </a>
@@ -503,35 +419,8 @@ New code should import directly from chipflow.config instead.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">chipflow.config_models</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#chipflow.config_models.Process"><code class="docutils literal notranslate"><span class="pre">Process</span></code></a></li>
-<li><a class="reference internal" href="#chipflow.config_models.VoltageRange"><code class="docutils literal notranslate"><span class="pre">VoltageRange</span></code></a></li>
-<li><a class="reference internal" href="#chipflow.config_models.SiliconConfig"><code class="docutils literal notranslate"><span class="pre">SiliconConfig</span></code></a></li>
-<li><a class="reference internal" href="#chipflow.config_models.ChipFlowConfig"><code class="docutils literal notranslate"><span class="pre">ChipFlowConfig</span></code></a></li>
-<li><a class="reference internal" href="#chipflow.config_models.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

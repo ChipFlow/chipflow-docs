@@ -45,15 +45,11 @@ Module Contents
    Bases: :py:obj:`typing_extensions.TypedDict`
 
 
-   dict() -> new empty dictionary
-   dict(mapping) -> new dictionary initialized from a mapping object's
-       (key, value) pairs
-   dict(iterable) -> new dictionary initialized as if via:
-       d = {}
-       for k, v in iterable:
-           d[k] = v
-   dict(**kwargs) -> new dictionary initialized with the name=value pairs
-       in the keyword argument list.  For example:  dict(one=1, two=2)
+   Simulation interface metadata for ChipFlow components.
+
+   Attributes:
+       uid: Unique identifier for the interface.
+       parameters: List of (name, value) tuples for interface parameters.
 
 
 .. py:class:: DataclassProtocol
@@ -108,15 +104,10 @@ Module Contents
    Bases: :py:obj:`typing_extensions.TypedDict`, :py:obj:`Generic`\ [\ :py:obj:`_T_DataClass`\ ]
 
 
-   dict() -> new empty dictionary
-   dict(mapping) -> new dictionary initialized from a mapping object's
-       (key, value) pairs
-   dict(iterable) -> new dictionary initialized as if via:
-       d = {}
-       for k, v in iterable:
-           d[k] = v
-   dict(**kwargs) -> new dictionary initialized with the name=value pairs
-       in the keyword argument list.  For example:  dict(one=1, two=2)
+   Container for data associated with a ChipFlow component.
+
+   Attributes:
+       data: The dataclass instance containing component data.
 
 
 .. py:class:: DriverModel

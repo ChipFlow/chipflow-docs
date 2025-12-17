@@ -2,10 +2,12 @@
 <html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="chipflow" href="chipflow-lib/autoapi/chipflow/index.html" /><link rel="prev" title="Using Pin Signatures and Software Drivers" href="chipflow-lib/using-pin-signatures.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 --><title>Python Module Index - ChipFlow Platform Documentation</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
+        <title>Platform API Reference - ChipFlow Platform Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
@@ -221,8 +223,8 @@
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="chipflow-lib/index.html">ChipFlow Library Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="chipflow-lib/index.html">ChipFlow Library Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="chipflow-lib/getting-started.html">Getting Started with ChipFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chipflow-lib/architecture.html">ChipFlow Architecture Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chipflow-lib/simulation-guide.html">Simulation Guide</a></li>
@@ -233,7 +235,7 @@
 <li class="toctree-l2"><a class="reference internal" href="chipflow-lib/chipflow-toml-guide.html#package">package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chipflow-lib/chipflow-commands.html">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chipflow-lib/using-pin-signatures.html">Using Pin Signatures and Software Drivers</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="platform-api.html">Platform API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Platform API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Platform API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Platform API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html">chipflow</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of chipflow</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth/index.html">chipflow.auth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth_command/index.html">chipflow.auth_command</a></li>
@@ -348,7 +350,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/platform-api.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -363,330 +371,61 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<section class="domainindex-section">
-  <h1>Python Module Index</h1>
-  <div class="domainindex-jumpbox"><a href="#cap-a"><strong>a</strong></a> | <a href="#cap-c"><strong>c</strong></a></div>
+          <section id="platform-api-reference">
+<h1>Platform API Reference<a class="headerlink" href="#platform-api-reference" title="Link to this heading"></a></h1>
+<p>This section provides the API reference for the ChipFlow platform library.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html">chipflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth/index.html">chipflow.auth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth_command/index.html">chipflow.auth_command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/common/index.html">chipflow.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/config/index.html">chipflow.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packages/index.html">chipflow.packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/index.html">chipflow.packaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/index.html">chipflow.platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/utils/index.html">chipflow.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html#chipflow.ChipFlowError"><code class="docutils literal notranslate"><span class="pre">ChipFlowError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html#chipflow.ensure_chipflow_root"><code class="docutils literal notranslate"><span class="pre">ensure_chipflow_root()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
-<table class="domainindex-table">
-  <tr class="pcap">
-    <td></td><td>&#160;</td><td></td>
-  </tr>
-  <tr class="cap" id="cap-a">
-    <td></td><td><strong>a</strong></td><td></td>
-  </tr>
-  <tr>
-    <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-    <td>
-        <code class="xref">amaranth</code></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/reference.html#module-amaranth.hdl"><code class="xref">amaranth.hdl</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/cdc.html#module-amaranth.lib.cdc"><code class="xref">amaranth.lib.cdc</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/coding.html#module-amaranth.lib.coding"><code class="xref">amaranth.lib.coding</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/crc.html#module-amaranth.lib.crc"><code class="xref">amaranth.lib.crc</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/crc/catalog.html#module-amaranth.lib.crc.catalog"><code class="xref">amaranth.lib.crc.catalog</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/data.html#module-amaranth.lib.data"><code class="xref">amaranth.lib.data</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/enum.html#module-amaranth.lib.enum"><code class="xref">amaranth.lib.enum</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/fifo.html#module-amaranth.lib.fifo"><code class="xref">amaranth.lib.fifo</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/io.html#module-amaranth.lib.io"><code class="xref">amaranth.lib.io</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/memory.html#module-amaranth.lib.memory"><code class="xref">amaranth.lib.memory</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/meta.html#module-amaranth.lib.meta"><code class="xref">amaranth.lib.meta</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/stream.html#module-amaranth.lib.stream"><code class="xref">amaranth.lib.stream</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/stdlib/wiring.html#module-amaranth.lib.wiring"><code class="xref">amaranth.lib.wiring</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth/simulator.html#module-amaranth.sim"><code class="xref">amaranth.sim</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr>
-    <td><img src="_static/minus.png" class="toggler"
-              id="toggle-2" style="display: none" alt="-" /></td>
-    <td>
-        <code class="xref">amaranth_soc</code></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/csr/action.html#module-amaranth_soc.csr.action"><code class="xref">amaranth_soc.csr.action</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/csr/bus.html#module-amaranth_soc.csr.bus"><code class="xref">amaranth_soc.csr.bus</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/csr/reg.html#module-amaranth_soc.csr.reg"><code class="xref">amaranth_soc.csr.reg</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/gpio.html#module-amaranth_soc.gpio"><code class="xref">amaranth_soc.gpio</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/memory.html#module-amaranth_soc.memory"><code class="xref">amaranth_soc.memory</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/wishbone.html#module-amaranth_soc.wishbone"><code class="xref">amaranth_soc.wishbone</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-2">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="amaranth-soc/wishbone/bus.html#module-amaranth_soc.wishbone.bus"><code class="xref">amaranth_soc.wishbone.bus</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="pcap">
-    <td></td><td>&#160;</td><td></td>
-  </tr>
-  <tr class="cap" id="cap-c">
-    <td></td><td><strong>c</strong></td><td></td>
-  </tr>
-  <tr>
-    <td><img src="_static/minus.png" class="toggler"
-              id="toggle-3" style="display: none" alt="-" /></td>
-    <td>
-        <a href="chipflow-lib/autoapi/chipflow/index.html#module-chipflow"><code class="xref">chipflow</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/auth/index.html#module-chipflow.auth"><code class="xref">chipflow.auth</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/auth_command/index.html#module-chipflow.auth_command"><code class="xref">chipflow.auth_command</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/common/index.html#module-chipflow.common"><code class="xref">chipflow.common</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/config/index.html#module-chipflow.config"><code class="xref">chipflow.config</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/config/parser/index.html#module-chipflow.config.parser"><code class="xref">chipflow.config.parser</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packages/index.html#module-chipflow.packages"><code class="xref">chipflow.packages</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/index.html#module-chipflow.packaging"><code class="xref">chipflow.packaging</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/allocation/index.html#module-chipflow.packaging.allocation"><code class="xref">chipflow.packaging.allocation</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/base/index.html#module-chipflow.packaging.base"><code class="xref">chipflow.packaging.base</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/commands/index.html#module-chipflow.packaging.commands"><code class="xref">chipflow.packaging.commands</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/grid_array/index.html#module-chipflow.packaging.grid_array"><code class="xref">chipflow.packaging.grid_array</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/lockfile/index.html#module-chipflow.packaging.lockfile"><code class="xref">chipflow.packaging.lockfile</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/openframe/index.html#module-chipflow.packaging.openframe"><code class="xref">chipflow.packaging.openframe</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/pins/index.html#module-chipflow.packaging.pins"><code class="xref">chipflow.packaging.pins</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html#module-chipflow.packaging.port_desc"><code class="xref">chipflow.packaging.port_desc</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/standard/index.html#module-chipflow.packaging.standard"><code class="xref">chipflow.packaging.standard</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/packaging/utils/index.html#module-chipflow.packaging.utils"><code class="xref">chipflow.packaging.utils</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/index.html#module-chipflow.platform"><code class="xref">chipflow.platform</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/base/index.html#module-chipflow.platform.base"><code class="xref">chipflow.platform.base</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/io/index.html#module-chipflow.platform.io"><code class="xref">chipflow.platform.io</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/io/annotate/index.html#module-chipflow.platform.io.annotate"><code class="xref">chipflow.platform.io.annotate</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/io/iosignature/index.html#module-chipflow.platform.io.iosignature"><code class="xref">chipflow.platform.io.iosignature</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/io/signatures/index.html#module-chipflow.platform.io.signatures"><code class="xref">chipflow.platform.io.signatures</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/platform/io/sky130/index.html#module-chipflow.platform.io.sky130"><code class="xref">chipflow.platform.io.sky130</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-3">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="chipflow-lib/autoapi/chipflow/utils/index.html#module-chipflow.utils"><code class="xref">chipflow.utils</code></a></td><td>
-    <em></em></td>
-  </tr>
-</table>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="chipflow-lib/autoapi/chipflow/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">chipflow</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="chipflow-lib/using-pin-signatures.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Using Pin Signatures and Software Drivers</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">

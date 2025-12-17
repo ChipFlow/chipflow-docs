@@ -20,12 +20,11 @@ Submodules
 
    /chipflow-lib/autoapi/chipflow/auth/index
    /chipflow-lib/autoapi/chipflow/auth_command/index
+   /chipflow-lib/autoapi/chipflow/common/index
    /chipflow-lib/autoapi/chipflow/config/index
-   /chipflow-lib/autoapi/chipflow/config_models/index
+   /chipflow-lib/autoapi/chipflow/packages/index
    /chipflow-lib/autoapi/chipflow/packaging/index
    /chipflow-lib/autoapi/chipflow/platform/index
-   /chipflow-lib/autoapi/chipflow/platforms/index
-   /chipflow-lib/autoapi/chipflow/steps/index
    /chipflow-lib/autoapi/chipflow/utils/index
 
 
