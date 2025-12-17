@@ -20,6 +20,7 @@ Contents
 
    chipflow-lib/getting-started
    chipflow-lib/index
+   Digital IP Library <chipflow-digital-ip/index>
    Amaranth Language and Toolchain <amaranth/index>
    Amaranth System-on-a-Chip toolkit <amaranth-soc/index>
    support

@@ -13,7 +13,8 @@ from tools import copy_docs
 repos = [
     ('amaranth-lang/amaranth', 'tags/v0.5.4'),
     ('chipflow/amaranth-soc', 'origin/reference-docs-chipflow'),
-    ('chipflow/chipflow-lib', 'origin/main')
+    ('chipflow/chipflow-lib', 'origin/main'),
+    ('chipflow/chipflow-digital-ip', 'origin/main')
 ]
 
 # copy in the doc sources from our repos
