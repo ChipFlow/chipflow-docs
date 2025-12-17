@@ -7,7 +7,7 @@ from itertools import starmap
 top_path = Path('../../')
 sys.path.append(str((top_path / 'tools').absolute()))
 
-from tools import copy_docs
+from copy_docs import copy_docs
 
 # Repos we will be assembling
 repos = [
@@ -22,114 +22,29 @@ repo_list = copy_docs(repos)
 
 # add our repos to path
 for r in repo_list:
+    print(f"copy_docs: Adding {str(r)} to sys.path")
     sys.path.append(str(r))
 
-# Fix platform-api.rst to remove autodoc directives (requires chipflow to be installed)
-# Replace with overview content
-platform_api_content = """Platform API Reference
+# Create platform-api.rst in docs/source/ (outside chipflow-lib to avoid copy_docs overwriting)
+# Uses autoapi instead of autodoc directives (autodoc requires chipflow to be installed)
+# Note: Warning about "nonexisting document" is expected - autoapi generates files after toctree parsing
+Path('platform-api.rst').write_text("""Platform API Reference
 ======================
 
-This page provides an overview of the ChipFlow platform API.
+This section provides the API reference for the ChipFlow platform library.
 
-Platforms
----------
-
-The ChipFlow library provides several platform implementations for different build targets:
-
-**SimPlatform** (``chipflow.platform.sim``)
-   Platform for building and running CXXRTL simulations. Use this during development to test your design.
-
-**SiliconPlatform** (``chipflow.platform.silicon``)
-   Platform for targeting ASIC fabrication. Supports various foundry processes including SKY130, GF180, GF130BCD, and IHP_SG13G2.
-
-**SoftwarePlatform** (``chipflow.platform.software``)
-   Platform for building RISC-V software to run on your design.
-
-Build Steps
------------
-
-Steps are the building blocks of the ChipFlow build system:
-
-**SimStep** (``chipflow.platform.sim_step``)
-   Handles simulation workflow: building the simulator, running simulations, and checking results.
-
-**SiliconStep** (``chipflow.platform.silicon_step``)
-   Handles ASIC preparation: elaborating designs to RTLIL and submitting to the ChipFlow cloud builder.
-
-**SoftwareStep** (``chipflow.platform.software_step``)
-   Handles RISC-V software compilation.
-
-**BoardStep** (``chipflow.platform.board_step``)
-   Handles board-level operations.
-
-IO Signatures
--------------
-
-IO Signatures define standard interfaces for your design. They provide a consistent way to connect peripherals and specify electrical characteristics.
-
-Base Signatures
-~~~~~~~~~~~~~~~
-
-- **IOSignature** - Base class for all IO signatures
-- **OutputIOSignature** - For output-only signals
-- **InputIOSignature** - For input-only signals
-- **BidirIOSignature** - For bidirectional signals
-
-Protocol Signatures
-~~~~~~~~~~~~~~~~~~~
-
-Pre-defined signatures for common protocols:
-
-- **UARTSignature** - UART serial interface
-- **GPIOSignature** - General purpose I/O
-- **SPISignature** - SPI bus interface
-- **I2CSignature** - I2C bus interface
-- **QSPIFlashSignature** - Quad SPI flash interface
-- **JTAGSignature** - JTAG debug interface
-
-IO Configuration
-----------------
-
-**IOModel**
-   Configures electrical characteristics of IO pads (drive mode, trip point, inversion).
-
-**IOModelOptions**
-   Available options for IO configuration.
-
-**IOTripPoint**
-   Voltage threshold configuration for input signals.
-
-Utility Functions
------------------
-
-**setup_amaranth_tools()**
-   Sets up the Amaranth toolchain for your environment.
-
-**top_components()**
-   Returns dictionary of instantiated top-level components from configuration.
-
-**get_software_builds()**
-   Returns software build configurations from the design.
-"""
-platform_api_path = Path('chipflow-lib/platform-api.rst')
-if platform_api_path.exists():
-    platform_api_path.write_text(platform_api_content)
-
-# Add autoapi toctree to chipflow-lib index
-chipflow_lib_index_path = Path('chipflow-lib/index.rst')
-if chipflow_lib_index_path.exists():
-    content = chipflow_lib_index_path.read_text()
-    if 'autoapi/chipflow/index' not in content:
-        # Add API Reference section pointing directly to autoapi-generated indices
-        content += """
 .. toctree::
-   :maxdepth: 2
-   :caption: API Reference
+   :maxdepth: 3
 
-   autoapi/chipflow/index
-   autoapi/chipflow_lib/index
-"""
-        chipflow_lib_index_path.write_text(content)
+   /chipflow-lib/autoapi/chipflow/index
+""")
+
+# Update chipflow-lib/index.rst to point to the platform-api.rst outside chipflow-lib/
+chipflow_lib_index = Path('chipflow-lib/index.rst')
+if chipflow_lib_index.exists():
+    content = chipflow_lib_index.read_text()
+    content = content.replace('platform-api', '/platform-api')
+    chipflow_lib_index.write_text(content)
 
 # -- Project information
 
@@ -148,7 +63,7 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx_copybutton',
-    'myst_parser',
+    # 'myst_parser',
     'sphinx.ext.todo',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
@@ -193,8 +108,6 @@ html_theme_options = {
 autodoc_typehints = 'description'
 
 autoapi_dirs = [
-        top_path / "vendor/chipflow-lib/chipflow_lib/platforms",
-        top_path / "vendor/chipflow-lib/chipflow_lib",
         top_path / "vendor/chipflow-lib/chipflow",
         ]
 autoapi_generate_api_docs = True
@@ -209,6 +122,9 @@ autoapi_options = [
 ]
 autoapi_root = "chipflow-lib/autoapi"
 autoapi_add_toctree_entry = False  # Don't auto-add to toctree (we link manually)
+autoapi_ignore = [
+    "*/chipflow_lib/*",  # Backward compatibility shim
+]
 
 # Exclude autoapi templates and in-progress stuff
 exclude_patterns = [
