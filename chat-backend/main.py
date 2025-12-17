@@ -26,7 +26,7 @@ GCP_PROJECT = os.getenv("GCP_PROJECT", "chipflow-docs")
 GCP_LOCATION = os.getenv("GCP_LOCATION", "us-central1")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 EMBEDDING_MODEL = "text-embedding-005"
-LLM_MODEL = "gemini-1.5-flash-latest"
+LLM_MODEL = "gemini-2.0-flash"
 
 # Allowed origins for CORS
 ALLOWED_ORIGINS = [
