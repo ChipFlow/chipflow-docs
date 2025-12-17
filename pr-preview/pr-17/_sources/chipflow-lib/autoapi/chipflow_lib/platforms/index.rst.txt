@@ -1,0 +1,14 @@
+chipflow_lib.platforms
+======================
+
+.. py:module:: chipflow_lib.platforms
+
+.. autoapi-nested-parse::
+
+   Backward compatibility module for chipflow_lib.platforms.
+
+   This module has been renamed to 'chipflow.platform'. This compatibility layer
+   will be maintained for some time but is deprecated. Please update your imports.
+
+
+
