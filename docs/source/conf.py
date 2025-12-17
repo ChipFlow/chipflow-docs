@@ -20,7 +20,7 @@ repos = [
 # copy in the doc sources from our repos
 repo_list = copy_docs(repos)
 
-# add our repos to path
+# add our repos to path for autodoc to import modules
 for r in repo_list:
     print(f"copy_docs: Adding {str(r)} to sys.path")
     sys.path.append(str(r))
@@ -35,7 +35,7 @@ This section provides the API reference for the ChipFlow platform library.
 .. toctree::
    :maxdepth: 3
 
-   chipflow-lib/autoapi/chipflow/index
+   /chipflow-lib/autoapi/chipflow/index
 """)
 
 # Update chipflow-lib/index.rst to point to the platform-api.rst outside chipflow-lib/
@@ -73,6 +73,7 @@ extensions = [
     'autoapi.extension',
     'sphinx_design',
 ]
+
 
 rst_prolog = """
 .. role:: amaranth
