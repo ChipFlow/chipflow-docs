@@ -26,8 +26,7 @@ for r in repo_list:
     sys.path.append(str(r))
 
 # Create platform-api.rst in docs/source/ (outside chipflow-lib to avoid copy_docs overwriting)
-# Uses autoapi instead of autodoc directives (autodoc requires chipflow to be installed)
-# Note: Warning about "nonexisting document" is expected - autoapi generates files after toctree parsing
+# This file points to the autoapi-generated index
 Path('platform-api.rst').write_text("""Platform API Reference
 ======================
 
@@ -36,7 +35,7 @@ This section provides the API reference for the ChipFlow platform library.
 .. toctree::
    :maxdepth: 3
 
-   /chipflow-lib/autoapi/chipflow/index
+   chipflow-lib/autoapi/chipflow/index
 """)
 
 # Update chipflow-lib/index.rst to point to the platform-api.rst outside chipflow-lib/
@@ -121,7 +120,7 @@ autoapi_options = [
     'imported-members',
 ]
 autoapi_root = "chipflow-lib/autoapi"
-autoapi_add_toctree_entry = False  # Don't auto-add to toctree (we link manually)
+autoapi_add_toctree_entry = False  # We'll manually add to toctree in platform-api.rst
 autoapi_ignore = [
     "*/chipflow_lib/*",  # Backward compatibility shim
 ]
@@ -131,6 +130,7 @@ exclude_patterns = [
     autoapi_template_dir,
     "chipflow-lib/unfinished",
     "chipflow-lib/UNFINISHED_IDEAS.md",
+    "chipflow-lib/platform-api.rst",  # We use /platform-api.rst at root instead
     "amaranth/cover.rst",
     "amaranth-soc/cover.rst",
 ]
