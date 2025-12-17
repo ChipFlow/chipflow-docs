@@ -1,0 +1,14 @@
+chipflow_lib.config
+===================
+
+.. py:module:: chipflow_lib.config
+
+.. autoapi-nested-parse::
+
+   Backward compatibility module for chipflow_lib.config.
+
+   This module has been renamed to 'chipflow.config'. This compatibility layer
+   will be maintained for some time but is deprecated. Please update your imports.
+
+
+
