@@ -2,8 +2,14 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks
 
-# Where we chcekout other modules for inclusion
+# Where we checkout other modules for inclusion
 docs/source/*
+# But keep our local docs
+!docs/source/configurator/
+!docs/source/index.rst
+!docs/source/support.rst
+!docs/source/platform-api.rst
+!docs/source/tutorial-intro-chipflow-platform.rst
 
 # Misc
 log
