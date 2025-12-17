@@ -394,14 +394,14 @@
 <section id="available-pin-signatures">
 <h3>Available Pin Signatures<a class="headerlink" href="#available-pin-signatures" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">UARTSignature()</span></code> - Serial UART interface (TX, RX)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GPIOSignature(pin_count)</span></code> - General purpose I/O pins</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SPISignature()</span></code> - SPI master interface (SCK, COPI, CIPO, CSN)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">I2CSignature()</span></code> - I2C bus interface (SCL, SDA)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">QSPIFlashSignature()</span></code> - Quad SPI flash interface</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">JTAGSignature()</span></code> - JTAG debug interface</p></li>
+<li><p><a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.UARTSignature" title="chipflow.platform.UARTSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">UARTSignature</span></code></a> - Serial UART interface (TX, RX)</p></li>
+<li><p><a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.GPIOSignature" title="chipflow.platform.GPIOSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">GPIOSignature</span></code></a> - General purpose I/O pins</p></li>
+<li><p><a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.SPISignature" title="chipflow.platform.SPISignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">SPISignature</span></code></a> - SPI master interface (SCK, COPI, CIPO, CSN)</p></li>
+<li><p><a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.I2CSignature" title="chipflow.platform.I2CSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">I2CSignature</span></code></a> - I2C bus interface (SCL, SDA)</p></li>
+<li><p><a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.QSPIFlashSignature" title="chipflow.platform.QSPIFlashSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">QSPIFlashSignature</span></code></a> - Quad SPI flash interface</p></li>
+<li><p><a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.JTAGSignature" title="chipflow.platform.JTAGSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">JTAGSignature</span></code></a> - JTAG debug interface</p></li>
 </ul>
-<p>All pin signatures accept <code class="docutils literal notranslate"><span class="pre">IOModelOptions</span></code> to customize their electrical and behavioral properties (see below).</p>
+<p>All pin signatures accept <a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.IOModelOptions" title="chipflow.platform.IOModelOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOModelOptions</span></code></a> to customize their electrical and behavioral properties (see below).</p>
 </section>
 <section id="using-pin-signatures-in-your-top-level-design">
 <h3>Using Pin Signatures in Your Top-Level Design<a class="headerlink" href="#using-pin-signatures-in-your-top-level-design" title="Link to this heading"></a></h3>
@@ -433,7 +433,7 @@
 </section>
 <section id="io-model-options">
 <h3>IO Model Options<a class="headerlink" href="#io-model-options" title="Link to this heading"></a></h3>
-<p>All pin signatures accept <code class="docutils literal notranslate"><span class="pre">IOModelOptions</span></code> to configure the electrical and behavioral properties of the I/O pins:</p>
+<p>All pin signatures accept <a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.IOModelOptions" title="chipflow.platform.IOModelOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOModelOptions</span></code></a> to configure the electrical and behavioral properties of the I/O pins:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">chipflow.platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">GPIOSignature</span><span class="p">,</span> <span class="n">IOTripPoint</span>
 
 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">({</span>
@@ -462,8 +462,8 @@
 <li><p><strong>clock_domain</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) - Name of the I/O’s clock domain (default: <code class="docutils literal notranslate"><span class="pre">'sync'</span></code>). Pins with different clock domains must be in separate signatures.</p></li>
 <li><p><strong>buffer_in</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) - Enable input buffer on the I/O pad.</p></li>
 <li><p><strong>buffer_out</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) - Enable output buffer on the I/O pad.</p></li>
-<li><p><strong>sky130_drive_mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sky130DriveMode</span></code>) - Drive mode for Sky130 output buffers (see below).</p></li>
-<li><p><strong>trip_point</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">IOTripPoint</span></code>) - Input buffer trip point configuration:</p>
+<li><p><strong>sky130_drive_mode</strong> (<a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.Sky130DriveMode" title="chipflow.platform.Sky130DriveMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sky130DriveMode</span></code></a>) - Drive mode for Sky130 output buffers (see below).</p></li>
+<li><p><strong>trip_point</strong> (<a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.IOTripPoint" title="chipflow.platform.IOTripPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOTripPoint</span></code></a>) - Input buffer trip point configuration:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">IOTripPoint.CMOS</span></code> - CMOS switching levels (30%/70%) referenced to I/O power domain</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">IOTripPoint.TTL</span></code> - TTL levels (low &lt; 0.8V, high &gt; 2.0V)</p></li>
@@ -495,7 +495,7 @@
 </section>
 <section id="software-driver-signatures">
 <h2>Software Driver Signatures<a class="headerlink" href="#software-driver-signatures" title="Link to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">SoftwareDriverSignature</span></code> allows you to attach C/C++ driver code to your hardware peripherals. This is useful for providing software APIs that match your hardware registers.</p>
+<p>The <a class="reference internal" href="autoapi/chipflow/platform/index.html#chipflow.platform.SoftwareDriverSignature" title="chipflow.platform.SoftwareDriverSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">SoftwareDriverSignature</span></code></a> allows you to attach C/C++ driver code to your hardware peripherals. This is useful for providing software APIs that match your hardware registers.</p>
 <section id="creating-a-peripheral-with-driver-code">
 <h3>Creating a Peripheral with Driver Code<a class="headerlink" href="#creating-a-peripheral-with-driver-code" title="Link to this heading"></a></h3>
 <p>Here’s how to create a peripheral that includes software driver code:</p>
@@ -637,7 +637,7 @@
 </section>
 <section id="attaching-software-binaries">
 <h2>Attaching Software Binaries<a class="headerlink" href="#attaching-software-binaries" title="Link to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">attach_data()</span></code> function allows you to attach pre-built software binaries (like bootloaders) to flash memory interfaces.</p>
+<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">attach_data()</span></code> function allows you to attach pre-built software binaries (like bootloaders) to flash memory interfaces.</p>
 <section id="basic-usage">
 <h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -660,7 +660,7 @@
     <span class="k">return</span> <span class="n">m</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">attach_data()</span></code> function:</p>
+<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">attach_data()</span></code> function:</p>
 <ol class="arabic simple">
 <li><p>Takes the <strong>external interface</strong> (<code class="docutils literal notranslate"><span class="pre">self.flash</span></code>) from your top-level component</p></li>
 <li><p>Takes the <strong>internal component</strong> (<code class="docutils literal notranslate"><span class="pre">m.submodules.spiflash</span></code>) that implements the flash controller</p></li>

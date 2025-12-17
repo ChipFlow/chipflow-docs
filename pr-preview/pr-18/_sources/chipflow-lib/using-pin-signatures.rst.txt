@@ -20,14 +20,14 @@ Pin signatures define the external interface of your design. ChipFlow provides s
 Available Pin Signatures
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``UARTSignature()`` - Serial UART interface (TX, RX)
-- ``GPIOSignature(pin_count)`` - General purpose I/O pins
-- ``SPISignature()`` - SPI master interface (SCK, COPI, CIPO, CSN)
-- ``I2CSignature()`` - I2C bus interface (SCL, SDA)
-- ``QSPIFlashSignature()`` - Quad SPI flash interface
-- ``JTAGSignature()`` - JTAG debug interface
+- :py:class:`~chipflow.platform.UARTSignature` - Serial UART interface (TX, RX)
+- :py:class:`~chipflow.platform.GPIOSignature` - General purpose I/O pins
+- :py:class:`~chipflow.platform.SPISignature` - SPI master interface (SCK, COPI, CIPO, CSN)
+- :py:class:`~chipflow.platform.I2CSignature` - I2C bus interface (SCL, SDA)
+- :py:class:`~chipflow.platform.QSPIFlashSignature` - Quad SPI flash interface
+- :py:class:`~chipflow.platform.JTAGSignature` - JTAG debug interface
 
-All pin signatures accept ``IOModelOptions`` to customize their electrical and behavioral properties (see below).
+All pin signatures accept :py:class:`~chipflow.platform.IOModelOptions` to customize their electrical and behavioral properties (see below).
 
 Using Pin Signatures in Your Top-Level Design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,7 +63,7 @@ Pin signatures are generic and independent of any particular IP implementation, 
 IO Model Options
 ~~~~~~~~~~~~~~~~
 
-All pin signatures accept ``IOModelOptions`` to configure the electrical and behavioral properties of the I/O pins:
+All pin signatures accept :py:class:`~chipflow.platform.IOModelOptions` to configure the electrical and behavioral properties of the I/O pins:
 
 .. code-block:: python
 
@@ -94,8 +94,8 @@ Available IOModelOptions
 - **clock_domain** (``str``) - Name of the I/O's clock domain (default: ``'sync'``). Pins with different clock domains must be in separate signatures.
 - **buffer_in** (``bool``) - Enable input buffer on the I/O pad.
 - **buffer_out** (``bool``) - Enable output buffer on the I/O pad.
-- **sky130_drive_mode** (:class:`Sky130DriveMode`) - Drive mode for Sky130 output buffers (see below).
-- **trip_point** (:class:`IOTripPoint`) - Input buffer trip point configuration:
+- **sky130_drive_mode** (:py:class:`~chipflow.platform.Sky130DriveMode`) - Drive mode for Sky130 output buffers (see below).
+- **trip_point** (:py:class:`~chipflow.platform.IOTripPoint`) - Input buffer trip point configuration:
 
   - ``IOTripPoint.CMOS`` - CMOS switching levels (30%/70%) referenced to I/O power domain
   - ``IOTripPoint.TTL`` - TTL levels (low < 0.8V, high > 2.0V)
@@ -126,7 +126,7 @@ For Sky130 chips, you can configure the I/O cell drive mode:
 Software Driver Signatures
 ---------------------------
 
-The ``SoftwareDriverSignature`` allows you to attach C/C++ driver code to your hardware peripherals. This is useful for providing software APIs that match your hardware registers.
+The :py:class:`~chipflow.platform.SoftwareDriverSignature` allows you to attach C/C++ driver code to your hardware peripherals. This is useful for providing software APIs that match your hardware registers.
 
 Creating a Peripheral with Driver Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -279,7 +279,7 @@ The driver code is automatically collected during the ChipFlow build process and
 Attaching Software Binaries
 ----------------------------
 
-The ``attach_data()`` function allows you to attach pre-built software binaries (like bootloaders) to flash memory interfaces.
+The :py:func:`~chipflow.platform.attach_data` function allows you to attach pre-built software binaries (like bootloaders) to flash memory interfaces.
 
 Basic Usage
 ~~~~~~~~~~~
@@ -305,7 +305,7 @@ Basic Usage
 
         return m
 
-The ``attach_data()`` function:
+The :py:func:`~chipflow.platform.attach_data` function:
 
 1. Takes the **external interface** (``self.flash``) from your top-level component
 2. Takes the **internal component** (``m.submodules.spiflash``) that implements the flash controller
