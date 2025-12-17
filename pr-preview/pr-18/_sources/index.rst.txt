@@ -15,11 +15,23 @@ Contents
 --------
 
 .. toctree::
-   :caption: User Guide
+   :caption: Getting Started
    :maxdepth: 2
 
    Chip Configurator <configurator/index>
    chipflow-lib/getting-started
+   tutorial-intro-chipflow-platform
+
+.. toctree::
+   :caption: Examples
+   :maxdepth: 2
+
+   examples/index
+
+.. toctree::
+   :caption: Reference
+   :maxdepth: 2
+
    chipflow-lib/index
    Digital IP Library <chipflow-digital-ip/index>
    Amaranth Language and Toolchain <amaranth/index>
