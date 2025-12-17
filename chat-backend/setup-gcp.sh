@@ -31,6 +31,7 @@ gcloud services enable \
     iam.googleapis.com \
     iamcredentials.googleapis.com \
     sts.googleapis.com \
+    generativelanguage.googleapis.com \
     --quiet
 
 # Get project number
@@ -78,11 +79,13 @@ gcloud iam service-accounts add-iam-policy-binding "$COMPUTE_SA" \
 # Grant Vertex AI access to Cloud Run's compute service account
 echo ""
 echo "==> Granting Vertex AI access to compute service account..."
-gcloud projects add-iam-policy-binding "$PROJECT_ID" \
-    --member="serviceAccount:$COMPUTE_SA" \
-    --role="roles/aiplatform.user" \
-    --condition=None \
-    --quiet 2>/dev/null || true
+for role in "roles/aiplatform.user" "roles/serviceusage.serviceUsageConsumer"; do
+    gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+        --member="serviceAccount:$COMPUTE_SA" \
+        --role="$role" \
+        --condition=None \
+        --quiet 2>/dev/null || true
+done
 
 # Set up Workload Identity Federation for GitHub Actions
 echo ""
@@ -136,6 +139,10 @@ echo ""
 echo "GitHub secrets have been set:"
 echo "  - GCP_WORKLOAD_IDENTITY_PROVIDER"
 echo "  - GCP_SERVICE_ACCOUNT"
+echo ""
+echo "IMPORTANT: If this is your first time using Vertex AI Gemini,"
+echo "you must accept the terms of service in the Google Cloud Console:"
+echo "  https://console.cloud.google.com/vertex-ai/generative/language?project=$PROJECT_ID"
 echo ""
 echo "Trigger deployment by:"
 echo "  - Pushing to main with changes in chat-backend/"
