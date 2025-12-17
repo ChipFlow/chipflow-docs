@@ -7,7 +7,7 @@ chipflow_lib.platforms
 
    Backward compatibility module for chipflow_lib.platforms.
 
-   This module has been renamed to 'chipflow.platforms'. This compatibility layer
+   This module has been renamed to 'chipflow.platform'. This compatibility layer
    will be maintained for some time but is deprecated. Please update your imports.
 
 
