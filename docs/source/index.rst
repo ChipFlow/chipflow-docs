@@ -21,7 +21,6 @@ Contents
    Chip Configurator <configurator/index>
    chipflow-lib/getting-started
    chipflow-lib/index
-   Platform API Reference <platform-api>
    Digital IP Library <chipflow-digital-ip/index>
    Amaranth Language and Toolchain <amaranth/index>
    Amaranth System-on-a-Chip toolkit <amaranth-soc/index>

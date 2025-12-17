@@ -1,9 +1,0 @@
-Platform API Reference
-======================
-
-This section provides the API reference for the ChipFlow platform library.
-
-.. toctree::
-   :maxdepth: 3
-
-   chipflow-lib/autoapi/chipflow/index

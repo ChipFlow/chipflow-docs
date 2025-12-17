@@ -100,8 +100,6 @@ exclude_patterns = [
     "chipflow-lib/unfinished",
     "amaranth/cover.rst",
     "amaranth-soc/cover.rst",
-    # Use root-level platform-api.rst instead of the vendor one
-    "chipflow-lib/platform-api.rst",
 ]
 
 

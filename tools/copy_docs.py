@@ -81,7 +81,24 @@ def copy_docs(repos: List[Tuple[str, str]]) -> List[Path]:
                     # Skip binary files or directories
                     pass
 
-    # assemble a
+    # Override chipflow-lib/platform-api.rst with our custom version that has
+    # correct toctree paths (the vendor version has broken cross-references)
+    platform_api_path = root_path / 'docs/source/chipflow-lib/platform-api.rst'
+    if platform_api_path.exists():
+        platform_api_content = """\
+Platform API Reference
+======================
+
+This section provides the API reference for the ChipFlow platform library.
+
+.. toctree::
+   :maxdepth: 3
+
+   /chipflow-lib/autoapi/chipflow/index
+"""
+        platform_api_path.write_text(platform_api_content, encoding='utf-8')
+        print(f"Replaced {platform_api_path} with custom version")
+
     print("Documentation copy completed successfully")
 
     return repo_list
