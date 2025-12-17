@@ -10,6 +10,31 @@ import shutil
 from pathlib import Path
 from typing import List, Tuple
 
+
+def has_local_changes(repodir: Path) -> bool:
+    """Check if a git repository has uncommitted changes or is on a non-detached branch."""
+    # Check for uncommitted changes
+    status_result = subprocess.run(
+        ['git', '-C', repodir, 'status', '--porcelain'],
+        capture_output=True,
+        text=True
+    )
+    if status_result.stdout.strip():
+        return True
+
+    # Check if we're on a branch (not detached HEAD)
+    branch_result = subprocess.run(
+        ['git', '-C', repodir, 'symbolic-ref', '-q', 'HEAD'],
+        capture_output=True,
+        text=True
+    )
+    if branch_result.returncode == 0:
+        # We're on a branch, check if it has commits ahead of origin
+        return True
+
+    return False
+
+
 def copy_docs(repos: List[Tuple[str, str]]) -> List[Path]:
     """"
     Pull in docs from other repos.
@@ -43,11 +68,14 @@ def copy_docs(repos: List[Tuple[str, str]]) -> List[Path]:
 
         # Check if repo already exists
         if repodir.exists():
-            print(f"{repo_path} already there, updating")
-            # Git fetch
-            subprocess.run(['git', '-C', repodir, 'fetch'], check=True)
-            # Checkout ref
-            subprocess.run(['git', '-C', repodir, 'checkout', '-f', '--detach', ref], check=True)
+            if has_local_changes(repodir):
+                print(f"{repo_path} has local changes, skipping update")
+            else:
+                print(f"{repo_path} already there, updating")
+                # Git fetch
+                subprocess.run(['git', '-C', repodir, 'fetch'], check=True)
+                # Checkout ref
+                subprocess.run(['git', '-C', repodir, 'checkout', '-f', '--detach', ref], check=True)
         else:
             print(f"Cloning {repo_path} {ref} as {repodir}")
             # Clone the repository with gh
