@@ -18,6 +18,7 @@ Contents
    :caption: User Guide
    :maxdepth: 2
 
+   Chip Configurator <configurator/index>
    chipflow-lib/getting-started
    chipflow-lib/index
    Digital IP Library <chipflow-digital-ip/index>
