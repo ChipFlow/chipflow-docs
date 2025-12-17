@@ -96,7 +96,7 @@ rst_epilog = """
 html_theme = 'furo'
 html_logo = 'chipflow-lib/_assets/chipflow-logo.svg'
 html_title = "ChipFlow Platform Documentation"
-html_static_path = ['chipflow-lib/_assets', 'amaranth/_static', 'amaranth-soc/_static']
+html_static_path = ['_static', 'chipflow-lib/_assets', 'amaranth/_static', 'amaranth-soc/_static']
 
 html_theme_options = {
     "dark_css_variables": {
@@ -168,6 +168,7 @@ html_favicon = "favicon.png"
 # or fully qualified paths (eg. https://...)
 html_js_files = [
     'js/init.js',
+    'js/chat-widget.js',
 ]
 
 # -- Options for EPUB output
