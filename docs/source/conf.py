@@ -74,6 +74,7 @@ extensions = [
     'sphinx_design',
     'sphinx_llm.txt',
     'sphinx_json_index',
+    'sphinx_llms_enhancements',
 ]
 
 rst_prolog = """
