@@ -9,7 +9,7 @@
 
   // Configuration - update this when deploying the backend
   const CONFIG = {
-    apiUrl: 'https://chipflow-docs-chat-PLACEHOLDER.a.run.app/api/chat',
+    apiUrl: 'https://chipflow-docs-chat-ixzgvx6kya-uc.a.run.app/api/chat',
     projectName: 'ChipFlow',
     placeholder: 'Ask about ChipFlow docs...',
     welcomeMessage: 'Hi! I can help answer questions about ChipFlow documentation. What would you like to know?'

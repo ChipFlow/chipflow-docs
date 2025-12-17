@@ -21,7 +21,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configuration
-DOCS_URL = os.getenv("DOCS_URL", "https://docs.chipflow.io/llms-full.txt")
+DOCS_URL = os.getenv("DOCS_URL", "https://chipflow-docs.docs.chipflow-infra.com/llms-full.txt")
 GCP_PROJECT = os.getenv("GCP_PROJECT", "chipflow-docs")
 GCP_LOCATION = os.getenv("GCP_LOCATION", "us-central1")
 EMBEDDING_MODEL = "text-embedding-005"

@@ -44,7 +44,7 @@ steps:
       - '--max-instances'
       - '3'
       - '--set-env-vars'
-      - 'DOCS_URL=https://docs.chipflow.io/llms-full.txt,GCP_PROJECT=$PROJECT_ID,GCP_LOCATION=us-central1'
+      - 'DOCS_URL=https://chipflow-docs.docs.chipflow-infra.com/llms-full.txt,GCP_PROJECT=$PROJECT_ID,GCP_LOCATION=us-central1'
 
 images:
   - 'gcr.io/$PROJECT_ID/chipflow-docs-chat:$COMMIT_SHA'
