@@ -3,7 +3,8 @@ Chip Configurator
 
 The `ChipFlow Configurator <https://configurator.chipflow.io>`_ is a web-based tool for
 designing and visualizing custom chip layouts. It provides an intuitive interface
-for configuring IP blocks, pin assignments, and bus connections.
+for configuring IP blocks, pin assignments, and bus connections - then generates
+a complete development environment for you to build and simulate your design.
 
 .. image:: _screenshots/01-main-view.png
    :alt: ChipFlow Configurator main view
@@ -25,14 +26,11 @@ Getting Started
       :alt: Template selector dropdown
       :width: 100%
 
-3. **Explore the Chip Layout**
+3. **Configure Your Design**
 
-   The main view shows your chip layout with:
-
-   - **Analog IP blocks** positioned around the perimeter (shell)
-   - **Digital IP blocks** in the center (core)
-   - **Pin assignments** shown on the edges
-   - **Bus connections** between IP blocks
+   - Enable or disable IP blocks using the sidebar controls
+   - View pin assignments on the chip edges
+   - See bus connections between components
 
 4. **Navigate the View**
 
@@ -42,6 +40,58 @@ Getting Started
    .. image:: _screenshots/04-zoomed-out.png
       :alt: Zoomed out view showing full chip
       :width: 100%
+
+5. **Generate Your Design**
+
+   When you're happy with your configuration, click the **Generate Design** button.
+   This will:
+
+   - Create a GitHub repository with your design
+   - Launch a GitHub Codespace with everything pre-configured
+   - Open a welcome page with next steps
+
+Working in Your Codespace
+-------------------------
+
+After clicking "Generate Design", you'll be taken to a GitHub Codespace with your
+chip design ready to build and simulate. The welcome page shows your design summary
+and provides the commands you need.
+
+Build Your Design
+^^^^^^^^^^^^^^^^^
+
+Generate Verilog and compile the simulation:
+
+.. code-block:: bash
+
+   chipflow sim build
+
+Run Simulation
+^^^^^^^^^^^^^^
+
+Execute the simulation and see results:
+
+.. code-block:: bash
+
+   chipflow sim run
+
+Submit for Fabrication
+^^^^^^^^^^^^^^^^^^^^^^
+
+When your design is ready, submit it for silicon fabrication:
+
+.. code-block:: bash
+
+   chipflow silicon submit
+
+Next Steps in the Codespace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. **Build your design** - Run ``chipflow sim build`` to generate Verilog and compile
+2. **Run simulation** - Execute ``chipflow sim run`` to test your design
+3. **Explore results** - Check generated Verilog, waveforms, and test output
+4. **Iterate and refine** - Modify your design and rebuild as needed
+5. **Submit for fabrication** - Run ``chipflow silicon submit`` when ready
 
 Key Features
 ------------
@@ -67,22 +117,15 @@ Visual Bus Routing
 - Toggle bus visibility in the sidebar
 - See which blocks share common buses
 
-Export Designs
-^^^^^^^^^^^^^^
+One-Click Development Environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Export your complete chip design as a JSON file containing:
+- Generates a complete GitHub repository
+- Pre-configured Codespace with all tools installed
+- Ready to build, simulate, and submit your design
 
-- Full configuration settings
-- IP block positions and parameters
-- Pin allocation details
-- Bus connection information
+Resources
+---------
 
-Click the **Export Design** button in the sidebar to download your design.
-
-Next Steps
-----------
-
-- Explore different chip templates to see various configurations
-- Try enabling/disabling IP blocks to see how pin allocation changes
-- Export a design and examine the JSON structure
-- Check out the :doc:`/chipflow-lib/index` to learn how to use your design in code
+- `ChipFlow Documentation <https://docs.chipflow.io>`_ - Complete guides and API reference
+- `Report Issues <https://github.com/ChipFlow/chipflow-central/issues>`_ - Found a problem? Let us know
