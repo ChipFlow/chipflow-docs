@@ -47,10 +47,21 @@ if ! gcloud iam service-accounts describe "$DEPLOYER_SA" --quiet 2>/dev/null; th
         --quiet
 fi
 
+# Create gcr.io repository in Artifact Registry if it doesn't exist
+echo ""
+echo "==> Ensuring Artifact Registry repository exists..."
+if ! gcloud artifacts repositories describe gcr.io --location=us --quiet 2>/dev/null; then
+    gcloud artifacts repositories create gcr.io \
+        --repository-format=docker \
+        --location=us \
+        --description="Container images" \
+        --quiet 2>/dev/null || true
+fi
+
 # Grant required roles to the deployer service account
 echo ""
 echo "==> Granting roles to deployer service account..."
-for role in "roles/run.admin" "roles/storage.admin" "roles/aiplatform.user"; do
+for role in "roles/run.admin" "roles/storage.admin" "roles/artifactregistry.writer" "roles/aiplatform.user"; do
     gcloud projects add-iam-policy-binding "$PROJECT_ID" \
         --member="serviceAccount:$DEPLOYER_SA" \
         --role="$role" \
