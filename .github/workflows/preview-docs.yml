@@ -16,6 +16,8 @@ jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     needs: build-docs
+    outputs:
+      preview-url: ${{ steps.preview.outputs.deployment-url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,11 +28,50 @@ jobs:
           name: docs
           path: docs/build
 
-      - uses: rossjrw/pr-preview-action@v1
+      - name: Deploy preview
+        id: preview
+        uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: docs/build
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
           pages-base-url: chipflow-docs.docs.chipflow-infra.com
-          custom-url-notice: "**Note:** The preview may take 1-2 minutes to be available after deployment completes."
+          comment: false
+
+  comment-on-pr:
+    runs-on: ubuntu-latest
+    needs: deploy-preview
+    if: github.event.action != 'closed'
+    steps:
+      - name: Wait for GitHub Pages deployment
+        run: |
+          PREVIEW_URL="https://chipflow-docs.docs.chipflow-infra.com/pr-preview/pr-${{ github.event.pull_request.number }}/"
+          echo "Waiting for $PREVIEW_URL to be available..."
+
+          for i in {1..30}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL")
+            if [ "$STATUS" = "200" ]; then
+              echo "Preview is live!"
+              exit 0
+            fi
+            echo "Attempt $i: Got HTTP $STATUS, waiting 10s..."
+            sleep 10
+          done
+
+          echo "Preview did not become available within 5 minutes"
+          exit 1
+
+      - name: Comment on PR
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ## 📖 Documentation Preview
+
+            ✅ **Preview is live!**
+
+            🔗 **[View preview](https://chipflow-docs.docs.chipflow-infra.com/pr-preview/pr-${{ github.event.pull_request.number }}/)**
+
+            ---
+            <sub>Built from commit ${{ github.sha }}</sub>
