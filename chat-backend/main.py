@@ -25,7 +25,7 @@ DOCS_URL = os.getenv("DOCS_URL", "https://chipflow-docs.docs.chipflow-infra.com/
 GCP_PROJECT = os.getenv("GCP_PROJECT", "chipflow-docs")
 GCP_LOCATION = os.getenv("GCP_LOCATION", "us-central1")
 EMBEDDING_MODEL = "text-embedding-005"
-LLM_MODEL = "gemini-1.5-flash-002"
+LLM_MODEL = "gemini-1.5-flash"
 
 # Allowed origins for CORS
 ALLOWED_ORIGINS = [
