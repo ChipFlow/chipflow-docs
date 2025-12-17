@@ -246,12 +246,7 @@ async def chat(request: ChatRequest):
                 role = "User" if msg.get("role") == "user" else "Assistant"
                 history_text += f"{role}: {msg.get('content', '')}\n"
 
-        # Generate response using Google AI SDK
-        import google.generativeai as genai
-
-        genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel(LLM_MODEL)
-
+        # Generate response using Gemini REST API
         prompt = f"""You are a helpful assistant for ChipFlow documentation. Answer the user's question based on the provided context from the documentation.
 
 Guidelines:
@@ -269,8 +264,25 @@ User question: {request.question}
 
 Answer:"""
 
-        response = model.generate_content(prompt)
-        answer = response.text.strip()
+        async with httpx.AsyncClient(timeout=60.0) as client:
+            api_url = f"https://generativelanguage.googleapis.com/v1beta/models/{LLM_MODEL}:generateContent"
+            response = await client.post(
+                api_url,
+                params={"key": GEMINI_API_KEY},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": 0.7,
+                        "maxOutputTokens": 1024,
+                    }
+                }
+            )
+            if response.status_code != 200:
+                logger.error(f"Gemini API error: {response.status_code} {response.text}")
+                raise HTTPException(status_code=502, detail="Failed to get response from Gemini")
+
+            result = response.json()
+            answer = result["candidates"][0]["content"]["parts"][0]["text"].strip()
 
         return ChatResponse(answer=answer, sources=sources)
 
