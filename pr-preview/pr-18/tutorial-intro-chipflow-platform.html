@@ -1,0 +1,963 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <link rel="shortcut icon" href="_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
+        <title>Introduction to the ChipFlow platform - ChipFlow Platform Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="_static/platformpicker.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --admonition-font-size: 0.9 rem;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --admonition-font-size: 0.9 rem;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --admonition-font-size: 0.9 rem;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ChipFlow Platform Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/chipflow-logo.svg" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">ChipFlow Platform Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurator/index.html">Chip Configurator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chipflow-lib/getting-started.html">Getting Started with ChipFlow</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chipflow-lib/index.html">ChipFlow Library Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of ChipFlow Library Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/getting-started.html">Getting Started with ChipFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/architecture.html">ChipFlow Architecture Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/simulation-guide.html">Simulation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/chipflow-toml-guide.html"><code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code> Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/chipflow-commands.html">The <code class="docutils literal notranslate"><span class="pre">chipflow</span></code> command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/using-pin-signatures.html">Using Pin Signatures and Software Drivers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="chipflow-lib/platform-api.html">Platform API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Platform API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html">chipflow</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of chipflow</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth/index.html">chipflow.auth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth_command/index.html">chipflow.auth_command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/common/index.html">chipflow.common</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/config/index.html">chipflow.config</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of chipflow.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/config/parser/index.html">chipflow.config.parser</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packages/index.html">chipflow.packages</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/index.html">chipflow.packaging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of chipflow.packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/allocation/index.html">chipflow.packaging.allocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/base/index.html">chipflow.packaging.base</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/commands/index.html">chipflow.packaging.commands</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/grid_array/index.html">chipflow.packaging.grid_array</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/lockfile/index.html">chipflow.packaging.lockfile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/openframe/index.html">chipflow.packaging.openframe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/pins/index.html">chipflow.packaging.pins</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html">chipflow.packaging.port_desc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/standard/index.html">chipflow.packaging.standard</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/utils/index.html">chipflow.packaging.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/index.html">chipflow.platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of chipflow.platform</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/base/index.html">chipflow.platform.base</a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/index.html">chipflow.platform.io</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of chipflow.platform.io</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/annotate/index.html">chipflow.platform.io.annotate</a></li>
+<li class="toctree-l6"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/iosignature/index.html">chipflow.platform.io.iosignature</a></li>
+<li class="toctree-l6"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/signatures/index.html">chipflow.platform.io.signatures</a></li>
+<li class="toctree-l6"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/sky130/index.html">chipflow.platform.io.sky130</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/utils/index.html">chipflow.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-lib/contributor-pin-signature-internals.html">Pin Signature Architecture (Contributor Guide)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chipflow-digital-ip/index.html">Digital IP Library</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Digital IP Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-digital-ip/base.html">Base Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-digital-ip/io.html">I/O Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-digital-ip/memory.html">Memory Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chipflow-digital-ip/processors.html">Processors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chipflow-digital-ip/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="amaranth/index.html">Amaranth Language and Toolchain</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Amaranth Language and Toolchain</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/start.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/guide.html">Language guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/reference.html">Language reference</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="amaranth/stdlib.html">Standard library</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Standard library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/enum.html">Enumerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/data.html">Data structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/wiring.html">Interfaces and connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/meta.html">Interface metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/stream.html">Data streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/memory.html">Memory arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/io.html">Input/output buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/cdc.html">Clock domain crossing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/coding.html">Code conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/stdlib/fifo.html">First-in first-out queues</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="amaranth/stdlib/crc.html">Cyclic redundancy checks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Cyclic redundancy checks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="amaranth/stdlib/crc/catalog.html">Algorithm catalog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/simulator.html">Simulator</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="amaranth/platform.html">Platform integration</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Platform integration</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/platform/altera.html">Altera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/platform/gowin.html">Gowin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/platform/lattice.html">Lattice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/platform/quicklogic.html">Quicklogic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/platform/siliconblue.html">SiliconBlue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth/platform/xilinx.html">Xilinx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/changes.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth/contrib.html">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="amaranth-soc/index.html">Amaranth System-on-a-Chip toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Amaranth System-on-a-Chip toolkit</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="amaranth-soc/memory.html">Memory maps</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="amaranth-soc/wishbone.html">Wishbone</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Wishbone</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="amaranth-soc/wishbone/bus.html">Wishbone bus</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="amaranth-soc/csr.html">CSR</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of CSR</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="amaranth-soc/csr/bus.html">CSR bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth-soc/csr/reg.html">CSR registers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amaranth-soc/csr/action.html">CSR fields</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="amaranth-soc/gpio.html">GPIO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chipflow-lib/autoapi/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/index.html">chipflow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of chipflow</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth/index.html">chipflow.auth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/auth_command/index.html">chipflow.auth_command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/common/index.html">chipflow.common</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/config/index.html">chipflow.config</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of chipflow.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/config/parser/index.html">chipflow.config.parser</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packages/index.html">chipflow.packages</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/index.html">chipflow.packaging</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of chipflow.packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/allocation/index.html">chipflow.packaging.allocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/base/index.html">chipflow.packaging.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/commands/index.html">chipflow.packaging.commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/grid_array/index.html">chipflow.packaging.grid_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/lockfile/index.html">chipflow.packaging.lockfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/openframe/index.html">chipflow.packaging.openframe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/pins/index.html">chipflow.packaging.pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html">chipflow.packaging.port_desc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/standard/index.html">chipflow.packaging.standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/packaging/utils/index.html">chipflow.packaging.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/index.html">chipflow.platform</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of chipflow.platform</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/base/index.html">chipflow.platform.base</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/index.html">chipflow.platform.io</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of chipflow.platform.io</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/annotate/index.html">chipflow.platform.io.annotate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/iosignature/index.html">chipflow.platform.io.iosignature</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/signatures/index.html">chipflow.platform.io.signatures</a></li>
+<li class="toctree-l5"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/platform/io/sky130/index.html">chipflow.platform.io.sky130</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chipflow-lib/autoapi/chipflow/utils/index.html">chipflow.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/tutorial-intro-chipflow-platform.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="introduction-to-the-chipflow-platform">
+<h1>Introduction to the ChipFlow platform<a class="headerlink" href="#introduction-to-the-chipflow-platform" title="Link to this heading"></a></h1>
+<p>This tutorial gives an overview of how we can configure an SoC (system on chip) with the ChipFlow platform:</p>
+<ul class="simple">
+<li><p>Simulate an example SoC</p></li>
+<li><p>Add a peripheral</p></li>
+<li><p>Optionally run on an FPGA</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To test designs on an FPGA, you will need a <a class="reference external" href="https://www.crowdsupply.com/radiona/ulx3s">ULX3S</a>.
+Other development boards will be supported in the future.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This tutorial assumes you are running on macOS 11 or later or Ubuntu 22.04 or later.
+The tutorial will work on other Linux distributions, but instructions are not included here.</p>
+</div>
+<section id="preparing-your-local-environment">
+<h2>Preparing your local environment<a class="headerlink" href="#preparing-your-local-environment" title="Link to this heading"></a></h2>
+<div class="admonition-installing-on-macos admonition">
+<p class="admonition-title">Installing on macOS</p>
+<p>You will need to install Python3 and git. Use <a class="reference external" href="https://brew.sh/">Brew</a> for this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span>
+<span class="n">brew</span> <span class="n">install</span> <span class="n">python3</span> <span class="n">pipx</span>
+<span class="n">brew</span> <span class="n">install</span> <span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-installing-on-ubuntu admonition">
+<p class="admonition-title">Installing on Ubuntu</p>
+<p>You will need to install git:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="n">pipx</span>
+</pre></div>
+</div>
+</div>
+<p>We use <a class="reference external" href="https://pdm.fming.dev/">PDM</a> to manage dependencies and ensure reproduable builds of your design.</p>
+<p>First install PDM:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">ensurepath</span>
+    <span class="n">pipx</span> <span class="n">install</span> <span class="n">pdm</span>
+</pre></div>
+</div>
+<p>You may need to restart your shell session for PDM to become available, using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span> <span class="s2">&quot;$SHELL&quot;</span>
+</pre></div>
+</div>
+<p>To program the FPGA board we use <a class="reference external" href="https://trabucayre.github.io/openFPGALoader/guide/install.html">openFPGAloader</a>.</p>
+<div class="admonition-installing-on-macos admonition">
+<p class="admonition-title">Installing on macOS</p>
+<p>Install using brew:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">openfpgaloader</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-installing-on-ubuntu admonition">
+<p class="admonition-title">Installing on Ubuntu</p>
+<p>Install openFPGAloader using apt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">chipflow</span><span class="o">/</span><span class="n">ppa</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">openfpgaloader</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>First use <a class="reference external" href="https://git-scm.com/">Git</a> to get the example sources.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ChipFlow</span><span class="o">/</span><span class="n">example</span><span class="o">-</span><span class="n">socs</span>
+</pre></div>
+</div>
+<p>Then set up your environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">example</span><span class="o">-</span><span class="n">socs</span>
+<span class="n">make</span> <span class="n">init</span>
+</pre></div>
+</div>
+</section>
+<section id="the-example-project">
+<h2>The example project<a class="headerlink" href="#the-example-project" title="Link to this heading"></a></h2>
+<p>The project contains:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.github/workflows/*</span></code> - Runs linting and tests in GitHub Actions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chipflow.toml</span></code> - Configuration telling the ChipFlow library how to load your Python design and allows you to configure the ChipFlow platform.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> - Contains helpful shortcuts to the CLI tools used in the project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_design/design.py</span></code> - This has the actual chip design.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_design/steps/*</span></code> - These control how your design will be presented to the ChipFlow build steps, <code class="docutils literal notranslate"><span class="pre">sim``(ulation),</span> <span class="pre">(FPGA)``board</span></code> and <code class="docutils literal notranslate"><span class="pre">silicon</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_design/sim/*</span></code> - The C++ and <a class="reference external" href="https://pydoit.org/">doit build file</a> which builds the binary which will simulate our design.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_design/software/*</span></code> - The C++ and <a class="reference external" href="https://pydoit.org/">doit build file</a> for the software/BIOS which we will load onto our design when it’s running in simulation or on a board.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/*</span></code> - This has some pytest integration tests which cover simulation and board/silicon builds.</p></li>
+</ul>
+</section>
+<section id="the-design">
+<h2>The design<a class="headerlink" href="#the-design" title="Link to this heading"></a></h2>
+<p>The chip design is contained within the <cite>MySoC</cite> class in <code class="docutils literal notranslate"><span class="pre">my_design/design.py</span></code>, and is described
+using the <a class="reference external" href="https://github.com/amaranth-lang/amaranth">Amaranth hardware definition language</a>.
+Amaranth is already well-used for FPGA boards, and at ChipFlow we will be using it
+to produce silicon chips.</p>
+<p>Something a little unusual about our example Amaranth design is that we change
+how the peripherals are physically accessed for use with simulation, a board, or
+silicon.</p>
+<p>For example, here’s where we add <code class="docutils literal notranslate"><span class="pre">QSPIFlash</span></code> to our design:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">rom_provider</span> <span class="o">=</span> <span class="n">rom_provider</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">QSPIFlashProvider</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">rom</span> <span class="o">=</span> <span class="n">SPIMemIO</span><span class="p">(</span>
+    <span class="n">flash</span><span class="o">=</span><span class="n">rom_provider</span><span class="o">.</span><span class="n">pins</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The provider implementations, which are provided by ChipFlow, look a bit different for each context:</p>
+<section id="qspiflash-for-a-board">
+<h3>QSPIFlash for a Board<a class="headerlink" href="#qspiflash-for-a-board" title="Link to this heading"></a></h3>
+<p>For a board, in our case a ULX3S board, we need a means of accessing the clock pin (<code class="docutils literal notranslate"><span class="pre">USRMCLK</span></code>) and buffer primitives (<code class="docutils literal notranslate"><span class="pre">OBZ</span></code>, <code class="docutils literal notranslate"><span class="pre">BB</span></code>) to access the other pins:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">QSPIFlashProvider</span><span class="p">(</span><span class="n">Elaboratable</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pins</span> <span class="o">=</span> <span class="n">QSPIPins</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">elaborate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">platform</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">Module</span><span class="p">()</span>
+
+        <span class="n">flash</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;spi_flash&quot;</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cs</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">copi</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">cipo</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">wp</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">hold</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">))</span>
+        <span class="c1"># Flash clock requires a special primitive to access in ECP5</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">usrmclk</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">(</span>
+            <span class="s2">&quot;USRMCLK&quot;</span><span class="p">,</span>
+            <span class="n">i_USRMCLKI</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">clk_o</span><span class="p">,</span>
+            <span class="n">i_USRMCLKTS</span><span class="o">=</span><span class="n">ResetSignal</span><span class="p">(),</span>  <span class="c1"># tristate in reset for programmer accesss</span>
+            <span class="n">a_keep</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># IO pins and buffers</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">submodules</span> <span class="o">+=</span> <span class="n">Instance</span><span class="p">(</span>
+            <span class="s2">&quot;OBZ&quot;</span><span class="p">,</span>
+            <span class="n">o_O</span><span class="o">=</span><span class="n">flash</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">io</span><span class="p">,</span>
+            <span class="n">i_I</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">csn_o</span><span class="p">,</span>
+            <span class="n">i_T</span><span class="o">=</span><span class="n">ResetSignal</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="c1"># Pins in order</span>
+        <span class="n">data_pins</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;copi&quot;</span><span class="p">,</span> <span class="s2">&quot;cipo&quot;</span><span class="p">,</span> <span class="s2">&quot;wp&quot;</span><span class="p">,</span> <span class="s2">&quot;hold&quot;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">submodules</span> <span class="o">+=</span> <span class="n">Instance</span><span class="p">(</span>
+                <span class="s2">&quot;BB&quot;</span><span class="p">,</span>
+                <span class="n">io_B</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">flash</span><span class="p">,</span> <span class="n">data_pins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">io</span><span class="p">,</span>
+                <span class="n">i_I</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">d_o</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">i_T</span><span class="o">=~</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">d_oe</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">o_O</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">d_i</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">m</span>
+</pre></div>
+</div>
+<p>This is specific to the ECP5 family of boards, and the code would look different for others.</p>
+</section>
+<section id="qspiflash-for-simulation">
+<h3>QSPIFlash for Simulation<a class="headerlink" href="#qspiflash-for-simulation" title="Link to this heading"></a></h3>
+<p>For simulation, we add a C++ model which will mock/simulate the flash:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">QSPIFlashProvider</span><span class="p">(</span><span class="n">Elaboratable</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pins</span> <span class="o">=</span> <span class="n">QSPIPins</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">elaborate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">platform</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">platform</span><span class="o">.</span><span class="n">add_model</span><span class="p">(</span><span class="s2">&quot;spiflash_model&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="p">,</span> <span class="n">edge_det</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;clk_o&#39;</span><span class="p">,</span> <span class="s1">&#39;csn_o&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="qspiflash-for-silicon">
+<h3>QSPIFlash for Silicon<a class="headerlink" href="#qspiflash-for-silicon" title="Link to this heading"></a></h3>
+<p>For Silicon we just hook up the IO.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">QSPIFlashProvider</span><span class="p">(</span><span class="n">Elaboratable</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pins</span> <span class="o">=</span> <span class="n">QSPIPins</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">elaborate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">platform</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">Module</span><span class="p">()</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">comb</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="n">platform</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;flash_clk&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">clk_o</span><span class="p">),</span>
+            <span class="n">platform</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;flash_csn&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">csn_o</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">pin</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;flash_d</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">comb</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">d_i</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">pin</span><span class="o">.</span><span class="n">i</span><span class="p">),</span>
+                <span class="n">pin</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">d_o</span><span class="p">[</span><span class="n">index</span><span class="p">]),</span>
+                <span class="n">pin</span><span class="o">.</span><span class="n">oe</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pins</span><span class="o">.</span><span class="n">d_oe</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="p">]</span>
+        <span class="k">return</span> <span class="n">m</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="run-the-design-in-simulation">
+<h2>Run the design in simulation<a class="headerlink" href="#run-the-design-in-simulation" title="Link to this heading"></a></h2>
+<p>Running our design and its software in simulation allows us to loosely check
+that it’s working.</p>
+<p>First we need to build a local simulation binary. The simulation uses
+blackbox C++ models of external peripherals, such as the flash, to interact
+with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>sim-build
+</pre></div>
+</div>
+<p>After running this, we will have a simulation binary at <code class="docutils literal notranslate"><span class="pre">build/sim/sim_soc</span></code>.</p>
+<p>We can’t run it just yet, as it needs the software/BIOS too. To build the
+software we run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>software-build
+</pre></div>
+</div>
+<p>Now that we have our simulation binary, and a BIOS, we can run it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>sim-run
+</pre></div>
+</div>
+<p>You should see console output like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>🐱:<span class="w"> </span>nyaa~!
+SoC<span class="w"> </span>type:<span class="w"> </span>CA7F100F
+SoC<span class="w"> </span>version:<span class="w"> </span>2024D6E6
+Flash<span class="w"> </span>ID:<span class="w"> </span>CA7CA7FF
+Entering<span class="w"> </span>QSPI<span class="w"> </span>mode
+Initialised!
+</pre></div>
+</div>
+<p>Which means the processor is up and running. You can use Ctrl+C to interrupt it.</p>
+</section>
+<section id="run-the-design-on-a-ulx3s-board-optional">
+<h2>Run the design on a ULX3S board (optional)<a class="headerlink" href="#run-the-design-on-a-ulx3s-board-optional" title="Link to this heading"></a></h2>
+<p>We can also run our design on an FPGA board, although currently only the ULX3S
+is supported. If you don’t have one, you can
+<a class="reference internal" href="#add-peripheral"><span class="std std-ref">skip to the next section</span></a>.</p>
+<p>First we need to build the design into a bitstream for the board:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>board-build
+</pre></div>
+</div>
+<p>This will write a file <code class="docutils literal notranslate"><span class="pre">build/top.bit</span></code>. As for the simulation, we need the
+software/BIOS too.</p>
+<p>If we haven’t already, build the bios:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>software-build
+</pre></div>
+</div>
+<p>Now, we load the software/BIOS and design onto board (program its bitstream):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>board-load-software-ulx3s
+make<span class="w"> </span>board-load-ulx3s
+</pre></div>
+</div>
+<p>Your board should now be running. For us to check that it’s working, we can
+connect to it via its serial port:</p>
+<section id="connecting-to-your-board">
+<h3>Connecting to your board<a class="headerlink" href="#connecting-to-your-board" title="Link to this heading"></a></h3>
+<p>First you need to find the serial port for your board, this is a little tricky but you should only need to do this once.</p>
+<div class="admonition-look-for-your-serial-port-on-macos admonition">
+<p class="admonition-title">Look for your serial port on macOS</p>
+<p>Run the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>you should see something similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty</span><span class="o">.</span><span class="n">Bluetooth</span><span class="o">-</span><span class="n">Incoming</span><span class="o">-</span><span class="n">Port</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty</span><span class="o">.</span><span class="n">usbserial</span><span class="o">-</span><span class="n">K00219</span>
+</pre></div>
+</div>
+<p>In this case for our board its <code class="docutils literal notranslate"><span class="pre">/dev/tty.usbserial-K00219</span></code>. Your device will likely be named similarly.</p>
+</div>
+<div class="admonition-look-for-your-serial-port-on-ubuntu-wsl2 admonition">
+<p class="admonition-title">Look for your serial port on Ubuntu/WSL2</p>
+<p>Run the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>you should see something similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span>
+</pre></div>
+</div>
+<p>In this case for our board its <code class="docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code>. Yours will likely be named similarly.</p>
+</div>
+<p>Below we will refer to the name of your serial port as <code class="docutils literal notranslate"><span class="pre">$TTYUSB</span></code>. This is the full path you saw, starting with <code class="docutils literal notranslate"><span class="pre">/dev/</span></code>.</p>
+<p>For ease you can set this in your terminal using <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TTYUSB=/dev/&lt;the</span> <span class="pre">tty</span> <span class="pre">device</span> <span class="pre">you</span> <span class="pre">found&gt;</span></code>.</p>
+<p>Connect to the port via the screen utility, at baud <code class="docutils literal notranslate"><span class="pre">115200</span></code>, with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen<span class="w"> </span><span class="nv">$TTYUSB</span><span class="w"> </span><span class="m">115200</span>
+</pre></div>
+</div>
+<p>Now, press the <code class="docutils literal notranslate"><span class="pre">PWR</span></code> button on your board, which will restart the design,
+and give you a chance to see its output. It should look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>🐱:<span class="w"> </span>nyaa~!
+SoC<span class="w"> </span>type:<span class="w"> </span>CA7F100F
+SoC<span class="w"> </span>version:<span class="w"> </span>613015FF
+Flash<span class="w"> </span>ID:<span class="w"> </span>EF401800
+Entering<span class="w"> </span>QSPI<span class="w"> </span>mode
+Initialised!
+</pre></div>
+</div>
+<p>To exit screen, use <code class="docutils literal notranslate"><span class="pre">CTRL-A</span></code>, then <code class="docutils literal notranslate"><span class="pre">CTRL-\</span></code>.</p>
+</section>
+</section>
+<section id="add-a-peripheral-to-the-design">
+<span id="add-peripheral"></span><h2>Add a peripheral to the design<a class="headerlink" href="#add-a-peripheral-to-the-design" title="Link to this heading"></a></h2>
+<p>We’re going to add a very simple peripheral - buttons! This will allow us to press
+buttons on our board and see the result, as well as something in simlation.</p>
+<section id="add-buttons-to-the-design">
+<h3>Add buttons to the design<a class="headerlink" href="#add-buttons-to-the-design" title="Link to this heading"></a></h3>
+<p>In <code class="docutils literal notranslate"><span class="pre">my_design/design.py</span></code> we need to add another GPIO peripheral to read the
+button values.</p>
+<p>You can uncomment the following:</p>
+<p>Add an address space:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">uart_base</span> <span class="o">=</span> <span class="mh">0xb2000000</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">timer_base</span> <span class="o">=</span> <span class="mh">0xb3000000</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">soc_id_base</span> <span class="o">=</span> <span class="mh">0xb4000000</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">btn_gpio_base</span> <span class="o">=</span> <span class="mh">0xb5000000</span>
+</pre></div>
+</div>
+<p>Add the button peripheral:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">soc_type</span> <span class="o">=</span> <span class="mh">0xCA7F100F</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">soc_id</span> <span class="o">=</span> <span class="n">SoCID</span><span class="p">(</span><span class="n">type_id</span><span class="o">=</span><span class="n">soc_type</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">_decoder</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">soc_id</span><span class="o">.</span><span class="n">bus</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">soc_id_base</span><span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">gpio_provider</span> <span class="o">=</span> <span class="n">gpio_provider</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">ButtonGPIOProvider</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">btn</span> <span class="o">=</span> <span class="n">GPIOPeripheral</span><span class="p">(</span>
+    <span class="n">pins</span><span class="o">=</span><span class="n">gpio_provider</span><span class="o">.</span><span class="n">pins</span>
+<span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">_decoder</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">bus</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">btn_gpio_base</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Link up the button submodule:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">uart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">uart</span>
+<span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span>
+<span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">soc_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">soc_id</span>
+<span class="n">m</span><span class="o">.</span><span class="n">submodules</span><span class="o">.</span><span class="n">btn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">btn</span>
+</pre></div>
+</div>
+<p>Add the button to our software generator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sw</span><span class="o">.</span><span class="n">add_periph</span><span class="p">(</span><span class="s2">&quot;uart&quot;</span><span class="p">,</span> <span class="s2">&quot;UART0&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uart_base</span><span class="p">)</span>
+<span class="n">sw</span><span class="o">.</span><span class="n">add_periph</span><span class="p">(</span><span class="s2">&quot;plat_timer&quot;</span><span class="p">,</span> <span class="s2">&quot;TIMER0&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_base</span><span class="p">)</span>
+<span class="n">sw</span><span class="o">.</span><span class="n">add_periph</span><span class="p">(</span><span class="s2">&quot;soc_id&quot;</span><span class="p">,</span> <span class="s2">&quot;SOC_ID&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">soc_id_base</span><span class="p">)</span>
+<span class="n">sw</span><span class="o">.</span><span class="n">add_periph</span><span class="p">(</span><span class="s2">&quot;gpio&quot;</span><span class="p">,</span> <span class="s2">&quot;BTN_GPIO&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">btn_gpio_base</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="update-our-software">
+<h3>Update our software<a class="headerlink" href="#update-our-software" title="Link to this heading"></a></h3>
+<p>So far, we have added the buttons to our design, but nothing will happen if we
+press them! So we update our software so it reacts to the button presses:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">my_design/software/main.c</span></code> we uncomment the button press listening code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Listen for button presses</span>
+<span class="w">        </span><span class="n">next_buttons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BTN_GPIO</span><span class="o">-&gt;</span><span class="n">in</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">next_buttons</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1U</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">last_buttons</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1U</span><span class="p">))</span>
+<span class="w">                </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;button 1 pressed!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">next_buttons</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2U</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">last_buttons</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2U</span><span class="p">))</span>
+<span class="w">                </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;button 2 pressed!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">last_buttons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_buttons</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Because we called <code class="docutils literal notranslate"><span class="pre">sw.add_periph(&quot;gpio&quot;,</span> <span class="pre">&quot;BTN_GPIO&quot;,</span> <span class="pre">self.btn_gpio_base)</span></code> in our design above, here in our software we’ll have a <code class="docutils literal notranslate"><span class="pre">BTN_GPIO</span></code> pointer to the peripheral address.</p>
+<p>The pointer will be of a type matching the peripheral fields, and its <cite>in</cite> field contains the input value of the GPIO.</p>
+<p>Using this, we’ll now see “button X pressed!” when one of the buttons is pressed.</p>
+</section>
+<section id="update-our-simulation">
+<h3>Update our simulation<a class="headerlink" href="#update-our-simulation" title="Link to this heading"></a></h3>
+<p>We’re going to simulate the buttons being pressed in the simulation on a timer.</p>
+<p>It is possible to listen for keypresses on the keyboard, but that would introduce
+too many dependencies for our simple example.</p>
+<p>So, in <code class="docutils literal notranslate"><span class="pre">my_design/sim/main.cc</span></code> we will uncomment the button presses code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">tick</span><span class="p">();</span>
+<span class="w">    </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Simulate button presses</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">100000</span><span class="p">)</span><span class="w"> </span><span class="c1">// at t=100000, press button 1</span>
+<span class="w">        </span><span class="n">top</span><span class="p">.</span><span class="n">p_buttons</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mb">0b01U</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">150000</span><span class="p">)</span><span class="w"> </span><span class="c1">// at t=150000, release button 1</span>
+<span class="w">        </span><span class="n">top</span><span class="p">.</span><span class="n">p_buttons</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mb">0b00U</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">300000</span><span class="p">)</span><span class="w"> </span><span class="c1">// at t=300000, press button 2</span>
+<span class="w">        </span><span class="n">top</span><span class="p">.</span><span class="n">p_buttons</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mb">0b10U</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">350000</span><span class="p">)</span><span class="w"> </span><span class="c1">// at t=350000, release button 2</span>
+<span class="w">        </span><span class="n">top</span><span class="p">.</span><span class="n">p_buttons</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mb">0b00U</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See how we’re pressing and releasing button 1, followed by button 2, on a loop, forever.</p>
+</section>
+</section>
+<section id="see-our-new-peripheral-in-action">
+<h2>See our new peripheral in action<a class="headerlink" href="#see-our-new-peripheral-in-action" title="Link to this heading"></a></h2>
+<section id="see-the-changes-in-simulation">
+<h3>See the changes in simulation<a class="headerlink" href="#see-the-changes-in-simulation" title="Link to this heading"></a></h3>
+<p>We can now take a look at our changes in simulation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rebuild our software</span>
+make<span class="w"> </span>software-build
+
+<span class="c1"># Rebuild our simulation</span>
+make<span class="w"> </span>sim-build
+
+<span class="c1"># Run our simulation</span>
+make<span class="w"> </span>sim-run
+</pre></div>
+</div>
+<p>We should now see the output with button presses:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>🐱:<span class="w"> </span>nyaa~!
+SoC<span class="w"> </span>type:<span class="w"> </span>CA7F100F
+SoC<span class="w"> </span>version:<span class="w"> </span>DCBBADEA
+Flash<span class="w"> </span>ID:<span class="w"> </span>CA7CA7FF
+Entering<span class="w"> </span>QSPI<span class="w"> </span>mode
+Initialised!
+button<span class="w"> </span><span class="m">1</span><span class="w"> </span>pressed!
+button<span class="w"> </span><span class="m">2</span><span class="w"> </span>pressed!
+button<span class="w"> </span><span class="m">1</span><span class="w"> </span>pressed!
+</pre></div>
+</div>
+</section>
+<section id="see-the-changes-on-our-board-optional">
+<h3>See the changes on our board (optional)<a class="headerlink" href="#see-the-changes-on-our-board-optional" title="Link to this heading"></a></h3>
+<p>To see the changes on our board, we need to load the updated
+software and design:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rebuild our software</span>
+make<span class="w"> </span>software-build
+
+<span class="c1"># Rebuild our board</span>
+make<span class="w"> </span>board-build
+
+<span class="c1"># Load software onto board</span>
+make<span class="w"> </span>board-load-software-ulx3s
+
+<span class="c1"># Load design onto board</span>
+make<span class="w"> </span>board-load-ulx3s
+</pre></div>
+</div>
+<p>Now, as in our first example, we need to connect to the board and
+see its output.</p>
+<p>When we press the physical buttons on the board, we should see it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>🐱:<span class="w"> </span>nyaa~!
+SoC<span class="w"> </span>type:<span class="w"> </span>CA7F100F
+SoC<span class="w"> </span>version:<span class="w"> </span>DCBBADEA
+Flash<span class="w"> </span>ID:<span class="w"> </span>EF401800
+Entering<span class="w"> </span>QSPI<span class="w"> </span>mode
+Initialised!
+button<span class="w"> </span><span class="m">2</span><span class="w"> </span>pressed!
+button<span class="w"> </span><span class="m">2</span><span class="w"> </span>pressed!
+button<span class="w"> </span><span class="m">1</span><span class="w"> </span>pressed!
+button<span class="w"> </span><span class="m">2</span><span class="w"> </span>pressed!
+</pre></div>
+</div>
+</section>
+</section>
+<section id="building-for-silicon">
+<h2>Building for Silicon<a class="headerlink" href="#building-for-silicon" title="Link to this heading"></a></h2>
+<p>For this first Alpha, we aren’t <em>quite</em> ready to start accepting designs on our API. This is coming very soon though!</p>
+<p><a class="reference external" href="https://chipflow.io/beta">Sign up</a> to be notified when the next Alpha release is available.</p>
+<p>If you are using this tutorial to test out new designs, reach out to us on <a class="reference external" href="https://gitter.im/ChipFlow/community">our Gitter channel</a>. We would love to add your designs to our test sets!</p>
+</section>
+<section id="what-s-on-the-roadmap">
+<h2>What’s on the roadmap?<a class="headerlink" href="#what-s-on-the-roadmap" title="Link to this heading"></a></h2>
+<p>We still have a lot of work to do - some things on our roadmap:</p>
+<ul class="simple">
+<li><p>Silicon build API</p></li>
+<li><p>Integration tests to test your design in Python.</p></li>
+<li><p>Improved simulation tooling.</p></li>
+<li><p>Many more high-quality Amaranth Peripheral IP modules to include in your designs.</p></li>
+</ul>
+</section>
+<section id="join-the-beta">
+<h2>Join the beta<a class="headerlink" href="#join-the-beta" title="Link to this heading"></a></h2>
+<p>If you’re interested in the platform, you can <a class="reference external" href="https://chipflow.io/beta">join the beta</a>
+and help us build the future of Python-powered chip design.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Python version issues:</dt><dd><p>If you choose to run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code> within a venv, PDM will reuse
+that venv instead of creating a new one.
+Ensure that you use a venv with Python 3.8 or greater.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, ChipFlow
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Introduction to the ChipFlow platform</a><ul>
+<li><a class="reference internal" href="#preparing-your-local-environment">Preparing your local environment</a></li>
+<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#the-example-project">The example project</a></li>
+<li><a class="reference internal" href="#the-design">The design</a><ul>
+<li><a class="reference internal" href="#qspiflash-for-a-board">QSPIFlash for a Board</a></li>
+<li><a class="reference internal" href="#qspiflash-for-simulation">QSPIFlash for Simulation</a></li>
+<li><a class="reference internal" href="#qspiflash-for-silicon">QSPIFlash for Silicon</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#run-the-design-in-simulation">Run the design in simulation</a></li>
+<li><a class="reference internal" href="#run-the-design-on-a-ulx3s-board-optional">Run the design on a ULX3S board (optional)</a><ul>
+<li><a class="reference internal" href="#connecting-to-your-board">Connecting to your board</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-a-peripheral-to-the-design">Add a peripheral to the design</a><ul>
+<li><a class="reference internal" href="#add-buttons-to-the-design">Add buttons to the design</a></li>
+<li><a class="reference internal" href="#update-our-software">Update our software</a></li>
+<li><a class="reference internal" href="#update-our-simulation">Update our simulation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#see-our-new-peripheral-in-action">See our new peripheral in action</a><ul>
+<li><a class="reference internal" href="#see-the-changes-in-simulation">See the changes in simulation</a></li>
+<li><a class="reference internal" href="#see-the-changes-on-our-board-optional">See the changes on our board (optional)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-for-silicon">Building for Silicon</a></li>
+<li><a class="reference internal" href="#what-s-on-the-roadmap">What’s on the roadmap?</a></li>
+<li><a class="reference internal" href="#join-the-beta">Join the beta</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=1f169f65"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/platformpicker.js"></script>
+    <script src="_static/js/init.js"></script>
+    </body>
+</html>
