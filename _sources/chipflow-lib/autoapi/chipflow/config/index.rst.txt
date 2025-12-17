@@ -29,6 +29,10 @@ Classes
    chipflow.config.Process
    chipflow.config.VoltageRange
    chipflow.config.SiliconConfig
+   chipflow.config.SimulationConfig
+   chipflow.config.CompilerConfig
+   chipflow.config.SoftwareConfig
+   chipflow.config.TestConfig
    chipflow.config.ChipFlowConfig
    chipflow.config.Config
 
@@ -60,6 +64,38 @@ Package Contents
 
 
    Configuration for silicon in chipflow.toml.
+
+
+.. py:class:: SimulationConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Configuration for simulation settings.
+
+
+.. py:class:: CompilerConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Configuration for compiler toolchain.
+
+
+.. py:class:: SoftwareConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Configuration for software build settings.
+
+
+.. py:class:: TestConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Configuration for test settings.
 
 
 .. py:class:: ChipFlowConfig

@@ -3,7 +3,18 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" /><link rel="next" title="chipflow.platform.io.annotate" href="annotate/index.html" /><link rel="prev" title="chipflow.platform.base" href="../base/index.html" />
+<script type="text/llms.txt">
+# ChipFlow
+
+> ChipFlow is an open-source platform for designing, testing, and manufacturing
+custom silicon using Python and the Amaranth HDL. This documentation covers
+the ChipFlow library, Digital IP library, Amaranth language, and Amaranth SoC toolkit.
+
+For complete documentation in LLM-friendly format:
+- [Documentation Index](/llms.txt) - Sitemap of all pages
+- [Full Documentation](/llms-full.txt) - Complete docs in one file
+- [JSON Index](/docs-index.json) - Structured metadata
+</script><link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" /><link rel="next" title="chipflow.platform.io.annotate" href="annotate/index.html" /><link rel="prev" title="chipflow.platform.base" href="../base/index.html" />
 
     <link rel="shortcut icon" href="../../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>chipflow.platform.io - ChipFlow Platform Documentation</title>
@@ -481,7 +492,7 @@ Depending on process and cell library, these may be statically or dynamically co
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.platform.io.</span></span><span class="sig-name descname"><span class="pre">IOModelOptions</span></span><a class="headerlink" href="#chipflow.platform.io.IOModelOptions" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">typing_extensions.TypedDict</span></code></p>
 <p>Options for an IO pad/pin.</p>
-<dl>
+<dl class="simple">
 <dt>Attributes:</dt><dd><dl class="simple">
 <dt>invert: Polarity inversion. If the value is a simple <code class="docutils literal notranslate"><span class="pre">bool</span></code>, it specifies</dt><dd><p>inversion for the entire port. If the value is an iterable of <code class="docutils literal notranslate"><span class="pre">bool</span></code>,
 the iterable must have the same length as the width of <code class="docutils literal notranslate"><span class="pre">io</span></code>, and the
@@ -496,13 +507,19 @@ bit controls the entire port).</p>
 <dt>clock_domain: The name of the I/O’s clock domain (see</dt><dd><p><code class="docutils literal notranslate"><span class="pre">amaranth.hdl.ClockDomain</span></code>). NB there is only one of these, so IO
 with multiple clocks must be split up.</p>
 </dd>
+<dt>buffer_in: Should the IO pad have an input buffer? Defaults to True for</dt><dd><p>ports with input direction.</p>
+</dd>
+<dt>buffer_out: Should the IO pad have an output buffer? Defaults to True for</dt><dd><p>ports with output direction.</p>
+</dd>
+<dt>sky130_drive_mode: Drive mode for output buffer on sky130. See</dt><dd><p><a class="reference internal" href="#chipflow.platform.io.Sky130DriveMode" title="chipflow.platform.io.Sky130DriveMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sky130DriveMode</span></code></a> for available options.</p>
+</dd>
+<dt>trip_point: Trip Point configuration for input buffer. See</dt><dd><p><a class="reference internal" href="#chipflow.platform.io.IOTripPoint" title="chipflow.platform.io.IOTripPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOTripPoint</span></code></a> for available options.</p>
+</dd>
+<dt>init: The value for the initial values of the port. Can be an integer or</dt><dd><p>boolean.</p>
+</dd>
+<dt>init_oe: The value for the initial values of the output enable(s) of the</dt><dd><p>port. Can be an integer or boolean.</p>
+</dd>
 </dl>
-<p>buffer_in: Should the IO pad have an input buffer?
-buffer_out: Should the IO pad have an output buffer?
-sky130_drive_mode: Drive mode for output buffer on sky130.
-trip_point: Trip Point configuration for input buffer.
-init: The value for the initial values of the port.
-init_oe: The value for the initial values of the output enable(s) of the port.</p>
 </dd>
 </dl>
 </dd></dl>

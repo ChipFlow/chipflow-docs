@@ -3,7 +3,18 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow.config.parser" href="parser/index.html" /><link rel="prev" title="chipflow.common" href="../common/index.html" />
+<script type="text/llms.txt">
+# ChipFlow
+
+> ChipFlow is an open-source platform for designing, testing, and manufacturing
+custom silicon using Python and the Amaranth HDL. This documentation covers
+the ChipFlow library, Digital IP library, Amaranth language, and Amaranth SoC toolkit.
+
+For complete documentation in LLM-friendly format:
+- [Documentation Index](/llms.txt) - Sitemap of all pages
+- [Full Documentation](/llms-full.txt) - Complete docs in one file
+- [JSON Index](/docs-index.json) - Structured metadata
+</script><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="chipflow.config.parser" href="parser/index.html" /><link rel="prev" title="chipflow.common" href="../common/index.html" />
 
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>chipflow.config - ChipFlow Platform Documentation</title>
@@ -407,6 +418,18 @@ for chipflow.toml configuration files.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#chipflow.config.SiliconConfig" title="chipflow.config.SiliconConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SiliconConfig</span></code></a></p></td>
 <td><p>Configuration for silicon in chipflow.toml.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#chipflow.config.SimulationConfig" title="chipflow.config.SimulationConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimulationConfig</span></code></a></p></td>
+<td><p>Configuration for simulation settings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow.config.CompilerConfig" title="chipflow.config.CompilerConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompilerConfig</span></code></a></p></td>
+<td><p>Configuration for compiler toolchain.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#chipflow.config.SoftwareConfig" title="chipflow.config.SoftwareConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareConfig</span></code></a></p></td>
+<td><p>Configuration for software build settings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chipflow.config.TestConfig" title="chipflow.config.TestConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestConfig</span></code></a></p></td>
+<td><p>Configuration for test settings.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#chipflow.config.ChipFlowConfig" title="chipflow.config.ChipFlowConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChipFlowConfig</span></code></a></p></td>
 <td><p>Root configuration for chipflow.toml.</p></td>
 </tr>
@@ -439,6 +462,34 @@ for chipflow.toml configuration files.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config.</span></span><span class="sig-name descname"><span class="pre">SiliconConfig</span></span><a class="headerlink" href="#chipflow.config.SiliconConfig" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <p>Configuration for silicon in chipflow.toml.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="chipflow.config.SimulationConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config.</span></span><span class="sig-name descname"><span class="pre">SimulationConfig</span></span><a class="headerlink" href="#chipflow.config.SimulationConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Configuration for simulation settings.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="chipflow.config.CompilerConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config.</span></span><span class="sig-name descname"><span class="pre">CompilerConfig</span></span><a class="headerlink" href="#chipflow.config.CompilerConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Configuration for compiler toolchain.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="chipflow.config.SoftwareConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config.</span></span><span class="sig-name descname"><span class="pre">SoftwareConfig</span></span><a class="headerlink" href="#chipflow.config.SoftwareConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Configuration for software build settings.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="chipflow.config.TestConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.config.</span></span><span class="sig-name descname"><span class="pre">TestConfig</span></span><a class="headerlink" href="#chipflow.config.TestConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Configuration for test settings.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -520,6 +571,10 @@ for chipflow.toml configuration files.</p>
 <li><a class="reference internal" href="#chipflow.config.Process"><code class="docutils literal notranslate"><span class="pre">Process</span></code></a></li>
 <li><a class="reference internal" href="#chipflow.config.VoltageRange"><code class="docutils literal notranslate"><span class="pre">VoltageRange</span></code></a></li>
 <li><a class="reference internal" href="#chipflow.config.SiliconConfig"><code class="docutils literal notranslate"><span class="pre">SiliconConfig</span></code></a></li>
+<li><a class="reference internal" href="#chipflow.config.SimulationConfig"><code class="docutils literal notranslate"><span class="pre">SimulationConfig</span></code></a></li>
+<li><a class="reference internal" href="#chipflow.config.CompilerConfig"><code class="docutils literal notranslate"><span class="pre">CompilerConfig</span></code></a></li>
+<li><a class="reference internal" href="#chipflow.config.SoftwareConfig"><code class="docutils literal notranslate"><span class="pre">SoftwareConfig</span></code></a></li>
+<li><a class="reference internal" href="#chipflow.config.TestConfig"><code class="docutils literal notranslate"><span class="pre">TestConfig</span></code></a></li>
 <li><a class="reference internal" href="#chipflow.config.ChipFlowConfig"><code class="docutils literal notranslate"><span class="pre">ChipFlowConfig</span></code></a></li>
 <li><a class="reference internal" href="#chipflow.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
 </ul>
