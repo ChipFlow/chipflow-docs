@@ -24,6 +24,14 @@ jobs:
       - name: Build docs
         run: pdm docs
 
+      - name: Verify AI-friendly outputs
+        run: |
+          echo "Checking for AI-friendly documentation outputs..."
+          test -f docs/build/llms.txt && echo "✓ llms.txt found" || (echo "✗ llms.txt missing" && exit 1)
+          test -f docs/build/llms-full.txt && echo "✓ llms-full.txt found" || (echo "✗ llms-full.txt missing" && exit 1)
+          test -f docs/build/docs-index.json && echo "✓ docs-index.json found" || (echo "✗ docs-index.json missing" && exit 1)
+          echo "All AI-friendly outputs generated successfully"
+
       - name: Upload docs artifact
         uses: actions/upload-artifact@v4
         with:
