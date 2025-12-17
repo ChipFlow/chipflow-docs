@@ -382,8 +382,72 @@
 <p>The IceStorm and iCECube2 toolchains are supported.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.vendor.SiliconBluePlatform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.vendor.</span></span><span class="sig-name descname"><span class="pre">SiliconBluePlatform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.vendor.SiliconBluePlatform" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.vendor.</span></span><span class="sig-name descname"><span class="pre">SiliconBluePlatform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toolchain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IceStorm'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.vendor.SiliconBluePlatform" title="Link to this definition"></a></dt>
+<dd><p class="rubric">IceStorm toolchain</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr-ice40</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icepack</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_ICESTORM</span></code>, if present.</p>
+<dl class="simple">
+<dt>Available overrides:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: enables logging of informational messages to standard error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_verilog_opts</span></code>: adds options for <code class="docutils literal notranslate"><span class="pre">read_verilog</span></code> Yosys command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">synth_opts</span></code>: adds options for <code class="docutils literal notranslate"><span class="pre">synth_ice40</span></code> Yosys command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_read</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">read_rtlil</span></code> in Yosys script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_synth</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">synth_ice40</span></code> in Yosys script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">yosys</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">nextpnr-ice40</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_pre_pack</span></code>: inserts commands at the end in pre-pack Python script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_constraints</span></code>: inserts commands at the end in the PCF file.</p></li>
+</ul>
+</dd>
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.rpt</span></code>: Yosys log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.json</span></code>: synthesized RTL.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.tim</span></code>: nextpnr log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.asc</span></code>: ASCII bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.bin</span></code>: binary bitstream.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">iCECube2 toolchain</p>
+<p>This toolchain comes in two variants: <code class="docutils literal notranslate"><span class="pre">LSE-iCECube2</span></code> and <code class="docutils literal notranslate"><span class="pre">Synplify-iCECube2</span></code>.</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p>iCECube2 toolchain</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tclsh</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by setting the necessary environment variables based on
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_ICECUBE2</span></code>, which must point to the root of the iCECube2 installation, and
+is required.</p>
+<dl class="simple">
+<dt>Available overrides:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: enables logging of informational messages to standard error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lse_opts</span></code>: adds options for LSE.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_add</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">add_file</span></code> in Synplify Tcl script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_options</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">set_option</span></code> in Synplify Tcl script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_constraints</span></code>: inserts commands in SDC file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_flow</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">run_sbt_backend_auto</span></code> in SBT
+Tcl script.</p></li>
+</ul>
+</dd>
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}_lse.log</span></code> (LSE) or <code class="docutils literal notranslate"><span class="pre">{{name}}_design/{{name}}.htm</span></code> (Synplify): synthesis log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sbt/outputs/router/{{name}}_timing.rpt</span></code>: timing report.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.edf</span></code>: EDIF netlist.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.bin</span></code>: binary bitstream.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 

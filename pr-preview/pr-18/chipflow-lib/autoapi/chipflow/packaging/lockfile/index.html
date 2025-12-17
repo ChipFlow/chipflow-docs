@@ -400,18 +400,23 @@ allowing pins to be locked and reused across design iterations.</p>
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.lockfile.Package">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.lockfile.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><a class="headerlink" href="#chipflow.packaging.lockfile.Package" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.lockfile.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.lockfile.Package" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <p>Serializable identifier for a defined packaging option.</p>
 <dl class="simple">
 <dt>Attributes:</dt><dd><p>package_type: Package type (discriminated union of all PackageDef types)</p>
 </dd>
 </dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.lockfile.LockFile">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.lockfile.</span></span><span class="sig-name descname"><span class="pre">LockFile</span></span><a class="headerlink" href="#chipflow.packaging.lockfile.LockFile" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.lockfile.</span></span><span class="sig-name descname"><span class="pre">LockFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.lockfile.LockFile" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <p>Representation of a pin lock file.</p>
 <p>The lock file stores the complete pin allocation for a design,
@@ -421,6 +426,11 @@ allowing pins to remain consistent across design iterations.</p>
 package: Information about the physical package
 port_map: Mapping of components to interfaces to ports
 metadata: Amaranth metadata, for reference</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
 </dd>
 </dl>
 </dd></dl>

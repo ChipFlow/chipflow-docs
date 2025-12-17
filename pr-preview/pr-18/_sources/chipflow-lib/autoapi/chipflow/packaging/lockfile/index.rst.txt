@@ -24,7 +24,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: Package
+.. py:class:: Package(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`
 
@@ -35,7 +35,7 @@ Module Contents
        package_type: Package type (discriminated union of all PackageDef types)
 
 
-.. py:class:: LockFile
+.. py:class:: LockFile(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`
 

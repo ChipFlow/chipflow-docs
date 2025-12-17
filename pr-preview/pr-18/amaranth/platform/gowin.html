@@ -382,8 +382,40 @@
 <p>The Apicula and Gowin toolchains are supported.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.vendor.GowinPlatform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.vendor.</span></span><span class="sig-name descname"><span class="pre">GowinPlatform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.vendor.GowinPlatform" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.vendor.</span></span><span class="sig-name descname"><span class="pre">GowinPlatform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toolchain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Apicula'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.vendor.GowinPlatform" title="Link to this definition"></a></dt>
+<dd><p class="rubric">Apicula toolchain</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr-gowin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gowin_pack</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_APICULA</span></code>, if present.</p>
+<dl class="simple">
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.fs</span></code>: binary bitstream.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Gowin toolchain</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gw_sh</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_GOWIN</span></code>, if present.</p>
+<dl class="simple">
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.fs</span></code>: binary bitstream.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 

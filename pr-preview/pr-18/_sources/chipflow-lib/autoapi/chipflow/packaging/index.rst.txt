@@ -172,7 +172,7 @@ Package Contents
 
 
 
-.. py:class:: PortDesc
+.. py:class:: PortDesc(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`, :py:obj:`Generic`\ [\ :py:obj:`chipflow.packaging.pins.Pin`\ ]
 
@@ -203,7 +203,7 @@ Package Contents
       Inversion settings for port wires
 
 
-.. py:class:: PortMap
+.. py:class:: PortMap(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`
 
@@ -239,7 +239,7 @@ Package Contents
 
 
 
-.. py:class:: Package
+.. py:class:: Package(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`
 
@@ -250,7 +250,7 @@ Package Contents
        package_type: Package type (discriminated union of all PackageDef types)
 
 
-.. py:class:: LockFile
+.. py:class:: LockFile(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`
 
@@ -267,7 +267,7 @@ Package Contents
        metadata: Amaranth metadata, for reference
 
 
-.. py:class:: BasePackageDef
+.. py:class:: BasePackageDef(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`, :py:obj:`Generic`\ [\ :py:obj:`PinType`\ ], :py:obj:`abc.ABC`
 

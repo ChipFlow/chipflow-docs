@@ -25,7 +25,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: BasePackageDef
+.. py:class:: BasePackageDef(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`, :py:obj:`Generic`\ [\ :py:obj:`PinType`\ ], :py:obj:`abc.ABC`
 

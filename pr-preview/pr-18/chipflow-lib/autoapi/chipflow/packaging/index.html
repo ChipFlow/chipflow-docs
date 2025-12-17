@@ -605,7 +605,7 @@ core_jtag: Optional JTAG interface pins</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.PortDesc">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">PortDesc</span></span><a class="headerlink" href="#chipflow.packaging.PortDesc" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">PortDesc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.PortDesc" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">chipflow.packaging.pins.Pin</span></code>]</p>
 <p>Description of a port and its pin assignment.</p>
 <dl class="simple">
@@ -613,6 +613,11 @@ core_jtag: Optional JTAG interface pins</p>
 pins: List of pins assigned to this port, or None if not yet allocated
 port_name: Name of the port
 iomodel: IO model configuration for this port</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
 </dd>
 </dl>
 <dl class="py property">
@@ -642,11 +647,16 @@ iomodel: IO model configuration for this port</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.PortMap">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">PortMap</span></span><a class="headerlink" href="#chipflow.packaging.PortMap" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">PortMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.PortMap" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <p>Mapping of components to interfaces to ports.</p>
 <p>This represents the complete pin allocation for an IC package,
 organized hierarchically by component and interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="chipflow.packaging.PortMap.get_ports">
 <span class="sig-name descname"><span class="pre">get_ports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.PortMap.get_ports" title="Link to this definition"></a></dt>
@@ -697,18 +707,23 @@ interface: Interface name</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.Package">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><a class="headerlink" href="#chipflow.packaging.Package" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.Package" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <p>Serializable identifier for a defined packaging option.</p>
 <dl class="simple">
 <dt>Attributes:</dt><dd><p>package_type: Package type (discriminated union of all PackageDef types)</p>
 </dd>
 </dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.LockFile">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">LockFile</span></span><a class="headerlink" href="#chipflow.packaging.LockFile" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">LockFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.LockFile" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <p>Representation of a pin lock file.</p>
 <p>The lock file stores the complete pin allocation for a design,
@@ -720,11 +735,16 @@ port_map: Mapping of components to interfaces to ports
 metadata: Amaranth metadata, for reference</p>
 </dd>
 </dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.BasePackageDef">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">BasePackageDef</span></span><a class="headerlink" href="#chipflow.packaging.BasePackageDef" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.</span></span><span class="sig-name descname"><span class="pre">BasePackageDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.BasePackageDef" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">PinType</span></code>], <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>Abstract base class for the definition of a package.</p>
 <p>Serializing this or any derived classes results in the
@@ -733,6 +753,11 @@ description of the package (not serializable directly).</p>
 implement the required abstract methods.</p>
 <dl class="simple">
 <dt>Attributes:</dt><dd><p>name: The name of the package</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
 </dd>
 </dl>
 <dl class="py method">

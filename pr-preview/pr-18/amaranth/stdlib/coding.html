@@ -384,7 +384,22 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.coding.Encoder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.coding.</span></span><span class="sig-name descname"><span class="pre">Encoder</span></span><a class="headerlink" href="#amaranth.lib.coding.Encoder" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Encode one-hot to binary.</p>
+<p>If one bit in <code class="docutils literal notranslate"><span class="pre">i</span></code> is asserted, <code class="docutils literal notranslate"><span class="pre">n</span></code> is low and <code class="docutils literal notranslate"><span class="pre">o</span></code> indicates the asserted bit.
+Otherwise, <code class="docutils literal notranslate"><span class="pre">n</span></code> is high and <code class="docutils literal notranslate"><span class="pre">o</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Bit width of the input</p>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>i</strong> (<em>Signal(width), in</em>) – One-hot input.</p></li>
+<li><p><strong>o</strong> (<em>Signal(range(width)), out</em>) – Encoded natural binary.</p></li>
+<li><p><strong>n</strong> (<em>Signal, out</em>) – Invalid: either none or multiple input bits are asserted.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.coding.Decoder">

@@ -385,21 +385,34 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.R">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">R</span></span><a class="headerlink" href="#amaranth_soc.csr.action.R" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>A read-only field action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+<li><p><strong>r_data</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Read data. Drives <code class="docutils literal notranslate"><span class="pre">port.r_data</span></code>. See <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>.</p></li>
+<li><p><strong>r_stb</strong> (<em>Signal</em><em>(</em><em>)</em>) – Read strobe. Driven by <code class="docutils literal notranslate"><span class="pre">port.r_stb</span></code>. See <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.W">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">W</span></span><a class="headerlink" href="#amaranth_soc.csr.action.W" title="Link to this definition"></a></dt>
-<dd><p>A write-only <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>.</p>
+<dd><p>A write-only field action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">))</span></code>) – Field port.</p></li>
-<li><p><strong>w_data</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>) – Write data. Driven by <code class="docutils literal notranslate"><span class="pre">port.w_data</span></code>.</p></li>
-<li><p><strong>w_stb</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>) – Write strobe. Driven by <code class="docutils literal notranslate"><span class="pre">port.w_stb</span></code>.</p></li>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+<li><p><strong>w_data</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Write data. Driven by <code class="docutils literal notranslate"><span class="pre">port.w_data</span></code>. See <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>.</p></li>
+<li><p><strong>w_stb</strong> (<em>Signal</em><em>(</em><em>)</em>) – Write strobe. Driven by <code class="docutils literal notranslate"><span class="pre">port.w_stb</span></code>. See <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -408,7 +421,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.RW">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">RW</span></span><a class="headerlink" href="#amaranth_soc.csr.action.RW" title="Link to this definition"></a></dt>
-<dd><p>A read/write <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>, with built-in storage.</p>
+<dd><p>A read/write field action, with built-in storage.</p>
 <p>Storage is updated with the value of <code class="docutils literal notranslate"><span class="pre">port.w_data</span></code> one clock cycle after <code class="docutils literal notranslate"><span class="pre">port.w_stb</span></code> is
 asserted.</p>
 <dl class="field-list simple">
@@ -416,26 +429,13 @@ asserted.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
 <li><p><strong>init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Storage initial value.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;rw&quot;</span><span class="p">))</span></code>) – Field port.</p></li>
-<li><p><strong>data</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>) – Storage output.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+<li><p><strong>data</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Storage output.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="amaranth_soc.csr.action.RW.init">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><a class="headerlink" href="#amaranth_soc.csr.action.RW.init" title="Link to this definition"></a></dt>
-<dd><p>Storage initial value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -452,81 +452,55 @@ asserted.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.RW1C">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">RW1C</span></span><a class="headerlink" href="#amaranth_soc.csr.action.RW1C" title="Link to this definition"></a></dt>
-<dd><p>A read/write-one-to-clear <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>, with built-in storage.</p>
-<p>Storage bits are:</p>
-<blockquote>
-<div><ul class="simple">
+<dd><p>A read/write-one-to-clear field action, with built-in storage.</p>
+<dl class="simple">
+<dt>Storage bits are:</dt><dd><ul class="simple">
 <li><p>cleared by high bits in <code class="docutils literal notranslate"><span class="pre">port.w_data</span></code>, one clock cycle after <code class="docutils literal notranslate"><span class="pre">port.w_stb</span></code> is asserted;</p></li>
 <li><p>set by high bits in <code class="docutils literal notranslate"><span class="pre">set</span></code>, one clock cycle after they are asserted.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <p>If a storage bit is set and cleared on the same clock cycle, setting it has precedence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
 <li><p><strong>init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Storage initial value.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;rw&quot;</span><span class="p">))</span></code>) – Field port.</p></li>
-<li><p><strong>data</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>) – Storage output.</p></li>
-<li><p><strong>set</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>) – Mask to set storage bits.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+<li><p><strong>data</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Storage output.</p></li>
+<li><p><strong>set</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Mask to set storage bits.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="amaranth_soc.csr.action.RW1C.init">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><a class="headerlink" href="#amaranth_soc.csr.action.RW1C.init" title="Link to this definition"></a></dt>
-<dd><p>Storage initial value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.RW1S">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">RW1S</span></span><a class="headerlink" href="#amaranth_soc.csr.action.RW1S" title="Link to this definition"></a></dt>
-<dd><p>A read/write-one-to-set <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>, with built-in storage.</p>
-<p>Storage bits are:</p>
-<blockquote>
-<div><ul class="simple">
+<dd><p>A read/write-one-to-set field action, with built-in storage.</p>
+<dl class="simple">
+<dt>Storage bits are:</dt><dd><ul class="simple">
 <li><p>set by high bits in <code class="docutils literal notranslate"><span class="pre">port.w_data</span></code>, one clock cycle after <code class="docutils literal notranslate"><span class="pre">port.w_stb</span></code> is asserted;</p></li>
 <li><p>cleared by high bits in <code class="docutils literal notranslate"><span class="pre">clear</span></code>, one clock cycle after they are asserted.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <p>If a storage bit is set and cleared on the same clock cycle, setting it has precedence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
 <li><p><strong>init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Storage initial value.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;rw&quot;</span><span class="p">))</span></code>) – Field port.</p></li>
-<li><p><strong>data</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>) – Storage output.</p></li>
-<li><p><strong>clear</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>) – Mask to clear storage bits.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+<li><p><strong>data</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Storage output.</p></li>
+<li><p><strong>clear</strong> (<em>Signal</em><em>(</em><em>shape</em><em>)</em>) – Mask to clear storage bits.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="amaranth_soc.csr.action.RW1S.init">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><a class="headerlink" href="#amaranth_soc.csr.action.RW1S.init" title="Link to this definition"></a></dt>
-<dd><p>Storage initial value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -557,13 +531,15 @@ asserted.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.ResRAW0">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">ResRAW0</span></span><a class="headerlink" href="#amaranth_soc.csr.action.ResRAW0" title="Link to this definition"></a></dt>
-<dd><p>A reserved read-any/write-zero <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>.</p>
+<dd><p>A reserved read-any/write-zero field action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;nc&quot;</span><span class="p">))</span></code>) – Field port.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -571,13 +547,15 @@ asserted.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.ResRAWL">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">ResRAWL</span></span><a class="headerlink" href="#amaranth_soc.csr.action.ResRAWL" title="Link to this definition"></a></dt>
-<dd><p>A reserved read-any/write-last <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>.</p>
+<dd><p>A reserved read-any/write-last field action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;nc&quot;</span><span class="p">))</span></code>) – Field port.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -585,13 +563,15 @@ asserted.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.ResR0WA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">ResR0WA</span></span><a class="headerlink" href="#amaranth_soc.csr.action.ResR0WA" title="Link to this definition"></a></dt>
-<dd><p>A reserved read-zero/write-any <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>.</p>
+<dd><p>A reserved read-zero/write-any field action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;nc&quot;</span><span class="p">))</span></code>) – Field port.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -599,13 +579,15 @@ asserted.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.csr.action.ResR0W0">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.csr.action.</span></span><span class="sig-name descname"><span class="pre">ResR0W0</span></span><a class="headerlink" href="#amaranth_soc.csr.action.ResR0W0" title="Link to this definition"></a></dt>
-<dd><p>A reserved read-zero/write-zero <a class="reference internal" href="reg.html#amaranth_soc.csr.reg.FieldAction" title="amaranth_soc.csr.reg.FieldAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code></a>.</p>
+<dd><p>A reserved read-zero/write-zero field action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>port</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">FieldPort</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;nc&quot;</span><span class="p">))</span></code>) – Field port.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../../amaranth/guide.html#lang-shapelike"><span class="std std-ref">shape-like object</span></a>) – Shape of the field.</p></li>
+<li><p><strong>attributes</strong> (<a class="reference internal" href="bus.html#amaranth_soc.csr.bus.Interface" title="amaranth_soc.csr.bus.Interface"><em>Interface</em></a>)</p></li>
+<li><p><strong>--------------------</strong></p></li>
+<li><p><strong>port</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPort</span></code>) – Field port.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -674,22 +656,13 @@ asserted.</p>
 <li><a class="reference internal" href="#basic-fields">Basic fields</a><ul>
 <li><a class="reference internal" href="#amaranth_soc.csr.action.R"><code class="docutils literal notranslate"><span class="pre">R</span></code></a></li>
 <li><a class="reference internal" href="#amaranth_soc.csr.action.W"><code class="docutils literal notranslate"><span class="pre">W</span></code></a></li>
-<li><a class="reference internal" href="#amaranth_soc.csr.action.RW"><code class="docutils literal notranslate"><span class="pre">RW</span></code></a><ul>
-<li><a class="reference internal" href="#amaranth_soc.csr.action.RW.init"><code class="docutils literal notranslate"><span class="pre">RW.init</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#amaranth_soc.csr.action.RW"><code class="docutils literal notranslate"><span class="pre">RW</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#flag-fields">Flag fields</a><ul>
 <li><a class="reference internal" href="#suggested-use-cases">Suggested use cases</a><ul>
-<li><a class="reference internal" href="#amaranth_soc.csr.action.RW1C"><code class="docutils literal notranslate"><span class="pre">RW1C</span></code></a><ul>
-<li><a class="reference internal" href="#amaranth_soc.csr.action.RW1C.init"><code class="docutils literal notranslate"><span class="pre">RW1C.init</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#amaranth_soc.csr.action.RW1S"><code class="docutils literal notranslate"><span class="pre">RW1S</span></code></a><ul>
-<li><a class="reference internal" href="#amaranth_soc.csr.action.RW1S.init"><code class="docutils literal notranslate"><span class="pre">RW1S.init</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#amaranth_soc.csr.action.RW1C"><code class="docutils literal notranslate"><span class="pre">RW1C</span></code></a></li>
+<li><a class="reference internal" href="#amaranth_soc.csr.action.RW1S"><code class="docutils literal notranslate"><span class="pre">RW1S</span></code></a></li>
 </ul>
 </li>
 </ul>

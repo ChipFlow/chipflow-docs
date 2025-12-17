@@ -381,8 +381,34 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">amaranth.lib.fifo</span></code> module provides building blocks for first-in, first-out queues.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.fifo.FIFOInterface">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.fifo.</span></span><span class="sig-name descname"><span class="pre">FIFOInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.fifo.FIFOInterface" title="Link to this definition"></a></dt>
-<dd><div class="admonition note">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.fifo.</span></span><span class="sig-name descname"><span class="pre">FIFOInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.fifo.FIFOInterface" title="Link to this definition"></a></dt>
+<dd><p>Data written to the input interface (<code class="docutils literal notranslate"><span class="pre">w_data</span></code>, <code class="docutils literal notranslate"><span class="pre">w_rdy</span></code>, <code class="docutils literal notranslate"><span class="pre">w_en</span></code>) is buffered and can be
+read at the output interface (<code class="docutils literal notranslate"><span class="pre">r_data</span></code>, <code class="docutils literal notranslate"><span class="pre">r_rdy</span></code>, <code class="docutils literal notranslate"><span class="pre">r_en</span></code>). The data entry written first
+to the input also appears first on the output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Bit width of data entries.</p></li>
+<li><p><strong>depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Depth of the queue. If zero, the FIFO cannot be read from or written to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>w_data</strong> (<em>Signal(width), in</em>) – Input data.</p></li>
+<li><p><strong>w_rdy</strong> (<em>Signal(1), out</em>) – Asserted if there is space in the queue, i.e. <code class="docutils literal notranslate"><span class="pre">w_en</span></code> can be asserted to write
+a new entry.</p></li>
+<li><p><strong>w_en</strong> (<em>Signal(1), in</em>) – Write strobe. Latches <code class="docutils literal notranslate"><span class="pre">w_data</span></code> into the queue. Does nothing if <code class="docutils literal notranslate"><span class="pre">w_rdy</span></code> is not asserted.</p></li>
+<li><p><strong>w_level</strong> (<em>Signal(range(depth + 1)), out</em>) – Number of unread entries.</p></li>
+<li><p><strong>r_data</strong> (<em>Signal(width), out</em>) – Output data. The conditions in which <code class="docutils literal notranslate"><span class="pre">r_data</span></code> is valid depends on the type of the queue.</p></li>
+<li><p><strong>r_rdy</strong> (<em>Signal(1), out</em>) – Asserted if there is an entry in the queue, i.e. <code class="docutils literal notranslate"><span class="pre">r_en</span></code> can be asserted to read
+an existing entry.</p></li>
+<li><p><strong>r_en</strong> (<em>Signal(1), in</em>) – Read strobe. Makes the next entry (if any) available on <code class="docutils literal notranslate"><span class="pre">r_data</span></code> at the next cycle.
+Does nothing if <code class="docutils literal notranslate"><span class="pre">r_rdy</span></code> is not asserted.</p></li>
+<li><p><strong>r_level</strong> (<em>Signal(range(depth + 1)), out</em>) – Number of unread entries.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <a class="reference internal" href="#amaranth.lib.fifo.FIFOInterface" title="amaranth.lib.fifo.FIFOInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">FIFOInterface</span></code></a> class can be used directly to substitute a FIFO in tests, or inherited from in a custom FIFO implementation.</p>
 </div>

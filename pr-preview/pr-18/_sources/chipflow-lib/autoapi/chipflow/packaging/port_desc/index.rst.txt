@@ -24,7 +24,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: PortDesc
+.. py:class:: PortDesc(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`, :py:obj:`Generic`\ [\ :py:obj:`chipflow.packaging.pins.Pin`\ ]
 
@@ -55,7 +55,7 @@ Module Contents
       Inversion settings for port wires
 
 
-.. py:class:: PortMap
+.. py:class:: PortMap(/, **data)
 
    Bases: :py:obj:`pydantic.BaseModel`
 

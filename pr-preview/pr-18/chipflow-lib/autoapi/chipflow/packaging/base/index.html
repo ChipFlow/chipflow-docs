@@ -401,7 +401,7 @@ pin allocation and package description.</p>
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="chipflow.packaging.base.BasePackageDef">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.base.</span></span><span class="sig-name descname"><span class="pre">BasePackageDef</span></span><a class="headerlink" href="#chipflow.packaging.base.BasePackageDef" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chipflow.packaging.base.</span></span><span class="sig-name descname"><span class="pre">BasePackageDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chipflow.packaging.base.BasePackageDef" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">PinType</span></code>], <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>Abstract base class for the definition of a package.</p>
 <p>Serializing this or any derived classes results in the
@@ -410,6 +410,11 @@ description of the package (not serializable directly).</p>
 implement the required abstract methods.</p>
 <dl class="simple">
 <dt>Attributes:</dt><dd><p>name: The name of the package</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>)</p>
 </dd>
 </dl>
 <dl class="py method">

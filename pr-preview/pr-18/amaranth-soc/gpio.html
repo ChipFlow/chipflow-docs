@@ -412,7 +412,42 @@ to interface a SoC (usually a microcontroller) with a variety of external circui
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.gpio.</span></span><span class="sig-name descname"><span class="pre">PinMode</span></span><a class="headerlink" href="#amaranth_soc.gpio.PinMode" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>GPIO pin mode.</p>
+<p>The 2-bit values of this enumeration can be written to a <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Mode" title="amaranth_soc.gpio.Peripheral.Mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Mode</span></code></a> field to
+configure the pins of a <a class="reference internal" href="#amaranth_soc.gpio.Peripheral" title="amaranth_soc.gpio.Peripheral"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.INPUT_ONLY">
+<span class="sig-name descname"><span class="pre">INPUT_ONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.INPUT_ONLY" title="Link to this definition"></a></dt>
+<dd><p><cite>Input-only</cite> mode.</p>
+<p>The pin output is disabled but remains connected to its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field.
+Its <code class="xref py py-attr docutils literal notranslate"><span class="pre">Peripheral.alt_mode</span></code> bit is wired to 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.PUSH_PULL">
+<span class="sig-name descname"><span class="pre">PUSH_PULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.PUSH_PULL" title="Link to this definition"></a></dt>
+<dd><p><cite>Push-pull</cite> mode.</p>
+<p>The pin output is enabled and connected to its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field. Its
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">Peripheral.alt_mode</span></code> bit is wired to 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.OPEN_DRAIN">
+<span class="sig-name descname"><span class="pre">OPEN_DRAIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.OPEN_DRAIN" title="Link to this definition"></a></dt>
+<dd><p><cite>Open-drain</cite> mode.</p>
+<p>The pin output is enabled when the value of its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field is 0, and
+is itself wired to 0. Its <code class="xref py py-attr docutils literal notranslate"><span class="pre">Peripheral.alt_mode</span></code> bit is wired to 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.ALTERNATE">
+<span class="sig-name descname"><span class="pre">ALTERNATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.ALTERNATE" title="Link to this definition"></a></dt>
+<dd><p><cite>Alternate</cite> mode.</p>
+<p>The pin output is disabled but remains connected to its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field.
+Its <code class="xref py py-attr docutils literal notranslate"><span class="pre">Peripheral.alt_mode</span></code> bit is wired to 1.</p>
+</dd></dl>
+
+</dd></dl>
 
 </section>
 <section id="pin-interface">
@@ -421,15 +456,17 @@ to interface a SoC (usually a microcontroller) with a variety of external circui
 <dt class="sig sig-object py" id="amaranth_soc.gpio.PinSignature">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.gpio.</span></span><span class="sig-name descname"><span class="pre">PinSignature</span></span><a class="headerlink" href="#amaranth_soc.gpio.PinSignature" title="Link to this definition"></a></dt>
 <dd><p>GPIO pin signature.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Members<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>) – Input.</p></li>
-<li><p><strong>o</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>) – Output.</p></li>
-<li><p><strong>oe</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>) – Output enable.</p></li>
-</ul>
+<section id="interface-attributes">
+<h3>Interface attributes<a class="headerlink" href="#interface-attributes" title="Link to this heading"></a></h3>
+<dl>
+<dt>i<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signal</span></code></span></dt><dd><p>Input.</p>
+</dd>
+<dt>o<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signal</span></code></span></dt><dd><p>Output.</p>
+</dd>
+<dt>oe<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signal</span></code></span></dt><dd><p>Output enable.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 </section>
@@ -438,101 +475,171 @@ to interface a SoC (usually a microcontroller) with a variety of external circui
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.Peripheral.Mode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Peripheral.</span></span><span class="sig-name descname"><span class="pre">Mode</span></span><a class="headerlink" href="#amaranth_soc.gpio.Peripheral.Mode" title="Link to this definition"></a></dt>
-<dd><p>Mode register.</p>
-<p>This <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> contains an array of <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> read/write fields.
-Each field is 2-bit wide and its possible values are defined by the <a class="reference internal" href="#amaranth_soc.gpio.PinMode" title="amaranth_soc.gpio.PinMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">PinMode</span></code></a>
-enumeration.</p>
-<hr class="docutils" />
-<p>If <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> is 8, then the <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> has the following fields:</p>
-<img src="_images/gpio_mode.svg" class="wavedrom wavedrom-reg" alt="{'reg': [{'name': 'pin[0]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[1]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[2]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[3]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[4]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[5]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[6]', 'bits': 2, 'attr': 'RW'}, {'name': 'pin[7]', 'bits': 2, 'attr': 'RW'}], 'config': {'bits': 16}}"><hr class="docutils" />
+<dd><p>A CSR register.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pin_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of GPIO pins.</p>
+<dd class="field-odd"><p><strong>fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>) – Collection of register fields. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), a dict is populated from Python
+<span class="xref std std-term">variable annotations</span>. <code class="docutils literal notranslate"><span class="pre">fields</span></code> is used to create
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>,
+depending on its type (dict, list, or Field).</p>
 </dd>
 </dl>
+<section id="id2">
+<h3>Interface attributes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl>
+<dt>element<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></span></dt><dd><p>Interface between this register and a CSR bus primitive.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Collection of field instances.</p></li>
+<li><p><strong>f</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Shorthand for <code class="xref py py-attr docutils literal notranslate"><span class="pre">Register.field</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">raises TypeError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, or a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and at least one variable annotation is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-even">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not readable and at least one field is readable.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not writable and at least one field is writable.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.Peripheral.Input">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Peripheral.</span></span><span class="sig-name descname"><span class="pre">Input</span></span><a class="headerlink" href="#amaranth_soc.gpio.Peripheral.Input" title="Link to this definition"></a></dt>
-<dd><p>Input register.</p>
-<p>This <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> contains an array of <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> read-only fields. Each
-field is 1-bit wide and is driven by the input of its associated pin in the <code class="docutils literal notranslate"><span class="pre">pins</span></code> array
-of the peripheral.</p>
-<p>Values sampled from pin inputs go through <code class="xref py py-attr docutils literal notranslate"><span class="pre">Peripheral.input_stages</span></code> synchronization
-stages (on a rising edge of <code class="docutils literal notranslate"><span class="pre">ClockSignal(&quot;sync&quot;)</span></code>) before reaching the register.</p>
-<hr class="docutils" />
-<p>If <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> is 8, then the <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> has the following fields:</p>
-<img src="_images/gpio_input.svg" class="wavedrom wavedrom-reg" alt="{'reg': [{'name': 'pin[0]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[1]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[2]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[3]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[4]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[5]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[6]', 'bits': 1, 'attr': 'R'}, {'name': 'pin[7]', 'bits': 1, 'attr': 'R'}], 'config': {'bits': 8}}"><hr class="docutils" />
+<dd><p>A CSR register.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pin_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of GPIO pins.</p>
+<dd class="field-odd"><p><strong>fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>) – Collection of register fields. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), a dict is populated from Python
+<span class="xref std std-term">variable annotations</span>. <code class="docutils literal notranslate"><span class="pre">fields</span></code> is used to create
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>,
+depending on its type (dict, list, or Field).</p>
 </dd>
 </dl>
+<section id="id3">
+<h3>Interface attributes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl>
+<dt>element<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></span></dt><dd><p>Interface between this register and a CSR bus primitive.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Collection of field instances.</p></li>
+<li><p><strong>f</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Shorthand for <code class="xref py py-attr docutils literal notranslate"><span class="pre">Register.field</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">raises TypeError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, or a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and at least one variable annotation is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-even">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not readable and at least one field is readable.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not writable and at least one field is writable.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.Peripheral.Output">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Peripheral.</span></span><span class="sig-name descname"><span class="pre">Output</span></span><a class="headerlink" href="#amaranth_soc.gpio.Peripheral.Output" title="Link to this definition"></a></dt>
-<dd><p>Output register.</p>
-<p>This <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> contains an array of <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> read/write fields. Each
-field is 1-bit wide and drives the output of its associated pin in the <code class="docutils literal notranslate"><span class="pre">pins</span></code> array of the
-peripheral, depending on its associated <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Mode" title="amaranth_soc.gpio.Peripheral.Mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mode</span></code></a> field.</p>
-<hr class="docutils" />
-<p>If <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> is 8, then the <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> has the following fields:</p>
-<img src="_images/gpio_output.svg" class="wavedrom wavedrom-reg" alt="{'reg': [{'name': 'pin[0]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[1]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[2]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[3]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[4]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[5]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[6]', 'bits': 1, 'attr': 'RW'}, {'name': 'pin[7]', 'bits': 1, 'attr': 'RW'}], 'config': {'bits': 8}}"><hr class="docutils" />
+<dd><p>A CSR register.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pin_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of GPIO pins.</p>
+<dd class="field-odd"><p><strong>fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>) – Collection of register fields. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), a dict is populated from Python
+<span class="xref std std-term">variable annotations</span>. <code class="docutils literal notranslate"><span class="pre">fields</span></code> is used to create
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>,
+depending on its type (dict, list, or Field).</p>
 </dd>
 </dl>
+<section id="id4">
+<h3>Interface attributes<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl>
+<dt>element<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></span></dt><dd><p>Interface between this register and a CSR bus primitive.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Collection of field instances.</p></li>
+<li><p><strong>f</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Shorthand for <code class="xref py py-attr docutils literal notranslate"><span class="pre">Register.field</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">raises TypeError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, or a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and at least one variable annotation is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-even">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not readable and at least one field is readable.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not writable and at least one field is writable.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.Peripheral.SetClr">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Peripheral.</span></span><span class="sig-name descname"><span class="pre">SetClr</span></span><a class="headerlink" href="#amaranth_soc.gpio.Peripheral.SetClr" title="Link to this definition"></a></dt>
-<dd><p>Output set/clear register.</p>
-<p>This <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> contains an array of <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> write-only fields. Each
-field is 2-bit wide; writing it can modify its associated <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a> field
-as a side-effect.</p>
-<hr class="docutils" />
-<p>If <code class="docutils literal notranslate"><span class="pre">pin_count</span></code> is 8, then the <a class="reference internal" href="csr/reg.html#amaranth_soc.csr.reg.Register" title="amaranth_soc.csr.reg.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a> has the following fields:</p>
-<img src="_images/gpio_setclr.svg" class="wavedrom wavedrom-reg" alt="{'reg': [{'name': 'pin[0]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[1]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[2]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[3]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[4]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[5]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[6]', 'bits': 2, 'attr': 'W'}, {'name': 'pin[7]', 'bits': 2, 'attr': 'W'}], 'config': {'bits': 16}}"><ul class="simple">
-<li><p>Writing <cite>0b01</cite> to a field sets its associated <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a> field.</p></li>
-<li><p>Writing <cite>0b10</cite> to a field clears its associated <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a> field.</p></li>
-<li><p>Writing <cite>0b00</cite> or <cite>0b11</cite> to a field has no side-effect.</p></li>
-</ul>
-<hr class="docutils" />
+<dd><p>A CSR register.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pin_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of GPIO pins.</p>
+<dd class="field-odd"><p><strong>fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>) – Collection of register fields. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), a dict is populated from Python
+<span class="xref std std-term">variable annotations</span>. <code class="docutils literal notranslate"><span class="pre">fields</span></code> is used to create
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>,
+depending on its type (dict, list, or Field).</p>
 </dd>
 </dl>
+<section id="id5">
+<h3>Interface attributes<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl>
+<dt>element<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></span></dt><dd><p>Interface between this register and a CSR bus primitive.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Collection of field instances.</p></li>
+<li><p><strong>f</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionMap</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldActionArray</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">FieldAction</span></code>) – Shorthand for <code class="xref py py-attr docutils literal notranslate"><span class="pre">Register.field</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">raises TypeError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, or a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">fields</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and at least one variable annotation is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>.</p>
+</dd>
+<dt class="field-even">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not readable and at least one field is readable.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">element.access</span></code> is not writable and at least one field is writable.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.Peripheral">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.gpio.</span></span><span class="sig-name descname"><span class="pre">Peripheral</span></span><a class="headerlink" href="#amaranth_soc.gpio.Peripheral" title="Link to this definition"></a></dt>
-<dd><p>GPIO peripheral.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pin_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of GPIO pins.</p></li>
-<li><p><strong>addr_width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – CSR bus address width.</p></li>
-<li><p><strong>data_width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – CSR bus data width.</p></li>
-<li><p><strong>input_stages</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of synchronization stages between pin inputs and the <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Input" title="amaranth_soc.gpio.Peripheral.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a>
-register. Optional. Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>bus</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">Signature</span><span class="p">(</span><span class="n">addr_width</span><span class="p">,</span> <span class="n">data_width</span><span class="p">))</span></code>) – CSR bus interface providing access to registers.</p></li>
-<li><p><strong>pins</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">PinSignature</span><span class="p">())</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pin_count</span><span class="p">)</span></code>) – GPIO pin interfaces.</p></li>
-<li><p><strong>alt_mode</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">pin_count</span><span class="p">)</span></code>) – Indicates which members of the <code class="docutils literal notranslate"><span class="pre">pins</span></code> array are in alternate mode.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </section>
 </section>
@@ -598,7 +705,13 @@ register. Optional. Defaults to <code class="docutils literal notranslate"><span
 </ul>
 </li>
 <li><a class="reference internal" href="#pin-modes">Pin modes</a><ul>
-<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode"><code class="docutils literal notranslate"><span class="pre">PinMode</span></code></a></li>
+<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode"><code class="docutils literal notranslate"><span class="pre">PinMode</span></code></a><ul>
+<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.INPUT_ONLY"><code class="docutils literal notranslate"><span class="pre">PinMode.INPUT_ONLY</span></code></a></li>
+<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.PUSH_PULL"><code class="docutils literal notranslate"><span class="pre">PinMode.PUSH_PULL</span></code></a></li>
+<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.OPEN_DRAIN"><code class="docutils literal notranslate"><span class="pre">PinMode.OPEN_DRAIN</span></code></a></li>
+<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.ALTERNATE"><code class="docutils literal notranslate"><span class="pre">PinMode.ALTERNATE</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pin-interface">Pin interface</a><ul>

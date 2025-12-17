@@ -549,8 +549,44 @@
 <h2>Modeling structured data<a class="headerlink" href="#modeling-structured-data" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.data.Field">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.data.</span></span><span class="sig-name descname"><span class="pre">Field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.data.Field" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.data.</span></span><span class="sig-name descname"><span class="pre">Field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.data.Field" title="Link to this definition"></a></dt>
+<dd><p>Description of a data field.</p>
+<p>The <a class="reference internal" href="#amaranth.lib.data.Field" title="amaranth.lib.data.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a> class specifies the signedness and bit positions of a field in
+an Amaranth value.</p>
+<p><a class="reference internal" href="#amaranth.lib.data.Field" title="amaranth.lib.data.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a> objects are immutable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<a class="reference internal" href="../reference.html#amaranth.hdl.ShapeLike" title="amaranth.hdl.ShapeLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeLike</span></code></a>) – Shape of the field. When initialized or assigned, the object is stored as-is.</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, &gt;=0) – Index of the least significant bit of the field.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="amaranth.lib.data.Field.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#amaranth.lib.data.Field.width" title="Link to this definition"></a></dt>
+<dd><p>Width of the field.</p>
+<p>This property should be used over <code class="code highlight py python docutils literal highlight-python"><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">width</span></code> because <code class="code highlight py python docutils literal highlight-python"><span class="bp">self</span><span class="o">.</span><span class="n">shape</span></code> can be
+an arbitrary <a class="reference internal" href="../guide.html#lang-shapelike"><span class="std std-ref">shape-like</span></a> object, which may not have
+a <code class="code highlight py python docutils literal highlight-python"><span class="n">width</span></code> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="code highlight py python docutils literal highlight-python"><span class="n">Shape</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">width</span></code></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amaranth.lib.data.Field.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.data.Field.__eq__" title="Link to this definition"></a></dt>
+<dd><p>Compare fields.</p>
+<p>Two fields are equal if they have the same shape and offset.</p>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.data.Layout">
@@ -1282,7 +1318,11 @@ an annotation:</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#modeling-structured-data">Modeling structured data</a><ul>
-<li><a class="reference internal" href="#amaranth.lib.data.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a></li>
+<li><a class="reference internal" href="#amaranth.lib.data.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a><ul>
+<li><a class="reference internal" href="#amaranth.lib.data.Field.width"><code class="docutils literal notranslate"><span class="pre">Field.width</span></code></a></li>
+<li><a class="reference internal" href="#amaranth.lib.data.Field.__eq__"><code class="docutils literal notranslate"><span class="pre">Field.__eq__()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#amaranth.lib.data.Layout"><code class="docutils literal notranslate"><span class="pre">Layout</span></code></a><ul>
 <li><a class="reference internal" href="#amaranth.lib.data.Layout.cast"><code class="docutils literal notranslate"><span class="pre">Layout.cast()</span></code></a></li>
 <li><a class="reference internal" href="#amaranth.lib.data.Layout.__iter__"><code class="docutils literal notranslate"><span class="pre">Layout.__iter__()</span></code></a></li>

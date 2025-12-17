@@ -382,8 +382,140 @@
 <p>The Trellis and Diamond toolchains are supported.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.vendor.LatticePlatform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.vendor.</span></span><span class="sig-name descname"><span class="pre">LatticePlatform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.vendor.LatticePlatform" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.vendor.</span></span><span class="sig-name descname"><span class="pre">LatticePlatform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toolchain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.vendor.LatticePlatform" title="Link to this definition"></a></dt>
+<dd><p class="rubric">Trellis toolchain (ECP5, MachXO2, MachXO3)</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr-ecp5</span></code> or <code class="docutils literal notranslate"><span class="pre">nextpnr-machxo2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ecppack</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_TRELLIS</span></code>, if present.</p>
+<dl class="simple">
+<dt>Available overrides:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: enables logging of informational messages to standard error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_verilog_opts</span></code>: adds options for <code class="docutils literal notranslate"><span class="pre">read_verilog</span></code> Yosys command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">synth_opts</span></code>: adds options for <code class="docutils literal notranslate"><span class="pre">synth_&lt;family&gt;</span></code> Yosys command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_read</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">read_rtlil</span></code> in Yosys script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_synth</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">synth_&lt;family&gt;</span></code> in Yosys script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">yosys</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">nextpnr-&lt;family&gt;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ecppack_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">ecppack</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_preferences</span></code>: inserts commands at the end of the LPF file.</p></li>
+</ul>
+</dd>
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.rpt</span></code>: Yosys log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.json</span></code>: synthesized RTL.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.tim</span></code>: nextpnr log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.config</span></code>: ASCII bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.bit</span></code>: binary bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.svf</span></code>: JTAG programming vector.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Oxide toolchain (Nexus)</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr-nexus</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prjoxide</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_OXIDE</span></code>, if present.</p>
+<dl class="simple">
+<dt>Available overrides:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: enables logging of informational messages to standard error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_verilog_opts</span></code>: adds options for <code class="docutils literal notranslate"><span class="pre">read_verilog</span></code> Yosys command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">synth_opts</span></code>: adds options for <code class="docutils literal notranslate"><span class="pre">synth_nexus</span></code> Yosys command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_read</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">read_rtlil</span></code> in Yosys script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_synth</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">synth_nexus</span></code> in Yosys script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yosys_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">yosys</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextpnr_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">nextpnr-nexus</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prjoxide_opts</span></code>: adds extra options for <code class="docutils literal notranslate"><span class="pre">prjoxide</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_preferences</span></code>: inserts commands at the end of the PDC file.</p></li>
+</ul>
+</dd>
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.rpt</span></code>: Yosys log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.json</span></code>: synthesized RTL.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.tim</span></code>: nextpnr log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.config</span></code>: ASCII bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.bit</span></code>: binary bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.xcf</span></code>: JTAG programming vector.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Diamond toolchain (ECP5, MachXO2, MachXO3)</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pnmainc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ddtcmd</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_DIAMOND</span></code>, if present. On Linux, diamond_env as provided by Diamond
+itself is a good candidate. On Windows, the following script (named <code class="docutils literal notranslate"><span class="pre">diamond_env.bat</span></code>,
+for instance) is known to work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@echo</span> <span class="n">off</span>
+<span class="nb">set</span> <span class="n">PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">lscc</span>\<span class="n">diamond</span>\<span class="o">%</span><span class="n">DIAMOND_VERSION</span><span class="o">%</span>\<span class="nb">bin</span>\<span class="n">nt64</span><span class="p">;</span><span class="o">%</span><span class="n">PATH</span><span class="o">%</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Available overrides:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">script_project</span></code>: inserts commands before <code class="docutils literal notranslate"><span class="pre">prj_project</span> <span class="pre">save</span></code> in Tcl script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_export</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">prj_run</span> <span class="pre">Export</span></code> in Tcl script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_preferences</span></code>: inserts commands at the end of the LPF file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_constraints</span></code>: inserts commands at the end of the XDC file.</p></li>
+</ul>
+</dd>
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}_impl/{{name}}_impl.htm</span></code>: consolidated log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.jed</span></code>: JEDEC fuse file (MachXO2, MachXO3 only).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.bit</span></code>: binary bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.svf</span></code>: JTAG programming vector (ECP5 only).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}_flash.svf</span></code>: JTAG programming vector for FLASH programming (MachXO2, MachXO3 only).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}_sram.svf</span></code>: JTAG programming vector for SRAM programming (MachXO2, MachXO3 only).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Radiant toolchain (Nexus)</p>
+<dl class="simple">
+<dt>Required tools:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radiantc</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>The environment is populated by running the script specified in the environment variable
+<code class="docutils literal notranslate"><span class="pre">AMARANTH_ENV_RADIANT</span></code>, if present. On Linux, radiant_env as provided by Radiant
+itself is a good candidate. On Windows, the following script (named <code class="docutils literal notranslate"><span class="pre">radiant_env.bat</span></code>,
+for instance) is known to work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@echo</span> <span class="n">off</span>
+<span class="nb">set</span> <span class="n">PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">lscc</span>\<span class="n">radiant</span>\<span class="o">%</span><span class="n">RADIANT_VERSION</span><span class="o">%</span>\<span class="nb">bin</span>\<span class="n">nt64</span><span class="p">;</span><span class="o">%</span><span class="n">PATH</span><span class="o">%</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Available overrides:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">script_project</span></code>: inserts commands before <code class="docutils literal notranslate"><span class="pre">prj_save</span></code> in Tcl script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_after_export</span></code>: inserts commands after <code class="docutils literal notranslate"><span class="pre">prj_run</span> <span class="pre">Export</span></code> in Tcl script.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_constraints</span></code>: inserts commands at the end of the SDC file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_preferences</span></code>: inserts commands at the end of the PDC file.</p></li>
+</ul>
+</dd>
+<dt>Build products:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}_impl/{{name}}_impl.htm</span></code>: consolidated log.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.bit</span></code>: binary bitstream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}.xcf</span></code>: JTAG programming vector. (if using <code class="docutils literal notranslate"><span class="pre">programmer</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 

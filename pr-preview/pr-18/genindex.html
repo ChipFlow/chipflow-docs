@@ -398,6 +398,8 @@
         <li><a href="amaranth/reference.html#amaranth.hdl.ShapeCastable.__call__">__call__() (amaranth.hdl.ShapeCastable method)</a>
 
         <ul>
+          <li><a href="amaranth/stdlib/crc.html#amaranth.lib.crc.Algorithm.__call__">(amaranth.lib.crc.Algorithm method)</a>
+</li>
           <li><a href="amaranth/stdlib/data.html#amaranth.lib.data.Layout.__call__">(amaranth.lib.data.Layout method)</a>
 </li>
           <li><a href="amaranth/stdlib/enum.html#amaranth.lib.enum.EnumType.__call__">(amaranth.lib.enum.EnumType method)</a>
@@ -422,6 +424,8 @@
         <li><a href="amaranth/reference.html#amaranth.hdl.Value.__eq__">__eq__() (amaranth.hdl.Value method)</a>
 
         <ul>
+          <li><a href="amaranth/stdlib/data.html#amaranth.lib.data.Field.__eq__">(amaranth.lib.data.Field method)</a>
+</li>
           <li><a href="amaranth/stdlib/data.html#amaranth.lib.data.Layout.__eq__">(amaranth.lib.data.Layout method)</a>
 </li>
           <li><a href="amaranth/stdlib/enum.html#amaranth.lib.enum.EnumView.__eq__">(amaranth.lib.enum.EnumView method)</a>
@@ -483,14 +487,14 @@
 </li>
         <li><a href="amaranth/reference.html#amaranth.hdl.Value.__hash__">__hash__ (amaranth.hdl.Value attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="amaranth/stdlib/enum.html#amaranth.lib.enum.EnumView.__init__">__init__() (amaranth.lib.enum.EnumView method)</a>
 
         <ul>
           <li><a href="amaranth/stdlib/wiring.html#amaranth.lib.wiring.PureInterface.__init__">(amaranth.lib.wiring.PureInterface method)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="amaranth/stdlib/meta.html#amaranth.lib.meta.Annotation.__init_subclass__">__init_subclass__() (amaranth.lib.meta.Annotation class method)</a>
 </li>
         <li><a href="amaranth/stdlib/wiring.html#amaranth.lib.wiring.SignatureMeta.__instancecheck__">__instancecheck__() (amaranth.lib.wiring.SignatureMeta method)</a>
@@ -617,7 +621,13 @@
           <li><a href="amaranth-soc/wishbone/bus.html#amaranth_soc.wishbone.bus.Decoder.add">(amaranth_soc.wishbone.bus.Decoder method)</a>
 </li>
         </ul></li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.add_clock">add_clock() (amaranth.sim.Simulator method)</a>
+</li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.add_process">add_process() (amaranth.sim.Simulator method)</a>
+</li>
         <li><a href="amaranth-soc/memory.html#amaranth_soc.memory.MemoryMap.add_resource">add_resource() (amaranth_soc.memory.MemoryMap method)</a>
+</li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.add_testbench">add_testbench() (amaranth.sim.Simulator method)</a>
 </li>
         <li><a href="amaranth-soc/memory.html#amaranth_soc.memory.MemoryMap.add_window">add_window() (amaranth_soc.memory.MemoryMap method)</a>
 </li>
@@ -627,6 +637,8 @@
           <li><a href="amaranth-soc/wishbone/bus.html#amaranth_soc.wishbone.bus.Signature.addr_width">(amaranth_soc.wishbone.bus.Signature attribute)</a>
 </li>
         </ul></li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.advance">advance() (amaranth.sim.Simulator method)</a>
+</li>
         <li><a href="amaranth/stdlib/crc.html#amaranth.lib.crc.Algorithm">Algorithm (class in amaranth.lib.crc)</a>
 </li>
         <li><a href="amaranth-soc/csr/bus.html#amaranth_soc.csr.bus.Decoder.align_to">align_to() (amaranth_soc.csr.bus.Decoder method)</a>
@@ -648,6 +660,8 @@
 </li>
         </ul></li>
         <li><a href="amaranth/platform/altera.html#amaranth.vendor.AlteraPlatform">AlteraPlatform (class in amaranth.vendor)</a>
+</li>
+        <li><a href="amaranth-soc/gpio.html#amaranth_soc.gpio.PinMode.ALTERNATE">ALTERNATE (amaranth_soc.gpio.PinMode attribute)</a>
 </li>
         <li>
     amaranth.hdl
@@ -733,6 +747,8 @@
           <li><a href="amaranth/stdlib/stream.html#module-amaranth.lib.stream">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     amaranth.lib.wiring
 
@@ -740,8 +756,6 @@
           <li><a href="amaranth/stdlib/wiring.html#module-amaranth.lib.wiring">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     amaranth.sim
 
@@ -1181,6 +1195,27 @@
           <li><a href="chipflow-digital-ip/base.html#module-chipflow_digital_ip.base">module</a>
 </li>
         </ul></li>
+        <li>
+    chipflow_digital_ip.io
+
+        <ul>
+          <li><a href="chipflow-digital-ip/io.html#module-chipflow_digital_ip.io">module</a>
+</li>
+        </ul></li>
+        <li>
+    chipflow_digital_ip.memory
+
+        <ul>
+          <li><a href="chipflow-digital-ip/memory.html#module-chipflow_digital_ip.memory">module</a>
+</li>
+        </ul></li>
+        <li>
+    chipflow_digital_ip.processors
+
+        <ul>
+          <li><a href="chipflow-digital-ip/processors.html#module-chipflow_digital_ip.processors">module</a>
+</li>
+        </ul></li>
         <li><a href="chipflow-lib/autoapi/chipflow/config/index.html#chipflow.config.ChipFlowConfig">ChipFlowConfig (class in chipflow.config)</a>
 </li>
         <li><a href="chipflow-lib/autoapi/chipflow/index.html#chipflow.ChipFlowError">ChipFlowError</a>, <a href="chipflow-lib/autoapi/chipflow/utils/index.html#chipflow.utils.ChipFlowError">[1]</a>
@@ -1190,6 +1225,8 @@
         <li><a href="chipflow-lib/chipflow-toml-guide.html#term-clock"><strong>clock</strong></a>
 </li>
         <li><a href="amaranth-soc/csr/reg.html#amaranth_soc.csr.reg.Builder.Cluster">Cluster() (amaranth_soc.csr.reg.Builder method)</a>
+</li>
+        <li><a href="chipflow-lib/autoapi/chipflow/config/index.html#chipflow.config.CompilerConfig">CompilerConfig (class in chipflow.config)</a>
 </li>
         <li><a href="amaranth/stdlib/wiring.html#amaranth.lib.wiring.Component">Component (class in amaranth.lib.wiring)</a>
 </li>
@@ -1299,6 +1336,8 @@
 </li>
         <li><a href="amaranth/stdlib/crc/catalog.html#amaranth.lib.crc.catalog.CRC16_IEC_61158_2">CRC16_IEC_61158_2 (in module amaranth.lib.crc.catalog)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="amaranth/stdlib/crc/catalog.html#amaranth.lib.crc.catalog.CRC16_ISO_HDLC">CRC16_ISO_HDLC (in module amaranth.lib.crc.catalog)</a>
 </li>
         <li><a href="amaranth/stdlib/crc/catalog.html#amaranth.lib.crc.catalog.CRC16_ISO_IEC_14443_3_A">CRC16_ISO_IEC_14443_3_A (in module amaranth.lib.crc.catalog)</a>
@@ -1307,8 +1346,6 @@
 </li>
         <li><a href="amaranth/stdlib/crc/catalog.html#amaranth.lib.crc.catalog.CRC16_KERMIT">CRC16_KERMIT (in module amaranth.lib.crc.catalog)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="amaranth/stdlib/crc/catalog.html#amaranth.lib.crc.catalog.CRC16_LJ1200">CRC16_LJ1200 (in module amaranth.lib.crc.catalog)</a>
 </li>
         <li><a href="amaranth/stdlib/crc/catalog.html#amaranth.lib.crc.catalog.CRC16_LTE">CRC16_LTE (in module amaranth.lib.crc.catalog)</a>
@@ -1900,16 +1937,10 @@
         <li><a href="amaranth-soc/csr/reg.html#amaranth_soc.csr.reg.Builder.Index">Index() (amaranth_soc.csr.reg.Builder method)</a>
 </li>
         <li><a href="amaranth/stdlib/wiring.html#amaranth.lib.wiring.Member.init">init (amaranth.lib.wiring.Member property)</a>
-
-        <ul>
-          <li><a href="amaranth-soc/csr/action.html#amaranth_soc.csr.action.RW.init">(amaranth_soc.csr.action.RW property)</a>
 </li>
-          <li><a href="amaranth-soc/csr/action.html#amaranth_soc.csr.action.RW1C.init">(amaranth_soc.csr.action.RW1C property)</a>
-</li>
-          <li><a href="amaranth-soc/csr/action.html#amaranth_soc.csr.action.RW1S.init">(amaranth_soc.csr.action.RW1S property)</a>
-</li>
-        </ul></li>
         <li><a href="amaranth/stdlib/io.html#amaranth.lib.io.Direction.Input">Input (amaranth.lib.io.Direction attribute)</a>
+</li>
+        <li><a href="amaranth-soc/gpio.html#amaranth_soc.gpio.PinMode.INPUT_ONLY">INPUT_ONLY (amaranth_soc.gpio.PinMode attribute)</a>
 </li>
         <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.InputIOSignature">InputIOSignature() (in module chipflow.platform)</a>
 
@@ -1935,10 +1966,10 @@
 </li>
         <li><a href="amaranth/stdlib/wiring.html#amaranth.lib.wiring.InvalidMetadata">InvalidMetadata</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="amaranth/stdlib/meta.html#amaranth.lib.meta.InvalidSchema">InvalidSchema</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html#chipflow.packaging.port_desc.PortDesc.invert">invert (chipflow.packaging.port_desc.PortDesc property)</a>
 
         <ul>
@@ -2227,6 +2258,12 @@
 </li>
           <li><a href="chipflow-digital-ip/base.html#module-chipflow_digital_ip.base">chipflow_digital_ip.base</a>
 </li>
+          <li><a href="chipflow-digital-ip/io.html#module-chipflow_digital_ip.io">chipflow_digital_ip.io</a>
+</li>
+          <li><a href="chipflow-digital-ip/memory.html#module-chipflow_digital_ip.memory">chipflow_digital_ip.memory</a>
+</li>
+          <li><a href="chipflow-digital-ip/processors.html#module-chipflow_digital_ip.processors">chipflow_digital_ip.processors</a>
+</li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
@@ -2266,6 +2303,8 @@
           <li><a href="chipflow-lib/autoapi/chipflow/packaging/openframe/index.html#chipflow.packaging.openframe.OFPin">(class in chipflow.packaging.openframe)</a>
 </li>
         </ul></li>
+        <li><a href="amaranth-soc/gpio.html#amaranth_soc.gpio.PinMode.OPEN_DRAIN">OPEN_DRAIN (amaranth_soc.gpio.PinMode attribute)</a>
+</li>
         <li><a href="chipflow-lib/autoapi/chipflow/packaging/index.html#chipflow.packaging.OpenframePackageDef">OpenframePackageDef (class in chipflow.packaging)</a>
 
         <ul>
@@ -2350,14 +2389,14 @@
         </ul></li>
         <li><a href="amaranth/stdlib/io.html#amaranth.lib.io.PortLike">PortLike (class in amaranth.lib.io)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="chipflow-lib/autoapi/chipflow/packaging/index.html#chipflow.packaging.PortMap">PortMap (class in chipflow.packaging)</a>
 
         <ul>
           <li><a href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html#chipflow.packaging.port_desc.PortMap">(class in chipflow.packaging.port_desc)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="chipflow-lib/autoapi/chipflow/packaging/index.html#chipflow.packaging.PortType">PortType (class in chipflow.packaging)</a>
 
         <ul>
@@ -2395,6 +2434,8 @@
         <li><a href="amaranth/stdlib/cdc.html#amaranth.lib.cdc.PulseSynchronizer">PulseSynchronizer (class in amaranth.lib.cdc)</a>
 </li>
         <li><a href="amaranth/stdlib/wiring.html#amaranth.lib.wiring.PureInterface">PureInterface (class in amaranth.lib.wiring)</a>
+</li>
+        <li><a href="amaranth-soc/gpio.html#amaranth_soc.gpio.PinMode.PUSH_PULL">PUSH_PULL (amaranth_soc.gpio.PinMode attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -2466,6 +2507,8 @@
 </li>
         <li><a href="chipflow-lib/chipflow-toml-guide.html#term-reset"><strong>reset</strong></a>
 </li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.reset">reset() (amaranth.sim.Simulator method)</a>
+</li>
         <li><a href="amaranth/stdlib/cdc.html#amaranth.lib.cdc.ResetSynchronizer">ResetSynchronizer (class in amaranth.lib.cdc)</a>
 </li>
         <li><a href="amaranth/stdlib/crc.html#amaranth.lib.crc.Parameters.residue">residue() (amaranth.lib.crc.Parameters method)</a>
@@ -2490,8 +2533,12 @@
 </li>
         <li><a href="amaranth-soc/wishbone/bus.html#amaranth_soc.wishbone.bus.Feature.RTY">RTY (amaranth_soc.wishbone.bus.Feature attribute)</a>
 </li>
-        <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.SimStep.run">run() (chipflow.platform.SimStep method)</a>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.run">run() (amaranth.sim.Simulator method)</a>
+
+        <ul>
+          <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.SimStep.run">(chipflow.platform.SimStep method)</a>
 </li>
+        </ul></li>
         <li><a href="chipflow-lib/autoapi/chipflow/auth_command/index.html#chipflow.auth_command.AuthCommand.run_cli">run_cli() (chipflow.auth_command.AuthCommand method)</a>
 
         <ul>
@@ -2510,6 +2557,8 @@
           <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.StepBase.run_cli">(chipflow.platform.StepBase method)</a>
 </li>
         </ul></li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.run_until">run_until() (amaranth.sim.Simulator method)</a>
+</li>
         <li><a href="amaranth-soc/csr/bus.html#amaranth_soc.csr.bus.Element.Access.RW">RW (amaranth_soc.csr.bus.Element.Access attribute)</a>
 
         <ul>
@@ -2610,13 +2659,15 @@
 </li>
         <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.SiliconStep">SiliconStep (class in chipflow.platform)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="chipflow-lib/autoapi/chipflow/platform/io/signatures/index.html#chipflow.platform.io.signatures.SimInterface">SimInterface (class in chipflow.platform.io.signatures)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.SimStep">SimStep (class in chipflow.platform)</a>
 </li>
         <li><a href="chipflow-lib/autoapi/chipflow/platform/io/signatures/index.html#chipflow.platform.io.signatures.simulatable_interface">simulatable_interface() (in module chipflow.platform.io.signatures)</a>
+</li>
+        <li><a href="chipflow-lib/autoapi/chipflow/config/index.html#chipflow.config.SimulationConfig">SimulationConfig (class in chipflow.config)</a>
 </li>
         <li><a href="amaranth/stdlib/io.html#amaranth.lib.io.SimulationPort">SimulationPort (class in amaranth.lib.io)</a>
 </li>
@@ -2652,6 +2703,8 @@
           <li><a href="chipflow-lib/autoapi/chipflow/platform/io/signatures/index.html#chipflow.platform.io.signatures.SoftwareBuild">(class in chipflow.platform.io.signatures)</a>
 </li>
         </ul></li>
+        <li><a href="chipflow-lib/autoapi/chipflow/config/index.html#chipflow.config.SoftwareConfig">SoftwareConfig (class in chipflow.config)</a>
+</li>
         <li><a href="chipflow-lib/autoapi/chipflow/platform/index.html#chipflow.platform.SoftwareDriverSignature">SoftwareDriverSignature (class in chipflow.platform)</a>
 
         <ul>
@@ -2702,6 +2755,8 @@
   <h2>T</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="chipflow-lib/autoapi/chipflow/config/index.html#chipflow.config.TestConfig">TestConfig (class in chipflow.config)</a>
+</li>
         <li><a href="amaranth/simulator.html#amaranth.sim.SimulatorContext.tick">tick() (amaranth.sim.SimulatorContext method)</a>
 </li>
         <li><a href="amaranth/simulator.html#amaranth.sim.TickTrigger">TickTrigger (class in amaranth.sim)</a>
@@ -2802,9 +2857,11 @@
           <li><a href="amaranth-soc/csr/action.html#amaranth_soc.csr.action.W">(class in amaranth_soc.csr.action)</a>
 </li>
         </ul></li>
-        <li><a href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html#chipflow.packaging.port_desc.PortDesc.width">width (chipflow.packaging.port_desc.PortDesc property)</a>
+        <li><a href="amaranth/stdlib/data.html#amaranth.lib.data.Field.width">width (amaranth.lib.data.Field property)</a>
 
         <ul>
+          <li><a href="chipflow-lib/autoapi/chipflow/packaging/port_desc/index.html#chipflow.packaging.port_desc.PortDesc.width">(chipflow.packaging.port_desc.PortDesc property)</a>
+</li>
           <li><a href="chipflow-lib/autoapi/chipflow/packaging/index.html#chipflow.packaging.PortDesc.width">(chipflow.packaging.PortDesc property)</a>
 </li>
           <li><a href="chipflow-lib/autoapi/chipflow/platform/io/index.html#chipflow.platform.io.IOSignature.width">(chipflow.platform.io.IOSignature property)</a>
@@ -2837,6 +2894,8 @@
         <li><a href="amaranth/stdlib/memory.html#amaranth.lib.memory.Memory.write_port">write_port() (amaranth.lib.memory.Memory method)</a>
 </li>
         <li><a href="amaranth/stdlib/memory.html#amaranth.lib.memory.Memory.write_ports">write_ports (amaranth.lib.memory.Memory property)</a>
+</li>
+        <li><a href="amaranth/simulator.html#amaranth.sim.Simulator.write_vcd">write_vcd() (amaranth.sim.Simulator method)</a>
 </li>
         <li><a href="amaranth/stdlib/memory.html#amaranth.lib.memory.WritePort">WritePort (class in amaranth.lib.memory)</a>
 </li>
