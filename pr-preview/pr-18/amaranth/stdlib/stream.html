@@ -429,7 +429,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>“Minimal streams” as defined in <a class="reference external" href="https://amaranth-lang.org/rfcs/0061-minimal-streams.html">RFC 61</a> do not provide built-in helper functions for testing pending further work on the clock domain system. They will be provided in a later release. For the time being, you can copy the helper functions above to test your designs that use streams.</p>
+<p>“Minimal streams” as defined in <a href="#id1"><span class="problematic" id="id2">`RFC 61`_</span></a> do not provide built-in helper functions for testing pending further work on the clock domain system. They will be provided in a later release. For the time being, you can copy the helper functions above to test your designs that use streams.</p>
 </div>
 <section id="serial-receiver">
 <h3>Serial receiver<a class="headerlink" href="#serial-receiver" title="Link to this heading"></a></h3>
@@ -701,33 +701,8 @@
 <p>Components that communicate using streams must not only use a <a class="reference internal" href="#amaranth.lib.stream.Interface" title="amaranth.lib.stream.Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">stream.Interface</span></code></a>, but also follow the <a class="reference internal" href="#stream-rules"><span class="std std-ref">data transfer rules</span></a>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.stream.Signature">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.stream.</span></span><span class="sig-name descname"><span class="pre">Signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload_shape</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_valid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.stream.Signature" title="Link to this definition"></a></dt>
-<dd><p>Signature of a unidirectional data stream.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>“Minimal streams” as defined in <a class="reference external" href="https://amaranth-lang.org/rfcs/0061-minimal-streams.html">RFC 61</a> lack support for complex payloads, such as
-multiple lanes or packetization, as well as introspection of the payload. This limitation
-will be lifted in a later release.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>payload_shape</strong> (<a class="reference internal" href="../reference.html#amaranth.hdl.ShapeLike" title="amaranth.hdl.ShapeLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShapeLike</span></code></a>) – Shape of the payload member.</p></li>
-<li><p><strong>payload_init</strong> (<a class="reference internal" href="../guide.html#lang-constcasting"><span class="std std-ref">constant-castable</span></a> object) – Initial value of the payload member.</p></li>
-<li><p><strong>always_valid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether the stream has a payload available each cycle.</p></li>
-<li><p><strong>always_ready</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether the stream has its payload accepted whenever it is available (i.e. whether it lacks
-support for backpressure).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Members<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>payload</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="n">payload_shape</span><span class="p">)</span></code>) – Payload.</p></li>
-<li><p><strong>valid</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">Out</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>) – Whether a payload is available. If the stream is <code class="code highlight py python docutils literal highlight-python"><span class="n">always_valid</span></code>, <code class="code highlight py python docutils literal highlight-python"><span class="n">Const</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>.</p></li>
-<li><p><strong>ready</strong> (<code class="code highlight py python docutils literal highlight-python"><span class="n">In</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>) – Whether a payload is accepted. If the stream is <code class="code highlight py python docutils literal highlight-python"><span class="n">always_ready</span></code>, <code class="code highlight py python docutils literal highlight-python"><span class="n">Const</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth.lib.stream.</span></span><span class="sig-name descname"><span class="pre">Signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#amaranth.lib.stream.Signature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth.lib.stream.Interface">

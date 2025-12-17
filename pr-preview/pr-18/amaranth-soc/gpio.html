@@ -412,42 +412,7 @@ to interface a SoC (usually a microcontroller) with a variety of external circui
 <dl class="py class">
 <dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amaranth_soc.gpio.</span></span><span class="sig-name descname"><span class="pre">PinMode</span></span><a class="headerlink" href="#amaranth_soc.gpio.PinMode" title="Link to this definition"></a></dt>
-<dd><p>GPIO pin mode.</p>
-<p>The 2-bit values of this enumeration can be written to a <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Mode" title="amaranth_soc.gpio.Peripheral.Mode"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Mode</span></code></a> field to
-configure the pins of a <a class="reference internal" href="#amaranth_soc.gpio.Peripheral" title="amaranth_soc.gpio.Peripheral"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral</span></code></a>.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.INPUT_ONLY">
-<span class="sig-name descname"><span class="pre">INPUT_ONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.INPUT_ONLY" title="Link to this definition"></a></dt>
-<dd><p><cite>Input-only</cite> mode.</p>
-<p>The pin output is disabled but remains connected to its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field.
-Its <code class="docutils literal notranslate"><span class="pre">alt_mode</span></code> bit is wired to 0.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.PUSH_PULL">
-<span class="sig-name descname"><span class="pre">PUSH_PULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.PUSH_PULL" title="Link to this definition"></a></dt>
-<dd><p><cite>Push-pull</cite> mode.</p>
-<p>The pin output is enabled and connected to its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field. Its
-<code class="docutils literal notranslate"><span class="pre">alt_mode</span></code> bit is wired to 0.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.OPEN_DRAIN">
-<span class="sig-name descname"><span class="pre">OPEN_DRAIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.OPEN_DRAIN" title="Link to this definition"></a></dt>
-<dd><p><cite>Open-drain</cite> mode.</p>
-<p>The pin output is enabled when the value of its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field is 0, and
-is itself wired to 0. Its <code class="docutils literal notranslate"><span class="pre">alt_mode</span></code> bit is wired to 0.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="amaranth_soc.gpio.PinMode.ALTERNATE">
-<span class="sig-name descname"><span class="pre">ALTERNATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#amaranth_soc.gpio.PinMode.ALTERNATE" title="Link to this definition"></a></dt>
-<dd><p><cite>Alternate</cite> mode.</p>
-<p>The pin output is disabled but remains connected to its <a class="reference internal" href="#amaranth_soc.gpio.Peripheral.Output" title="amaranth_soc.gpio.Peripheral.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Peripheral.Output</span></code></a> field.
-Its <code class="docutils literal notranslate"><span class="pre">alt_mode</span></code> bit is wired to 1.</p>
-</dd></dl>
-
-</dd></dl>
+<dd></dd></dl>
 
 </section>
 <section id="pin-interface">
@@ -633,13 +598,7 @@ register. Optional. Defaults to <code class="docutils literal notranslate"><span
 </ul>
 </li>
 <li><a class="reference internal" href="#pin-modes">Pin modes</a><ul>
-<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode"><code class="docutils literal notranslate"><span class="pre">PinMode</span></code></a><ul>
-<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.INPUT_ONLY"><code class="docutils literal notranslate"><span class="pre">PinMode.INPUT_ONLY</span></code></a></li>
-<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.PUSH_PULL"><code class="docutils literal notranslate"><span class="pre">PinMode.PUSH_PULL</span></code></a></li>
-<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.OPEN_DRAIN"><code class="docutils literal notranslate"><span class="pre">PinMode.OPEN_DRAIN</span></code></a></li>
-<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode.ALTERNATE"><code class="docutils literal notranslate"><span class="pre">PinMode.ALTERNATE</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#amaranth_soc.gpio.PinMode"><code class="docutils literal notranslate"><span class="pre">PinMode</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pin-interface">Pin interface</a><ul>
