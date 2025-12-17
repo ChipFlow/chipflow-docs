@@ -80,8 +80,7 @@ html_theme_options = {
 autodoc_typehints = 'description'
 
 autoapi_dirs = [
-        top_path / "vendor/chipflow-lib/chipflow_lib/platforms",
-        top_path / "vendor/chipflow-lib/chipflow_lib",
+        top_path / "vendor/chipflow-lib/chipflow",
         ]
 autoapi_generate_api_docs = True
 autoapi_template_dir = "chipflow-lib/_templates/autoapi"
@@ -101,6 +100,8 @@ exclude_patterns = [
     "chipflow-lib/unfinished",
     "amaranth/cover.rst",
     "amaranth-soc/cover.rst",
+    # Use root-level platform-api.rst instead of the vendor one
+    "chipflow-lib/platform-api.rst",
 ]
 
 
