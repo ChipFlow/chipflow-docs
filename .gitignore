@@ -10,6 +10,7 @@ docs/source/*
 !docs/source/support.rst
 !docs/source/platform-api.rst
 !docs/source/tutorial-intro-chipflow-platform.rst
+!docs/source/_static/
 
 # Misc
 log
