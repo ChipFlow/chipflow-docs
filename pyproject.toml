@@ -6,7 +6,7 @@ authors = [
 ]
 readme = "README.md"
 
-requires-python = "<3.13"
+requires-python = ">=3.12,<3.14"
 dependencies = [
   "sphinx>=7.1",
   "sphinxcontrib-platformpicker~=1.4",
@@ -19,10 +19,11 @@ dependencies = [
   "sphinx-autobuild>=2024.10.3",
   "sphinx-multiproject>=1.0.0",
   "sphinx-design>=0.6.0",
-  "sphinx_design_elements @ git+https://github.com/panodata/sphinx-design-elements@linktree",
+  "sphinx_design_elements @ git+https://github.com/tech-writing/sphinx-design-elements@origin/linktree",
   "sphinxext-rediraffe>=0.2.7",
   "sphinx-autoapi>=3.6.0",
   "jschon>=0.11.1",
+  "sphinx-llm>=0.2.0",
 ]
 
 [build-system]

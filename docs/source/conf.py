@@ -72,6 +72,9 @@ extensions = [
     'sphinxext.rediraffe',
     'autoapi.extension',
     'sphinx_design',
+    'sphinx_llm.txt',
+    'sphinx_json_index',
+    'sphinx_llms_enhancements',
 ]
 
 rst_prolog = """
@@ -135,6 +138,13 @@ exclude_patterns = [
     "amaranth-soc/cover.rst",
 ]
 
+# -- llms.txt configuration (AI-friendly documentation)
+llms_txt_description = """
+ChipFlow is an open-source platform for designing, testing, and manufacturing
+custom silicon using Python and the Amaranth HDL. This documentation covers
+the ChipFlow library, Digital IP library, Amaranth language, and Amaranth SoC toolkit.
+"""
+llms_txt_build_parallel = True
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
