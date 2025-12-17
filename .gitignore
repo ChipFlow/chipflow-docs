@@ -8,7 +8,6 @@ docs/source/*
 !docs/source/configurator/
 !docs/source/index.rst
 !docs/source/support.rst
-!docs/source/platform-api.rst
 !docs/source/tutorial-intro-chipflow-platform.rst
 
 # Misc

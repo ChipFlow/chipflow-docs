@@ -23,6 +23,10 @@ dependencies = [
   "sphinxext-rediraffe>=0.2.7",
   "sphinx-autoapi>=3.6.0",
   "jschon>=0.11.1",
+  # Required for autodoc to import chipflow_digital_ip modules
+  "chipflow-lib @ git+https://github.com/chipflow/chipflow-lib@main",
+  "amaranth-stdio @ git+https://github.com/amaranth-lang/amaranth-stdio",
+  "minerva @ git+https://github.com/minerva-cpu/minerva",
 ]
 
 [build-system]
