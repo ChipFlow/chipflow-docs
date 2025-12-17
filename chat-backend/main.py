@@ -24,8 +24,9 @@ logger = logging.getLogger(__name__)
 DOCS_URL = os.getenv("DOCS_URL", "https://chipflow-docs.docs.chipflow-infra.com/llms-full.txt")
 GCP_PROJECT = os.getenv("GCP_PROJECT", "chipflow-docs")
 GCP_LOCATION = os.getenv("GCP_LOCATION", "us-central1")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 EMBEDDING_MODEL = "text-embedding-005"
-LLM_MODEL = "gemini-1.0-pro"
+LLM_MODEL = "gemini-1.5-flash"
 
 # Allowed origins for CORS
 ALLOWED_ORIGINS = [
@@ -245,13 +246,11 @@ async def chat(request: ChatRequest):
                 role = "User" if msg.get("role") == "user" else "Assistant"
                 history_text += f"{role}: {msg.get('content', '')}\n"
 
-        # Generate response using Vertex AI
-        from google.cloud import aiplatform
-        import vertexai
-        from vertexai.generative_models import GenerativeModel
+        # Generate response using Google AI SDK
+        import google.generativeai as genai
 
-        vertexai.init(project=GCP_PROJECT, location=GCP_LOCATION)
-        model = GenerativeModel(LLM_MODEL)
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel(LLM_MODEL)
 
         prompt = f"""You are a helpful assistant for ChipFlow documentation. Answer the user's question based on the provided context from the documentation.
 
