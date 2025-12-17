@@ -33,3 +33,4 @@ jobs:
           umbrella-dir: pr-preview
           action: auto
           pages-base-url: chipflow-docs.docs.chipflow-infra.com
+          custom-url-notice: "**Note:** The preview may take 1-2 minutes to be available after deployment completes."
