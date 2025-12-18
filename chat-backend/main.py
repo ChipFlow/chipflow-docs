@@ -25,6 +25,9 @@ DOCS_URL = os.getenv("DOCS_URL", "https://chipflow-docs.docs.chipflow-infra.com/
 GCP_PROJECT = os.getenv("GCP_PROJECT", "chipflow-docs")
 GCP_LOCATION = os.getenv("GCP_LOCATION", "us-central1")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY", "")
+SUPPORT_EMAIL = os.getenv("SUPPORT_EMAIL", "support@chipflow.io")
+SUPPORT_FROM_EMAIL = os.getenv("SUPPORT_FROM_EMAIL", "docs-chat@chipflow.io")
 EMBEDDING_MODEL = "text-embedding-005"
 LLM_MODEL = "gemini-2.0-flash"
 
@@ -46,6 +49,19 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     sources: list = []
+
+
+class SupportRequest(BaseModel):
+    email: str
+    subject: str
+    message: str
+    conversation_history: list = []
+    page: Optional[str] = None
+
+
+class SupportResponse(BaseModel):
+    success: bool
+    message: str
 
 
 class DocumentStore:
@@ -200,7 +216,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["POST", "OPTIONS"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -254,6 +270,7 @@ Guidelines:
 - If the context doesn't contain relevant information, say so
 - Reference specific documentation sections when helpful
 - Use code examples from the context when relevant
+- If the user needs account help, billing support, has a bug report, or needs assistance beyond the documentation, suggest they use the "Contact Support" button to reach the ChipFlow team
 
 Context from ChipFlow documentation:
 {context}
@@ -289,6 +306,69 @@ Answer:"""
     except Exception as e:
         logger.error(f"Chat error: {e}")
         raise HTTPException(status_code=500, detail="Failed to generate response")
+
+
+@app.post("/api/request-support", response_model=SupportResponse)
+async def request_support(request: SupportRequest):
+    """Send a support request email with conversation context."""
+    if not SENDGRID_API_KEY:
+        logger.error("SENDGRID_API_KEY not configured")
+        raise HTTPException(status_code=503, detail="Support email not configured")
+
+    try:
+        # Format conversation history
+        conversation_text = ""
+        if request.conversation_history:
+            conversation_text = "\n\n--- Conversation History ---\n"
+            for msg in request.conversation_history:
+                role = "User" if msg.get("role") == "user" else "Assistant"
+                conversation_text += f"\n{role}: {msg.get('content', '')}\n"
+
+        # Build email body
+        email_body = f"""New support request from ChipFlow Documentation Chat
+
+From: {request.email}
+Page: {request.page or 'Not specified'}
+
+--- User Message ---
+{request.message}
+{conversation_text}
+---
+This message was sent via the ChipFlow documentation chat widget.
+"""
+
+        # Send via SendGrid
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(
+                "https://api.sendgrid.com/v3/mail/send",
+                headers={
+                    "Authorization": f"Bearer {SENDGRID_API_KEY}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "personalizations": [{"to": [{"email": SUPPORT_EMAIL}]}],
+                    "from": {"email": SUPPORT_FROM_EMAIL, "name": "ChipFlow Docs Chat"},
+                    "reply_to": {"email": request.email},
+                    "subject": f"[Docs Chat] {request.subject}",
+                    "content": [{"type": "text/plain", "value": email_body}],
+                },
+            )
+
+            if response.status_code not in (200, 202):
+                logger.error(f"SendGrid error: {response.status_code} {response.text}")
+                raise HTTPException(status_code=502, detail="Failed to send support email")
+
+        logger.info(f"Support request sent from {request.email}")
+        return SupportResponse(
+            success=True,
+            message="Your support request has been sent. We'll respond to your email shortly."
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Support request error: {e}")
+        raise HTTPException(status_code=500, detail="Failed to send support request")
 
 
 if __name__ == "__main__":
