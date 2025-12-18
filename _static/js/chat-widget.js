@@ -257,6 +257,13 @@
     }
   }
 
+  // Track event to Google Analytics
+  function trackChatEvent(eventName, params = {}) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, { ...params, source: 'docs' });
+    }
+  }
+
   // Toggle chat
   function toggleChat() {
     isOpen = !isOpen;
@@ -264,6 +271,7 @@
     if (isOpen) {
       addWelcomeMessage();
       inputField.focus();
+      trackChatEvent('ai_chat_opened', { page: window.location.pathname });
     }
   }
 
@@ -312,6 +320,13 @@
     addMessage(question, 'user');
     addLoading();
 
+    // Track question
+    trackChatEvent('ai_chat_question', {
+      question_length: question.length,
+      question_preview: question.substring(0, 100),
+      page: window.location.pathname
+    });
+
     try {
       const response = await fetch(CONFIG.apiUrl, {
         method: 'POST',
@@ -332,6 +347,12 @@
       const data = await response.json();
       addMessage(data.answer, 'assistant');
 
+      // Track successful response
+      trackChatEvent('ai_chat_response', {
+        response_length: data.answer.length,
+        page: window.location.pathname
+      });
+
       // Update conversation history
       conversationHistory.push(
         { role: 'user', content: question },
@@ -351,6 +372,12 @@
         'assistant',
         true
       );
+
+      // Track error
+      trackChatEvent('ai_chat_error', {
+        error_message: error.message || 'Unknown error',
+        page: window.location.pathname
+      });
     } finally {
       isLoading = false;
       sendBtn.disabled = false;
