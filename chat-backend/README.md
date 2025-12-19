@@ -5,9 +5,11 @@ A FastAPI backend that provides AI-powered Q&A for ChipFlow documentation using 
 ## Architecture
 
 - **FastAPI** - Web framework with async support
-- **Vertex AI** - Embeddings (text-embedding-005) and LLM (Gemini 1.5 Flash)
+- **Vertex AI** - Embeddings (text-embedding-005)
+- **Gemini API** - LLM responses (Gemini 2.0 Flash)
 - **In-memory RAG** - Simple vector search using numpy
 - **Cloud Run** - Serverless deployment
+- **Gmail SMTP** - Support email delivery
 
 ## How it Works
 
@@ -125,10 +127,42 @@ Environment variables:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DOCS_URL` | `https://docs.chipflow.io/llms-full.txt` | URL to fetch documentation |
+| `DOCS_URL` | `https://chipflow-docs.docs.chipflow-infra.com/llms-full.txt` | URL to fetch documentation |
 | `GCP_PROJECT` | `chipflow-docs` | Google Cloud project ID |
 | `GCP_LOCATION` | `us-central1` | Vertex AI region |
+| `GEMINI_API_KEY` | - | API key from Google AI Studio |
+| `SMTP_USER` | - | Gmail address for sending support emails |
+| `SMTP_PASSWORD` | - | Gmail App Password (16 characters) |
+| `SUPPORT_EMAIL` | `support@chipflow.io` | Where support requests are sent |
 | `PORT` | `8080` | Server port |
+
+### Setting up Gmail SMTP for Support Emails
+
+The `/api/request-support` endpoint uses Gmail SMTP to send support request emails.
+
+1. **Create a Gmail App Password** (requires 2FA to be enabled on the account):
+   - Go to https://myaccount.google.com/apppasswords
+   - Sign in to your Google account
+   - Select "Mail" as the app and your device type
+   - Click "Generate"
+   - Copy the 16-character password (spaces are optional)
+
+2. **Add the secrets to GitHub** (for CI/CD deployment):
+   ```bash
+   # The Gmail address to send from
+   gh secret set SMTP_USER --repo ChipFlow/chipflow-docs
+
+   # The 16-character app password
+   gh secret set SMTP_PASSWORD --repo ChipFlow/chipflow-docs
+   ```
+
+3. **Optionally configure the support destination**:
+   ```bash
+   # Where support emails are sent (defaults to support@chipflow.io)
+   gh variable set SUPPORT_EMAIL --repo ChipFlow/chipflow-docs
+   ```
+
+**Note:** If using Google Workspace, ensure "Less secure app access" or App Passwords are enabled in the admin console.
 
 ## Cost Estimation
 
@@ -176,5 +210,31 @@ Ask a question about the documentation.
 {
   "answer": "To create an Amaranth module...",
   "sources": ["Getting Started", "Module Basics"]
+}
+```
+
+### `POST /api/request-support`
+
+Send a support request email with conversation context.
+
+**Request:**
+```json
+{
+  "email": "user@example.com",
+  "subject": "Help with pin configuration",
+  "message": "I'm having trouble configuring the GPIO pins...",
+  "conversation_history": [
+    {"role": "user", "content": "How do I configure GPIO?"},
+    {"role": "assistant", "content": "You can configure GPIO using..."}
+  ],
+  "page": "/chipflow-lib/gpio.html"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Your support request has been sent. We'll respond to your email shortly."
 }
 ```
