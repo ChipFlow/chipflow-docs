@@ -57,7 +57,7 @@ jobs:
             --cpu 1 \
             --min-instances 0 \
             --max-instances 3 \
-            --set-env-vars "DOCS_URL=https://chipflow-docs.docs.chipflow-infra.com/llms-full.txt,GCP_PROJECT=$PROJECT_ID,GCP_LOCATION=$REGION,GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }},SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }},SUPPORT_EMAIL=${{ vars.SUPPORT_EMAIL || 'support@chipflow.io' }}"
+            --set-env-vars "DOCS_URL=https://chipflow-docs.docs.chipflow-infra.com/llms-full.txt,GCP_PROJECT=$PROJECT_ID,GCP_LOCATION=$REGION,GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }},SMTP_USER=${{ secrets.SMTP_USER }},SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }},SUPPORT_EMAIL=${{ vars.SUPPORT_EMAIL || 'support@chipflow.io' }}"
 
       - name: Show service URL
         run: |
