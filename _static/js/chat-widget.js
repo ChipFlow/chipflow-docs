@@ -10,6 +10,7 @@
   // Configuration - update this when deploying the backend
   const CONFIG = {
     apiUrl: 'https://chipflow-docs-chat-ixzgvx6kya-uc.a.run.app/api/chat',
+    supportUrl: 'https://chipflow-docs-chat-ixzgvx6kya-uc.a.run.app/api/request-support',
     projectName: 'ChipFlow',
     placeholder: 'Ask about ChipFlow docs...',
     welcomeMessage: 'Hi! I can help answer questions about ChipFlow documentation. What would you like to know?'
@@ -201,6 +202,89 @@
       color: #6366f1;
       text-decoration: none;
     }
+    .cf-support-btn {
+      display: block;
+      width: 100%;
+      padding: 8px 12px;
+      margin-top: 8px;
+      background: transparent;
+      border: 1px solid #6366f1;
+      color: #6366f1;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    .cf-support-btn:hover {
+      background: rgba(99, 102, 241, 0.1);
+    }
+    .cf-support-form {
+      display: none;
+      padding: 16px;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cf-support-form.open {
+      display: flex;
+    }
+    .cf-support-form label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-foreground-primary, #374151);
+    }
+    .cf-support-form input,
+    .cf-support-form textarea {
+      padding: 8px 12px;
+      border: 1px solid var(--color-background-border, #d1d5db);
+      border-radius: 6px;
+      font-size: 13px;
+      background: var(--color-background-primary, #ffffff);
+      color: var(--color-foreground-primary, #1f2937);
+    }
+    .cf-support-form input:focus,
+    .cf-support-form textarea:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+    }
+    .cf-support-form textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .cf-support-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .cf-support-cancel {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid var(--color-background-border, #d1d5db);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--color-foreground-primary, #374151);
+    }
+    .cf-support-submit {
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .cf-support-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .cf-support-success {
+      color: #059669;
+      font-size: 13px;
+      text-align: center;
+      padding: 12px;
+    }
   `;
   document.head.appendChild(styles);
 
@@ -227,12 +311,24 @@
       </button>
     </div>
     <div class="cf-chat-messages" id="cf-chat-messages"></div>
-    <div class="cf-chat-input-area">
+    <div class="cf-support-form" id="cf-support-form">
+      <label>Your Email</label>
+      <input type="email" id="cf-support-email" placeholder="you@example.com" required>
+      <label>Subject</label>
+      <input type="text" id="cf-support-subject" placeholder="Brief description of your issue">
+      <label>Message</label>
+      <textarea id="cf-support-message" placeholder="Please describe what you need help with..."></textarea>
+      <div class="cf-support-actions">
+        <button class="cf-support-cancel" id="cf-support-cancel">Cancel</button>
+        <button class="cf-support-submit" id="cf-support-submit">Send to Support</button>
+      </div>
+    </div>
+    <div class="cf-chat-input-area" id="cf-chat-input-area">
       <input type="text" class="cf-chat-input" id="cf-chat-input" placeholder="${CONFIG.placeholder}">
       <button class="cf-chat-send" id="cf-chat-send">Send</button>
     </div>
     <div class="cf-powered-by">
-      Powered by <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener">Vertex AI</a>
+      <button class="cf-support-btn" id="cf-support-btn">Contact Support</button>
     </div>
   `;
 
@@ -242,12 +338,21 @@
   // Get elements
   const messagesContainer = document.getElementById('cf-chat-messages');
   const inputField = document.getElementById('cf-chat-input');
+  const inputArea = document.getElementById('cf-chat-input-area');
   const sendBtn = document.getElementById('cf-chat-send');
   const closeBtn = chatModal.querySelector('.cf-chat-close');
+  const supportBtn = document.getElementById('cf-support-btn');
+  const supportForm = document.getElementById('cf-support-form');
+  const supportEmail = document.getElementById('cf-support-email');
+  const supportSubject = document.getElementById('cf-support-subject');
+  const supportMessage = document.getElementById('cf-support-message');
+  const supportCancel = document.getElementById('cf-support-cancel');
+  const supportSubmit = document.getElementById('cf-support-submit');
 
   // State
   let isOpen = false;
   let isLoading = false;
+  let isSupportFormOpen = false;
   let conversationHistory = [];
 
   // Add welcome message
@@ -272,6 +377,11 @@
       addWelcomeMessage();
       inputField.focus();
       trackChatEvent('ai_chat_opened', { page: window.location.pathname });
+    } else {
+      // Close support form when closing chat
+      if (isSupportFormOpen) {
+        toggleSupportForm(false);
+      }
     }
   }
 
@@ -385,10 +495,80 @@
     }
   }
 
+  // Toggle support form
+  function toggleSupportForm(show) {
+    isSupportFormOpen = show;
+    supportForm.classList.toggle('open', show);
+    inputArea.style.display = show ? 'none' : 'flex';
+    messagesContainer.style.display = show ? 'none' : 'flex';
+    if (show) {
+      supportEmail.focus();
+    } else {
+      inputField.focus();
+    }
+  }
+
+  // Submit support request
+  async function submitSupportRequest() {
+    const email = supportEmail.value.trim();
+    const subject = supportSubject.value.trim() || 'Support request from docs chat';
+    const message = supportMessage.value.trim();
+
+    if (!email || !message) {
+      alert('Please provide your email and message.');
+      return;
+    }
+
+    supportSubmit.disabled = true;
+    supportSubmit.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(CONFIG.supportUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          subject,
+          message,
+          conversation_history: conversationHistory,
+          page: window.location.pathname
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Show success message
+      toggleSupportForm(false);
+      addMessage(data.message, 'assistant');
+
+      // Clear form
+      supportEmail.value = '';
+      supportSubject.value = '';
+      supportMessage.value = '';
+
+      trackChatEvent('support_request_sent', { page: window.location.pathname });
+
+    } catch (error) {
+      console.error('Support request error:', error);
+      alert('Failed to send support request. Please try again or email support@chipflow.io directly.');
+      trackChatEvent('support_request_error', { error: error.message });
+    } finally {
+      supportSubmit.disabled = false;
+      supportSubmit.textContent = 'Send to Support';
+    }
+  }
+
   // Event listeners
   chatBtn.addEventListener('click', toggleChat);
   closeBtn.addEventListener('click', toggleChat);
   sendBtn.addEventListener('click', sendMessage);
+  supportBtn.addEventListener('click', () => toggleSupportForm(true));
+  supportCancel.addEventListener('click', () => toggleSupportForm(false));
+  supportSubmit.addEventListener('click', submitSupportRequest);
   inputField.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
